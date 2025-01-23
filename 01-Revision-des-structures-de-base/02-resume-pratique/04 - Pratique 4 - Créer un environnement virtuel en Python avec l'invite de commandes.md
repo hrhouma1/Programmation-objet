@@ -1,4 +1,4 @@
-# Pratique : Les chaînes de caractères en Python
+# Pratique 4: Les chaînes de caractères en Python
 
 Cette pratique vous permettra de travailler sur la manipulation et la transformation des chaînes en Python. Vous pourrez tester chaque exercice en utilisant la **ligne de commande avec `python3 -c`** ou en **écrivant un fichier Python**.
 
