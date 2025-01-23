@@ -76,7 +76,7 @@ Un environnement virtuel Python est un espace isolé où vous pouvez installer d
    (venv) C:\Users\VotreNom\Documents\MonProjet>
    ```
 
-3. **Note pour les non-voyants** :
+3. **Accessibilité** :
    Si vous n'entendez pas le préfixe `(venv)` via le lecteur d'écran, essayez d'exécuter une commande comme `pip list` (voir l'Étape 5). Si elle fonctionne correctement, cela confirme que l'environnement est actif.
 
 ---
