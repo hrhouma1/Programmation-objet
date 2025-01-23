@@ -5,6 +5,15 @@ Pratiquer les expressions, opérateurs et types de données Python en écrivant 
 
 ---
 
+## Note préalable
+Le module `venv` est inclus par défaut dans Python 3.3 et versions ultérieures.  
+- **Si vous utilisez une version de Python antérieure ou si `venv` n'est pas disponible**, installez-le avec la commande suivante :
+  ```bash
+  pip install venv
+  ```
+
+---
+
 ## Préparation
 1. Configurez un environnement virtuel avec le nom **pratique1** et créez plusieurs fichiers Python :
    ```bash
