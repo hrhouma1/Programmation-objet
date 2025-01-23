@@ -1,4 +1,4 @@
-# Résumé : Les chaînes de caractères en Python
+# Résumé 4: Les chaînes de caractères en Python
 
 ## Introduction
 
