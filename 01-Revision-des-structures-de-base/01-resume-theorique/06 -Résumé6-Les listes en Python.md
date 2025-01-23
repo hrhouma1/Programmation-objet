@@ -1,5 +1,5 @@
 
-# Résumé : Les listes en Python
+# Résumé 6: Les listes en Python
 
 ## Introduction
 
