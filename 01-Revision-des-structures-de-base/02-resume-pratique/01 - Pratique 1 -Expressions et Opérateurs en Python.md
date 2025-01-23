@@ -1,16 +1,18 @@
 # Pratique 1 : Expressions et Opérateurs en Python
 
 ## Objectif
-Pratiquer les expressions, opérateurs et types de données Python en écrivant et exécutant du code dans des fichiers distincts.
+Pratiquer les expressions, opérateurs et types de données Python en écrivant et exécutant du code dans des fichiers distincts ou directement depuis la ligne de commande.
 
 ---
 
 ## Note préalable
 Le module `venv` est inclus par défaut dans Python 3.3 et versions ultérieures.  
-- **Si vous utilisez une version de Python antérieure ou si `venv` n'est pas disponible**, installez-le avec la commande suivante :
+- **Si `venv` n'est pas disponible**, installez-le avec :
   ```bash
   pip install venv
   ```
+
+- **Pour plusieurs versions de Python installées** : Vous pouvez exécuter une version spécifique en utilisant des commandes comme `python3.11`, `python3.12`, ou `python3.7`.
 
 ---
 
@@ -51,13 +53,6 @@ print("Python" + " est génial")  # Concaténation
 print(len("Programmation"))  # Longueur d'une chaîne
 ```
 
-#### Résultat attendu pour `exemple1.py` :
-```
-8
-Python est génial
-13
-```
-
 ---
 
 ### Fichier : `exemple2.py`
@@ -68,13 +63,6 @@ Ajoutez ce code dans `exemple2.py` :
 print(10 / 3)  # Division
 print(10 // 3)  # Division entière
 print(2 ** 3)  # Puissance
-```
-
-#### Résultat attendu pour `exemple2.py` :
-```
-3.3333333333333335
-3
-8
 ```
 
 ---
@@ -89,13 +77,6 @@ print(10 == 10)  # Égalité
 print(5 != 2)  # Différent
 ```
 
-#### Résultat attendu pour `exemple3.py` :
-```
-True
-True
-True
-```
-
 ---
 
 ### Fichier : `exemple4.py`
@@ -108,13 +89,6 @@ print((5 > 3) or (3 > 10))  # OR logique
 print(not (5 > 3))  # NOT logique
 ```
 
-#### Résultat attendu pour `exemple4.py` :
-```
-True
-True
-False
-```
-
 ---
 
 ### Fichier : `exemple5.py`
@@ -124,12 +98,6 @@ Ajoutez ce code dans `exemple5.py` :
 ```python
 print('a' in 'apple')  # Appartenance
 print('z' not in 'apple')  # Non-appartenance
-```
-
-#### Résultat attendu pour `exemple5.py` :
-```
-True
-True
 ```
 
 ---
@@ -148,31 +116,61 @@ print(type(y))  # Flottant
 print(type(texte))  # Chaîne
 ```
 
-#### Résultat attendu pour `exemple6.py` :
+---
+
+## Annexe : Exécution rapide avec `python -c`
+
+### Méthode
+Vous pouvez exécuter des expressions simples directement depuis la ligne de commande avec `python -c` :
+- Pour des versions spécifiques : `python3.11 -c`, `python3.12 -c`, etc.
+
+### Exemples
+
+#### Exercice 1 : Expressions simples
+```bash
+python -c "print(3 + 5)"  # Addition
+python -c "print('Python' + ' est génial')"  # Concaténation
+python -c "print(len('Programmation'))"  # Longueur d'une chaîne
 ```
-<class 'int'>
-<class 'float'>
-<class 'str'>
+
+#### Exercice 2 : Opérateurs arithmétiques
+```bash
+python -c "print(10 / 3)"  # Division
+python -c "print(10 // 3)"  # Division entière
+python -c "print(2 ** 3)"  # Puissance
+```
+
+#### Exercice 3 : Opérateurs de comparaison
+```bash
+python -c "print(10 > 3)"  # Supérieur
+python -c "print(10 == 10)"  # Égalité
+python -c "print(5 != 2)"  # Différent
+```
+
+#### Exercice 4 : Opérateurs logiques
+```bash
+python -c "print((5 > 3) and (3 < 10))"  # AND logique
+python -c "print((5 > 3) or (3 > 10))"  # OR logique
+python -c "print(not (5 > 3))"  # NOT logique
+```
+
+#### Exercice 5 : Opérateurs d'appartenance
+```bash
+python -c "print('a' in 'apple')"  # Appartenance
+python -c "print('z' not in 'apple')"  # Non-appartenance
+```
+
+#### Exercice 6 : Types de données
+```bash
+python -c "x = 5; y = 3.14; texte = 'Python'; print(type(x)); print(type(y)); print(type(texte))"
 ```
 
 ---
 
-## Résumé des étapes
+### Avantages de `python -c`
+1. **Rapide** : Permet de tester une seule ligne sans créer de fichier.
+2. **Flexible** : Exécutez facilement avec différentes versions de Python.
 
-1. **Créer les fichiers :**
-   - `exemple1.py` : Contient l'exercice 1.
-   - `exemple2.py` : Contient l'exercice 2.
-   - `exemple3.py` : Contient l'exercice 3.
-   - `exemple4.py` : Contient l'exercice 4.
-   - `exemple5.py` : Contient l'exercice 5.
-   - `exemple6.py` : Contient l'exercice 6.
-
-2. **Exécuter chaque fichier Python :**
-   ```bash
-   python exemple1.py
-   python exemple2.py
-   python exemple3.py
-   python exemple4.py
-   python exemple5.py
-   python exemple6.py
-   ```
+### Résumé
+- **Pour des tests rapides**, utilisez `python -c`.
+- **Pour des scripts plus longs ou réutilisables**, créez et exécutez des fichiers Python comme dans les sections principales.
