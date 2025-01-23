@@ -1,5 +1,24 @@
 # Pratique 1 : Expressions et Opérateurs en Python
 
+## Table des matières
+
+1. [Objectif](#objectif)
+2. [Note préalable](#note-préalable)
+3. [Préparation](#préparation)
+4. [Exercices](#exercices)
+   - [Exercice 1 : Expressions simples](#exercice-1--expressions-simples)
+   - [Exercice 2 : Opérateurs arithmétiques](#exercice-2--opérateurs-arithmétiques)
+   - [Exercice 3 : Opérateurs de comparaison](#exercice-3--opérateurs-de-comparaison)
+   - [Exercice 4 : Opérateurs logiques](#exercice-4--opérateurs-logiques)
+   - [Exercice 5 : Opérateurs d'appartenance](#exercice-5--opérateurs-dappartenance)
+   - [Exercice 6 : Types de données](#exercice-6--types-de-données)
+5. [Annexe : Exécution rapide avec `python -c`](#annexe--exécution-rapide-avec-python--c)
+   - [Méthode](#méthode)
+   - [Exemples](#exemples)
+   - [Avantages de `python -c`](#avantages-de-python--c)
+
+---
+
 ## Objectif
 Pratiquer les expressions, opérateurs et types de données Python en écrivant et exécutant du code dans des fichiers distincts ou directement depuis la ligne de commande.
 
@@ -43,9 +62,9 @@ Le module `venv` est inclus par défaut dans Python 3.3 et versions ultérieures
 
 ## Exercices
 
-### Fichier : `exemple1.py`
+### Exercice 1 : Expressions simples
+**Fichier : `exemple1.py`**
 
-#### 1. Expressions simples
 Ajoutez ce code dans `exemple1.py` :
 ```python
 print(3 + 5)  # Addition
@@ -55,9 +74,9 @@ print(len("Programmation"))  # Longueur d'une chaîne
 
 ---
 
-### Fichier : `exemple2.py`
+### Exercice 2 : Opérateurs arithmétiques
+**Fichier : `exemple2.py`**
 
-#### 2. Opérateurs arithmétiques
 Ajoutez ce code dans `exemple2.py` :
 ```python
 print(10 / 3)  # Division
@@ -67,9 +86,9 @@ print(2 ** 3)  # Puissance
 
 ---
 
-### Fichier : `exemple3.py`
+### Exercice 3 : Opérateurs de comparaison
+**Fichier : `exemple3.py`**
 
-#### 3. Opérateurs de comparaison
 Ajoutez ce code dans `exemple3.py` :
 ```python
 print(10 > 3)  # Supérieur
@@ -79,9 +98,9 @@ print(5 != 2)  # Différent
 
 ---
 
-### Fichier : `exemple4.py`
+### Exercice 4 : Opérateurs logiques
+**Fichier : `exemple4.py`**
 
-#### 4. Opérateurs logiques
 Ajoutez ce code dans `exemple4.py` :
 ```python
 print((5 > 3) and (3 < 10))  # AND logique
@@ -91,9 +110,9 @@ print(not (5 > 3))  # NOT logique
 
 ---
 
-### Fichier : `exemple5.py`
+### Exercice 5 : Opérateurs d'appartenance
+**Fichier : `exemple5.py`**
 
-#### 5. Opérateurs d'appartenance
 Ajoutez ce code dans `exemple5.py` :
 ```python
 print('a' in 'apple')  # Appartenance
@@ -102,9 +121,9 @@ print('z' not in 'apple')  # Non-appartenance
 
 ---
 
-### Fichier : `exemple6.py`
+### Exercice 6 : Types de données
+**Fichier : `exemple6.py`**
 
-#### 6. Types de données
 Ajoutez ce code dans `exemple6.py` :
 ```python
 x = 5
