@@ -1,4 +1,4 @@
-# Résumé : Les structures itératives en Python
+# Résumé 3: Les structures itératives en Python
 
 ## Introduction
 
