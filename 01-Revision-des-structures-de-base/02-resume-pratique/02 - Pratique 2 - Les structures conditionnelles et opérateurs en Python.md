@@ -23,8 +23,8 @@ Pratiquer les opérateurs logiques, de comparaison, et les structures conditionn
 
 1. **Créer un environnement virtuel** :  
    ```bash
-   python -m venv pratique_env
-   pratique_env\Scripts\activate
+   python -m venv pratique2
+   pratique2\Scripts\activate
    ```
 
 2. **Créer un fichier Python** :  
