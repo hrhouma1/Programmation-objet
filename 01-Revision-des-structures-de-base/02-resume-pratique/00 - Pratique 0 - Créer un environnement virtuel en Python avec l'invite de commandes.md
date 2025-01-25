@@ -1,99 +1,122 @@
-# Pratique 1 : Créer un environnement virtuel en Python avec l'invite de commandes
+# Pratique 0 - Créer un environnement virtuel en Python avec l'invite de commandes
 
 ## Introduction
-
-Un environnement virtuel Python est un espace isolé où vous pouvez installer des modules ou des dépendances spécifiques à un projet, sans affecter le système global. Voici comment le créer et l'utiliser à l'aide de l'invite de commandes (CMD).
+Un environnement virtuel Python est un espace isolé pour installer des modules spécifiques à un projet, sans affecter l’environnement global de votre système.
 
 ---
 
 ## Étape 1 : Ouvrir l'invite de commandes
-
-1. **Sur Windows :**
+1. **Windows** :
    - Appuyez sur `Windows + R`, tapez `cmd`, puis appuyez sur **Entrée**.
-   - Une fenêtre noire (invite de commandes) s’ouvre.
-
-2. **Alternativement** :
-   - Appuyez sur la touche Windows, tapez "Invite de commandes", puis appuyez sur **Entrée**.
+   - Alternativement, tapez "Invite de commandes" dans la barre de recherche, puis appuyez sur **Entrée**.
 
 ---
 
-## Étape 2 : Accéder ou créer un répertoire pour le projet
+## Étape 2 : Vérifier que Python et pip sont installés
+1. Tapez la commande suivante pour vérifier que Python est installé :
+   ```cmd
+   python --version
+   ```
+   Si cela ne fonctionne pas, essayez :
+   ```cmd
+   python3 --version
+   python3.9 --version
+   python3.11 --version
+   python3.12 --version
+   python3.13 --version
+   ```
 
-1. **Accédez au répertoire où vous voulez créer le projet.** Par exemple, si vous voulez travailler dans le dossier `Documents` :
+2. Vérifiez également que `pip` est installé avec :
+   ```cmd
+   pip --version
+   ```
+   Si cela ne fonctionne pas, essayez :
+   ```cmd
+   python -m pip --version
+   python3 -m pip --version
+   python3.9 -m pip --version
+   python3.11 -m pip --version
+   python3.12 -m pip --version
+   python3.13 -m pip --version
+   ```
+
+3. Si Python ou pip n’est pas installé, téléchargez et installez Python depuis le site officiel : [python.org](https://www.python.org).
+
+---
+
+## Étape 3 : Installer `venv` si nécessaire
+1. Si le module `venv` n'est pas disponible, installez-le avec :
+   ```cmd
+   pip install venv
+   ```
+
+---
+
+## Étape 4 : Accéder ou créer un dossier pour le projet
+1. Accédez au répertoire souhaité. Par exemple :
    ```cmd
    cd C:\Users\VotreNom\Documents
    ```
 
-2. **Créez un nouveau dossier pour votre projet** en tapant :
+2. Créez un dossier pour votre projet et entrez dedans :
    ```cmd
    mkdir MonProjet
    cd MonProjet
    ```
 
-   - **`mkdir`** signifie "make directory", soit "créer un dossier".
-   - **`cd`** signifie "change directory", soit "changer de dossier".
-
-   **Vous êtes maintenant dans le dossier `MonProjet`.**
-
 ---
 
-## Étape 3 : Créer l'environnement virtuel
-
-1. Tapez la commande suivante pour créer un environnement virtuel :
+## Étape 5 : Créer l'environnement virtuel
+1. Créez un environnement virtuel nommé `myenvironment1` (ou un autre nom de votre choix) :
    ```cmd
-   python -m venv nom_env
+   python -m venv myenvironment1
+   ```
+   Si `python` ne fonctionne pas, utilisez :
+   ```cmd
+   python3 -m venv myenvironment1
+   python3.9 -m venv myenvironment1
+   python3.11 -m venv myenvironment1
+   python3.12 -m venv myenvironment1
+   python3.13 -m venv myenvironment1
    ```
 
-   - Remplacez **`nom_env`** par le nom que vous voulez donner à l’environnement virtuel. Par exemple :
-     ```cmd
-     python -m venv venv
-     ```
+2. **Résultat attendu** :
+   - Un dossier nommé `myenvironment1` sera créé.
+   - Ce dossier contiendra tous les fichiers nécessaires pour l’environnement virtuel.
 
-2. **Résultat attendu :**
-   - Cette commande crée un dossier nommé `venv` (ou le nom que vous avez choisi).
-   - Ce dossier contient tous les fichiers nécessaires pour l'environnement virtuel.
-
-3. **Vérification :**
-   Tapez la commande suivante pour afficher le contenu du dossier :
+3. Vérifiez la création avec :
    ```cmd
    dir
    ```
-   Vous devriez voir un dossier nommé `venv` dans la liste.
+   Vous verrez un dossier nommé `myenvironment1`.
 
 ---
 
-## Étape 4 : Activer l'environnement virtuel
-
-1. **Activez l’environnement virtuel** en tapant :
+## Étape 6 : Activer l'environnement virtuel
+1. Activez l’environnement virtuel avec :
    ```cmd
-   venv\Scripts\activate
+   myenvironment1\Scripts\activate
    ```
 
-   - Remplacez `venv` par le nom de votre environnement si vous avez choisi un autre nom.
-
-2. Une fois activé, vous verrez le nom de l’environnement entre parenthèses au début de chaque ligne. Par exemple :
+2. Une fois activé, le préfixe `(myenvironment1)` apparaîtra au début de chaque ligne dans l’invite de commandes :
    ```plaintext
-   (venv) C:\Users\VotreNom\Documents\MonProjet>
+   (myenvironment1) C:\Users\VotreNom\Documents\MonProjet>
    ```
-
-3. **Accessibilité** :
-   Si vous n'entendez pas le préfixe `(venv)` via le lecteur d'écran, essayez d'exécuter une commande comme `pip list` (voir l'Étape 5). Si elle fonctionne correctement, cela confirme que l'environnement est actif.
 
 ---
 
-## Étape 5 : Installer un package dans l'environnement virtuel
-
-1. Pour installer un package dans l'environnement virtuel, utilisez `pip`. Par exemple, pour installer le module `requests` :
+## Étape 7 : Installer des packages
+1. Installez un package comme `requests` dans l’environnement virtuel avec :
    ```cmd
    pip install requests
    ```
 
-2. Vérifiez que le module a été installé en affichant la liste des packages :
+2. Vérifiez les packages installés avec :
    ```cmd
    pip list
    ```
 
-   **Résultat attendu :**
+   **Exemple de résultat attendu** :
    ```plaintext
    Package    Version
    ---------  -------
@@ -102,81 +125,42 @@ Un environnement virtuel Python est un espace isolé où vous pouvez installer d
    setuptools X.X.X
    ```
 
-3. Si cela fonctionne, vous avez configuré correctement votre environnement virtuel.
-
 ---
 
-## Étape 6 : Désactiver l'environnement virtuel
-
-1. Une fois que vous avez fini de travailler, désactivez l'environnement virtuel en tapant :
+## Étape 8 : Désactiver l'environnement virtuel
+1. Une fois que vous avez terminé, désactivez l’environnement virtuel avec :
    ```cmd
    deactivate
    ```
 
-2. Le préfixe `(venv)` disparaît. Vous êtes maintenant de retour dans l'environnement Python global.
+2. Le préfixe `(myenvironment1)` disparaît. Vous êtes de retour dans l’environnement Python global.
 
 ---
 
-## Étape 7 : Supprimer un environnement virtuel (optionnel)
-
-1. Si vous souhaitez supprimer un environnement virtuel, il suffit de supprimer le dossier correspondant. Par exemple :
+## Étape 9 : Supprimer un environnement virtuel (optionnel)
+1. Pour supprimer l’environnement virtuel, supprimez simplement le dossier correspondant :
    ```cmd
-   rmdir /s /q venv
+   rmdir /s /q myenvironment1
    ```
-
-   - **`/s`** supprime tous les sous-dossiers.
-   - **`/q`** supprime sans demander confirmation.
-
-2. Le dossier `venv` sera complètement supprimé.
-
----
-
-## Pratique guidée
-
-Suivez cette pratique pour consolider vos connaissances :
-
-1. **Créer un projet :**
-   - Ouvrez CMD.
-   - Naviguez vers le dossier où vous voulez créer le projet (par exemple, `Documents`).
-   - Créez un dossier appelé `MonExercice` avec :
-     ```cmd
-     mkdir MonExercice
-     cd MonExercice
-     ```
-
-2. **Créer et activer un environnement virtuel :**
-   - Créez un environnement virtuel nommé `env_test` :
-     ```cmd
-     python -m venv env_test
-     ```
-   - Activez l’environnement avec :
-     ```cmd
-     env_test\Scripts\activate
-     ```
-
-3. **Installer un package :**
-   - Installez le package `Flask` dans l’environnement virtuel :
-     ```cmd
-     pip install flask
-     ```
-
-4. **Vérifier les installations :**
-   - Affichez la liste des packages installés avec :
-     ```cmd
-     pip list
-     ```
-
-5. **Désactiver l’environnement :**
-   - Tapez :
-     ```cmd
-     deactivate
-     ```
+   - **`/s`** : supprime tous les sous-dossiers.
+   - **`/q`** : supprime sans confirmation.
 
 ---
 
 ## Récapitulatif des commandes
 
-- **Créer un dossier pour un projet :**
+- **Vérifier les versions de Python et pip :**
+  ```cmd
+  python --version
+  python3 --version
+  python3.9 --version
+  python3.11 --version
+  python3.12 --version
+  python3.13 --version
+  pip --version
+  ```
+
+- **Créer un dossier projet :**
   ```cmd
   mkdir NomDossier
   cd NomDossier
@@ -197,18 +181,68 @@ Suivez cette pratique pour consolider vos connaissances :
   pip install NomDuPackage
   ```
 
+- **Vérifier les packages installés :**
+  ```cmd
+  pip list
+  ```
+
 - **Désactiver l’environnement :**
   ```cmd
   deactivate
   ```
 
+- **Supprimer l’environnement :**
+  ```cmd
+  rmdir /s /q NomEnvironnement
+  ```
+
+---
+
+## Pratique guidée
+
+1. **Créer un projet :**
+   - Naviguez vers le dossier souhaité :
+     ```cmd
+     cd C:\Users\VotreNom\Documents
+     ```
+   - Créez un dossier projet :
+     ```cmd
+     mkdir MonExercice
+     cd MonExercice
+     ```
+
+2. **Créer et activer un environnement virtuel :**
+   - Créez l’environnement :
+     ```cmd
+     python -m venv myenvironment1
+     ```
+   - Activez-le :
+     ```cmd
+     myenvironment1\Scripts\activate
+     ```
+
+3. **Installer et vérifier un package :**
+   - Installez `flask` :
+     ```cmd
+     pip install flask
+     ```
+   - Vérifiez les installations :
+     ```cmd
+     pip list
+     ```
+
+4. **Désactiver l’environnement :**
+   ```cmd
+   deactivate
+   ```
+
 ---
 
 ## Accessibilité
 
-1. **Préfixe `(venv)`** : Si vous utilisez un lecteur d'écran, vous ne verrez peut-être pas directement le préfixe. Pour confirmer que l'environnement est actif, exécutez une commande comme `pip list` pour vérifier son fonctionnement.
+- **Vérification de l'activation :** Si le préfixe `(myenvironment1)` n’apparaît pas, exécutez une commande comme `pip list` pour confirmer que l’environnement est actif.
+- **Navigation et gestion des erreurs :** Utilisez `dir` pour vérifier les fichiers et dossiers dans votre répertoire.
 
-2. **Navigation dans les dossiers :** Utilisez les commandes comme `dir` pour entendre la liste des fichiers et dossiers.
+---
 
-3. **Évitez les erreurs :** Si une commande échoue, assurez-vous que vous êtes dans le bon dossier et que Python est installé correctement.
-
+Avec cette pratique, vous êtes prêt à gérer efficacement des environnements virtuels pour vos projets Python !
