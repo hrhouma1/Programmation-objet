@@ -1,6 +1,6 @@
 # Programmation-objet
 
-```markdown
+
 # 01 - Matériel utile
 
 - [Lien d'invitation AliveCode](https://alivecode.ca/join/N0LLGD)
@@ -27,4 +27,4 @@
 3. [Tutoriel sur les tuples en Python](https://python.doctor/page-apprendre-tuples-tuple-python)
 4. [Introduction à Python par NTU](https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/Python1_Basics.html)
 5. [Exemples de motifs avec Python](https://pynative.com/print-pattern-python-examples/)
-```
+
