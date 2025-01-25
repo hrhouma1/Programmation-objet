@@ -1,7 +1,7 @@
 # Programmation-objet
 
 
-# 01 - Matériel utile
+### 01 - Matériel utile
 
 - [Lien d'invitation AliveCode](https://alivecode.ca/join/N0LLGD)
 - [Référentiel GitHub](https://github.com/hrhouma1/Programmation-objet/tree/main)
@@ -10,7 +10,7 @@
 
 ---
 
-# 02 - IDE
+### 02 - IDE
 
 - **Google Colab** (fichiers `.ipynb`)
 - **Jupyter Notebook** (fichiers `.ipynb`)
@@ -20,7 +20,7 @@
 
 ---
 
-# 03 - Autres liens
+### 03 - Autres liens
 
 1. [AliveCode](https://alivecode.ca/)
 2. [Cours Python - Dictionnaires](https://courspython.com/dictionnaire.html)
