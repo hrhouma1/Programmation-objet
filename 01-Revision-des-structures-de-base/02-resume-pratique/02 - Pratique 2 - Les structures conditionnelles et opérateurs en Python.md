@@ -1,236 +1,127 @@
-# Pratique : Les structures conditionnelles et opérateurs en Python
+# Pratique 2 - Structures conditionnelles et opérateurs en Python
+
+## Table des matières
+
+1. [Objectif](#objectif)  
+2. [Préparation](#préparation)  
+3. [Exercices](#exercices)  
+   - [Exercice 1 : Opérateurs logiques](#exercice-1--opérateurs-logiques)  
+   - [Exercice 2 : Opérateurs de comparaison](#exercice-2--opérateurs-de-comparaison)  
+   - [Exercice 3 : Comparaison de chaînes](#exercice-3--comparaison-de-chaînes)  
+   - [Exercice 4 : Structures conditionnelles](#exercice-4--structures-conditionnelles)  
+   - [Exercice 5 : Vérification d'âge](#exercice-5--vérification-dâge)  
+4. [Annexe : Exécution rapide avec `python -c`](#annexe--exécution-rapide-avec-python--c)
+
+---
 
 ## Objectif
-1. Expérimenter les opérateurs logiques et de comparaison.
-2. Appliquer les structures conditionnelles pour résoudre des problèmes simples.
-3. Maîtriser les deux méthodes d'exécution : **directe** et via **fichier Python**.
-4. Pratiquer les **opérateurs**, les **comparateurs**, et les **structures conditionnelles**. Ceci inclut deux méthodes d'exécution : **ligne de commande avec `python3 -c`** et **via un fichier Python**.
+Pratiquer les opérateurs logiques, de comparaison, et les structures conditionnelles en Python en écrivant et exécutant du code dans des fichiers Python.
 
 ---
 
 ## Préparation
 
-1. **Créer un environnement virtuel** :
+1. **Créer un environnement virtuel** :  
    ```bash
-   python3 -m venv pratique_env
+   python -m venv pratique_env
+   pratique_env\Scripts\activate
    ```
 
-2. **Activer l'environnement** :
-   - **Windows** :
-     ```cmd
-     pratique_env\Scripts\activate
-     ```
-   - **Linux/macOS** :
-     ```bash
-     source pratique_env/bin/activate
-     ```
-
-3. **Créer un fichier Python** (si nécessaire) :
-   - **Windows** :
-     ```cmd
-     notepad exercice_condition.py
-     ```
-   - **Linux/macOS** :
-     ```bash
-     nano exercice_condition.py
-     ```
+2. **Créer un fichier Python** :  
+   ```cmd
+   notepad exercice_condition.py
+   ```
 
 ---
 
 ## Exercices
 
-### 1. Opérateurs logiques
-
-#### Avec **`python3 -c`** :
-```bash
-python3 -c "print(not True)"  # Résultat : False
-python3 -c "print(True and False)"  # Résultat : False
-python3 -c "print(True or False)"  # Résultat : True
+### Exercice 1 : Opérateurs logiques
+Ajoutez ce code dans `exercice_condition.py` :
+```python
+print(not True)  # False
+print(True and False)  # False
+print(True or False)  # True
 ```
-
-#### Dans le fichier `exercice_condition.py` :
-1. Ajoutez ce code :
-   ```python
-   print(not True)  # Résultat : False
-   print(True and False)  # Résultat : False
-   print(True or False)  # Résultat : True
-   ```
-
-2. **Exécutez avec** :
-   ```bash
-   python3 exercice_condition.py
-   ```
-
-3. **Résultat attendu** :
-   ```plaintext
-   False
-   False
-   True
-   ```
 
 ---
 
-### 2. Opérateurs d'égalité et de comparaison
-
-#### Avec **`python3 -c`** :
-```bash
-python3 -c "print(5 == 5)"  # Résultat : True
-python3 -c "print(5 != 3)"  # Résultat : True
-python3 -c "print(7 > 5)"  # Résultat : True
-python3 -c "print(5 <= 3)"  # Résultat : False
+### Exercice 2 : Opérateurs de comparaison
+Ajoutez ce code dans `exercice_condition.py` :
+```python
+print(5 == 5)  # True
+print(7 > 5)  # True
+print(5 <= 3)  # False
 ```
-
-#### Dans le fichier `exercice_condition.py` :
-1. Ajoutez ce code après le précédent :
-   ```python
-   print(5 == 5)  # Résultat : True
-   print(5 != 3)  # Résultat : True
-   print(7 > 5)  # Résultat : True
-   print(5 <= 3)  # Résultat : False
-   ```
-
-2. **Exécutez avec** :
-   ```bash
-   python3 exercice_condition.py
-   ```
-
-3. **Résultat attendu** :
-   ```plaintext
-   True
-   True
-   True
-   False
-   ```
 
 ---
 
-### 3. Comparaison de chaînes de caractères
-
-#### Avec **`python3 -c`** :
-```bash
-python3 -c "print('apple' < 'banana')"  # Résultat : True
-python3 -c "print('Python' == 'python')"  # Résultat : False
+### Exercice 3 : Comparaison de chaînes
+Ajoutez ce code dans `exercice_condition.py` :
+```python
+print("apple" < "banana")  # True
+print("Python" == "python")  # False
 ```
-
-#### Dans le fichier `exercice_condition.py` :
-1. Ajoutez ce code :
-   ```python
-   print("apple" < "banana")  # Résultat : True
-   print("Python" == "python")  # Résultat : False
-   ```
-
-2. **Exécutez avec** :
-   ```bash
-   python3 exercice_condition.py
-   ```
-
-3. **Résultat attendu** :
-   ```plaintext
-   True
-   False
-   ```
 
 ---
 
-### 4. Les structures conditionnelles
+### Exercice 4 : Structures conditionnelles
+Ajoutez ce code dans `exercice_condition.py` :
+```python
+x = 10
+if x > 5:
+    print("x est supérieur à 5")
+else:
+    print("x est inférieur ou égal à 5")
 
-#### Avec **`python3 -c`** :
-```bash
-python3 -c "x = 10; print('x est supérieur à 5' if x > 5 else 'x est inférieur ou égal à 5')"
+# Utilisation d'une structure ternaire
+message = "x est supérieur à 5" if x > 5 else "x est inférieur ou égal à 5"
+print(message)
 ```
-
-#### Dans le fichier `exercice_condition.py` :
-1. Ajoutez ce code :
-   ```python
-   x = 10
-   if x > 5:
-       print("x est supérieur à 5")
-   else:
-       print("x est inférieur ou égal à 5")
-
-   # Structure ternaire
-   message = "x est supérieur à 5" if x > 5 else "x est inférieur ou égal à 5"
-   print(message)
-   ```
-
-2. **Exécutez avec** :
-   ```bash
-   python3 exercice_condition.py
-   ```
-
-3. **Résultat attendu** :
-   ```plaintext
-   x est supérieur à 5
-   x est supérieur à 5
-   ```
 
 ---
 
-### 5. Exercice global : Vérification d'âge
-
-#### Objectif :
-Créer un programme qui demande un âge et affiche un message selon les conditions suivantes :
-- Si l'âge est supérieur ou égal à 18, affichez : "Vous êtes majeur."
-- Sinon, affichez : "Vous êtes mineur."
-
-#### Avec **`python3 -c`** :
-```bash
-python3 -c "age = 20; print('Vous êtes majeur.' if age >= 18 else 'Vous êtes mineur.')"
+### Exercice 5 : Vérification d'âge
+Ajoutez ce code dans `exercice_condition.py` :
+```python
+age = int(input("Entrez votre âge : "))
+if age >= 18:
+    print("Vous êtes majeur.")
+else:
+    print("Vous êtes mineur.")
 ```
-
-#### Dans le fichier `exercice_condition.py` :
-1. Ajoutez ce code :
-   ```python
-   age = int(input("Entrez votre âge : "))
-   if age >= 18:
-       print("Vous êtes majeur.")
-   else:
-       print("Vous êtes mineur.")
-   ```
-
-2. **Exécutez avec** :
-   ```bash
-   python3 exercice_condition.py
-   ```
-
-3. **Exemple de session** :
-   ```plaintext
-   Entrez votre âge : 17
-   Vous êtes mineur.
-   ```
 
 ---
 
-## Résumé des commandes
+## Annexe : Exécution rapide avec `python -c`
 
-1. **Créer un fichier Python** (facultatif) :
-   - Windows :
-     ```cmd
-     notepad exercice_condition.py
-     ```
-   - Linux/macOS :
-     ```bash
-     nano exercice_condition.py
-     ```
+### Méthode
+Pour tester rapidement des expressions ou des structures, utilisez `python -c`.
 
-2. **Exécuter une commande Python directement** :
-   ```bash
-   python3 -c "print(True and False)"
-   ```
+### Exemples
+- **Exercice 1 : Opérateurs logiques**  
+  ```bash
+  python -c "print(not True)"  # False
+  ```
+- **Exercice 2 : Opérateurs de comparaison**  
+  ```bash
+  python -c "print(5 == 5)"  # True
+  ```
+- **Exercice 3 : Comparaison de chaînes**  
+  ```bash
+  python -c "print('apple' < 'banana')"  # True
+  ```
+- **Exercice 4 : Structures conditionnelles**  
+  ```bash
+  python -c "x=10; print('Supérieur' if x>5 else 'Inférieur')"
+  ```
+- **Exercice 5 : Vérification d'âge**  
+  ```bash
+  python -c "age=20; print('Majeur' if age>=18 else 'Mineur')"
+  ```
 
-3. **Exécuter un fichier Python** :
-   ```bash
-   python3 exercice_condition.py
-   ```
+---
 
-4. **Activer/Désactiver un environnement virtuel** :
-   - **Activer** :
-     ```bash
-     source pratique_env/bin/activate  # Linux/macOS
-     pratique_env\Scripts\activate  # Windows
-     ```
-   - **Désactiver** :
-     ```bash
-     deactivate
-     ```
-
+### Résumé
+- Écrivez vos scripts dans des fichiers pour des exercices détaillés.
+- Utilisez `python -c` pour tester rapidement des expressions ou concepts simples.
