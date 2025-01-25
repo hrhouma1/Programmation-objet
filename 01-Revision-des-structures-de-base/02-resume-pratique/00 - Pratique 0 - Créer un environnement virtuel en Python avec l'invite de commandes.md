@@ -243,6 +243,5 @@ Un environnement virtuel Python est un espace isolé pour installer des modules 
 - **Vérification de l'activation :** Si le préfixe `(myenvironment1)` n’apparaît pas, exécutez une commande comme `pip list` pour confirmer que l’environnement est actif.
 - **Navigation et gestion des erreurs :** Utilisez `dir` pour vérifier les fichiers et dossiers dans votre répertoire.
 
----
 
 Avec cette pratique, vous êtes prêt à gérer efficacement des environnements virtuels pour vos projets Python !
