@@ -1,7 +1,3 @@
-Voici la version révisée selon votre modèle préféré :
-
----
-
 # Pratique 2 - Structures conditionnelles et opérateurs en Python
 
 ## Table des matières
@@ -20,6 +16,19 @@ Voici la version révisée selon votre modèle préféré :
 
 ## Objectif
 Pratiquer les opérateurs logiques, de comparaison, et les structures conditionnelles en Python en écrivant et exécutant du code dans des fichiers Python.
+
+
+---
+
+## Note préalable
+Le module `venv` est inclus par défaut dans Python 3.3 et versions ultérieures.  
+- **Si `venv` n'est pas disponible**, installez-le avec :
+  ```bash
+  pip install venv
+  ```
+
+- **Pour plusieurs versions de Python installées** : Vous pouvez exécuter une version spécifique en utilisant des commandes comme `python3.11`, `python3.12`, ou `python3.7`.
+
 
 ---
 
