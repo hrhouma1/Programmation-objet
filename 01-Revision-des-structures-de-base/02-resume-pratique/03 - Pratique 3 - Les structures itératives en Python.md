@@ -1,7 +1,3 @@
-Voici la version corrigée en utilisant des fichiers distincts pour chaque exercice, comme demandé :
-
----
-
 # Pratique 3 : Les structures itératives en Python
 
 ## Table des matières
@@ -119,69 +115,46 @@ for i in range(1, 6):
     print()
 ```
 
----
 
 ## Annexe : Exécution rapide avec `python -c`
 
 ### Méthode
-Pour tester rapidement des expressions ou des structures, utilisez `python -c`.
+Pour tester rapidement des expressions ou des structures, utilisez la commande `python -c`.
 
 ### Exemples
+
 - **Exercice 1 : La boucle `while`**  
   ```bash
-  python -c "
-compteur = 1
-while compteur <= 5:
-    print(compteur)
-    compteur += 1
-"
+  python -c "compteur = 1; while compteur <= 5: print(compteur); compteur += 1"
   ```
+
 - **Exercice 2 : Entrée utilisateur avec `while`**  
   ```bash
-  python -c "
-nombre = 0
-while nombre <= 0:
-    nombre = int(input('Veuillez entrer un nombre supérieur à zéro : '))
-print(f'Vous avez entré {nombre}. Merci !')
-"
+  python -c "nombre = 0; while nombre <= 0: nombre = int(input('Veuillez entrer un nombre supérieur à zéro : ')); print(f'Vous avez entré {nombre}. Merci !')"
   ```
+
 - **Exercice 3 : La boucle `for`**  
   ```bash
-  python -c "
-animaux = ['chat', 'chien', 'oiseau']
-for animal in animaux:
-    print(animal)
-"
+  python -c "animaux = ['chat', 'chien', 'oiseau']; [print(animal) for animal in animaux]"
   ```
+
 - **Exercice 4 : Utilisation de `range`**  
   ```bash
-  python -c "
-for nombre in range(1, 6):
-    print(nombre)
-"
+  python -c "for nombre in range(1, 6): print(nombre)"
   ```
+
 - **Exercice 5 : Boucles imbriquées**  
   ```bash
-  python -c "
-taille = 4
-for i in range(taille):
-    for j in range(taille):
-        print('#', end='')
-    print()
-"
+  python -c "taille = 4; [print('#' * taille) for _ in range(taille)]"
   ```
+
 - **Exercice 6 : Table de multiplication**  
   ```bash
-  python -c "
-for i in range(1, 6):
-    for j in range(1, 6):
-        print(f'{i * j:2}', end=' ')
-    print()
-"
+  python -c "for i in range(1, 6): print(' '.join([f'{i * j:2}' for j in range(1, 6)]))"
   ```
 
 ---
 
 ### Résumé
-- **Pour des scripts détaillés**, utilisez des fichiers Python comme `exercice1.py`, `exercice2.py`, etc.
-- **Pour tester rapidement des concepts**, utilisez `python -c`.
+- **Pour des scripts détaillés**, créez des fichiers Python comme `exercice1.py`, `exercice2.py`, etc.
+- **Pour tester rapidement des concepts**, privilégiez la commande `python -c`.
