@@ -49,6 +49,17 @@ Le module `venv` est inclus par défaut dans Python 3.3 et versions ultérieures
    notepad exercice6.py   # Fichier pour l'exercice 6
    ```
 
+3. **Exécutez chaque fichier après y avoir ajouté le code correspondant dans la section ci-bas** :
+   ```bash
+   python exemple1.py
+   python exemple2.py
+   python exemple3.py
+   python exemple4.py
+   python exemple5.py
+   python exemple6.py
+   ```
+
+
 ---
 
 ## Exercices
