@@ -1,3 +1,7 @@
+Voici la version révisée selon votre modèle préféré :
+
+---
+
 # Pratique 2 - Structures conditionnelles et opérateurs en Python
 
 ## Table des matières
@@ -27,9 +31,13 @@ Pratiquer les opérateurs logiques, de comparaison, et les structures conditionn
    pratique2\Scripts\activate
    ```
 
-2. **Créer un fichier Python** :  
+2. **Créer plusieurs fichiers Python** :  
    ```cmd
-   notepad exercice_condition.py
+   notepad exemple1.py   # Fichier pour l'exercice 1
+   notepad exemple2.py   # Fichier pour l'exercice 2
+   notepad exemple3.py   # Fichier pour l'exercice 3
+   notepad exemple4.py   # Fichier pour l'exercice 4
+   notepad exemple5.py   # Fichier pour l'exercice 5
    ```
 
 ---
@@ -37,7 +45,7 @@ Pratiquer les opérateurs logiques, de comparaison, et les structures conditionn
 ## Exercices
 
 ### Exercice 1 : Opérateurs logiques
-Ajoutez ce code dans `exercice_condition.py` :
+Ajoutez ce code dans `exemple1.py` :
 ```python
 print(not True)  # False
 print(True and False)  # False
@@ -47,7 +55,7 @@ print(True or False)  # True
 ---
 
 ### Exercice 2 : Opérateurs de comparaison
-Ajoutez ce code dans `exercice_condition.py` :
+Ajoutez ce code dans `exemple2.py` :
 ```python
 print(5 == 5)  # True
 print(7 > 5)  # True
@@ -57,7 +65,7 @@ print(5 <= 3)  # False
 ---
 
 ### Exercice 3 : Comparaison de chaînes
-Ajoutez ce code dans `exercice_condition.py` :
+Ajoutez ce code dans `exemple3.py` :
 ```python
 print("apple" < "banana")  # True
 print("Python" == "python")  # False
@@ -66,7 +74,7 @@ print("Python" == "python")  # False
 ---
 
 ### Exercice 4 : Structures conditionnelles
-Ajoutez ce code dans `exercice_condition.py` :
+Ajoutez ce code dans `exemple4.py` :
 ```python
 x = 10
 if x > 5:
@@ -82,7 +90,7 @@ print(message)
 ---
 
 ### Exercice 5 : Vérification d'âge
-Ajoutez ce code dans `exercice_condition.py` :
+Ajoutez ce code dans `exemple5.py` :
 ```python
 age = int(input("Entrez votre âge : "))
 if age >= 18:
