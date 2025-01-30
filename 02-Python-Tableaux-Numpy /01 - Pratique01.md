@@ -36,7 +36,6 @@
 33. [Code 33 - La médiane](#code-33---la-médiane)
 34. [Code 34 - La taille d'un tableau](#code-34---la-taille-dun-tableau)
 
-## Code 1 - Vitesse d'exécution d'une liste python comparée à un tableau numpy
 
 
 
