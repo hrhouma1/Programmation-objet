@@ -256,6 +256,7 @@ print(matrice_diagonale)
 
 ## Code 14 - Création de n éléments de valeur 0
 
+```python
 import numpy as np
 
 tab1 = np.zeros(3)
@@ -267,6 +268,7 @@ print(tab2) # [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 
 [Retour 🔙 à la table des matières](#table-des-matières)
 <br/>
+
 
 ## Code 15 - Création de n éléments de valeur 1
 
