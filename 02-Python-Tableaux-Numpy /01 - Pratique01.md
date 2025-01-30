@@ -59,6 +59,7 @@ print("Liste après multiplication : ", res)
 
 ## Code 5 - Nouveau tableau
 
+```python
 animaux = np.array(["Chien", "Chat", "Serpent"])
 quantites_lst = [7, 10, 2]
 quantites = np.array(quantites_lst)
@@ -132,6 +133,7 @@ print("Tableau avec linspace(0, 1, 11) :", tab2)
 tab3 = np.linspace(1, 0, 11)
 print("Tableau avec linspace(1, 0, 11) :", tab3)
 # [1. 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.]
+```
 
 ## Code 11 - Création de matrices diagonales identité
 
