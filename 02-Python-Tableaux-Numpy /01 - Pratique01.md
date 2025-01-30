@@ -64,6 +64,9 @@ arr = arr * 2
 print("Temps en secondes pour le tableau NumPy :", time.time() - start)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 2 - Plus compact
 
 
@@ -76,6 +79,8 @@ arr = np.arange(1000)
 print("Taille de la liste :", sys.getsizeof(lst), "octets")
 print("Taille du tableau NumPy :", arr.nbytes, "octets")
 ```
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 3 - Multiplier des éléments du tableau par 5 en utilisant la librairie numpy
 
@@ -87,6 +92,9 @@ res = tab * 5
 print("Tableau après multiplication : ", res)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 4 - Multiplier des éléments d'une liste par 5 sans Numpy
 
 ```python
@@ -96,6 +104,8 @@ print("Liste avant multiplication : ", liste)
 res = [element * 5 for element in liste]
 print("Liste après multiplication : ", res)
 ```
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 5 - Nouveau tableau
 
@@ -108,6 +118,10 @@ print("Tableau des animaux :", animaux)
 print("Tableau de quantités des animaux :", quantites)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
+
 ## Code 6 - Tableau avec référence préservée
 
 ```python
@@ -119,6 +133,10 @@ print("Tableau de base :", tab1)
 print("Copie du tableau avec array:", tab2)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
+
 ## Code 7 - Tableau avec référence préservée
 
 ```python
@@ -129,6 +147,9 @@ tab2[0] = "Poisson"
 print("Tableau de base :", tab1)
 print("Copie du tableau avec asarray :", tab2)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 8 - Copie d'un tableau
 
@@ -143,6 +164,9 @@ print("Tableau de base :", tab1) # ['Poisson' 'Chat' 'Serpent']
 print("Copie du tableau avec copy :", tab2) # ['Chien' 'Chat' 'Serpent']
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 9 - Création d'un tableau avec arange
 
 ```python
@@ -156,6 +180,9 @@ print("Tableau avec arange(10, 20) :", tab2) # [10 11 12 13 14 15 16 17 18 19]
 tab3 = np.arange(4, 10, 2)
 print("Tableau avec arange(4, 10, 2) :", tab3) # [4 6 8]
 ```
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 
 ## Code 10 - Création d'un tableau sur une intervalle
 
@@ -175,6 +202,10 @@ print("Tableau avec linspace(1, 0, 11) :", tab3)
 # [1. 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.]
 ```
 
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 11 - Création de matrices diagonales identité
 
 ```python
@@ -187,6 +218,9 @@ print(tab1)
  [0 0 1]]
 '''
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 12 - Création d'une matrice diagonale avec des 1 5x5.
 
@@ -202,6 +236,9 @@ print(tab2)
 '''
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 13 - Création d'une matrice diagonale avec des valeurs croissantes
 
 ```python
@@ -214,6 +251,9 @@ matrice_diagonale = np.diag(valeurs)
 print(matrice_diagonale)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 14 - Création de n éléments de valeur 0
 
 import numpy as np
@@ -225,6 +265,9 @@ tab2 = np.zeros(10)
 print(tab2) # [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 15 - Création de n éléments de valeur 1
 
 ```python
@@ -234,6 +277,9 @@ print(tab1) # [1. 1. 1.]
 tab2 = np.ones(10)
 print(tab2) # [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 16 - Nombre aléatoires entre 0 et 1
 
@@ -246,12 +292,18 @@ tab2 = np.random.random(10)
 print(tab2)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 17 - Tableau 1D
 
 ```python
 tab_1d = np.array([1, 2, 3, 4, 5, 6])
 print(tab_1d)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 18 - Tableau 3D
 
@@ -275,6 +327,9 @@ tab_3d = np.array([
 ])
 print(tab_3d)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 19 - Création avec des fonctions Numpy
 
@@ -313,6 +368,9 @@ for tableau in [tableau_zeros, tableau_ones, tableau_random_uniform, tableau_ran
     print(f"Shape: {tableau.shape}, Taille: {tableau.size}")
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 20 - Indexation avec des tranches
 
 ```python
@@ -330,11 +388,17 @@ tab = np.array([
 ])
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 21 - Affichage
 
 ```python
 print(tab)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 22 - Accéder à des colonnes entière
 
@@ -347,6 +411,9 @@ print(x)
 print("Coordonnées Y")
 print(y)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 23 - Indexation booléenne
 
@@ -365,6 +432,9 @@ elements_filtres = arr[masque]
 print(elements_filtres)  # Output: [4 5 6]
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 24 - Le produit matriciel
 
 ```python
@@ -381,6 +451,9 @@ print("Matrice 2 :", np.shape(tab2))
 tab3 = np.dot(tab1, tab2)
 print("Résultat :", tab3)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 25 - Multiplication terme à terme
 
@@ -411,6 +484,9 @@ print("--- Tableau A * B ---")
 print (tab_mult)
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 26 - Applatissement pour passer d'un tableau multi-dimension à un tableau unidimensionnel
 
 ```python
@@ -431,6 +507,9 @@ print(tab2) # [1 2 3 4 5 6]
 print(np.shape(tab2)) # Affichage de la dimension du tableau
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 27 - Redimensionnement 1D->ND
 
 ```python
@@ -450,6 +529,9 @@ print(tab2)
 '''
 print(np.shape(tab2)) # Affichage de la dimension du tableau
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 28 - La transposée d'une matrice
 
@@ -474,6 +556,9 @@ print(tab_transpo)
 '''
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 29 - Nombre de dimensions
 
 ```python
@@ -487,6 +572,9 @@ print("Nombre de dimensions :", arr.ndim)
 # Devrait afficher 3 si le tableau est en 3D
 print("Les dimensions :", arr.shape)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 30 - amin et amax
 
@@ -515,6 +603,9 @@ print("Max par colonne :", np.amax(tab_2d, axis=0))  # Output: [8 9 6]
 print("Max par ligne :", np.amax(tab_2d, axis=1))    # Output: [7 8 9]
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 31 - Moyenne
 
 ```python
@@ -527,6 +618,9 @@ notes = np.array([85, 90, 75, 60, 95])
 mean_value = np.mean(notes)
 print("Moyenne arithmétique :", mean_value)  # Output: 81.0
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
 
 ## Code 32 - Moyenne pondérée
 
@@ -546,6 +640,9 @@ average_value = np.average(notes, weights=poids)
 print("Moyenne pondérée :", average_value)  # Output: 81.5
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 33 - La médiane
 
 ```python
@@ -559,6 +656,9 @@ median_value = np.median(notes)
 print("Médiane :", median_value)  # Output: 85.0
 ```
 
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
+
 ## Code 34 - La taille d'un tableau
 
 ```python
@@ -570,3 +670,6 @@ print(np.shape(tab1))
 # print(N)
 # print(tab2)
 ```
+
+[Retour 🔙 à la table des matières](#table-des-matières)
+<br/>
