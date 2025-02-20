@@ -170,3 +170,106 @@ user.age = 150  # ❌ "Âge invalide!"
 ```
 
 Ainsi, ils deviennent **des cadécorateurs** ! 🚀
+
+---
+# 📌 **Annexe : Comparaison avec et sans décorateurs**
+---
+
+
+Cette annexe illustre la différence entre **utiliser des méthodes classiques `get_...()` et `set_...()`** et **utiliser des décorateurs `@property` et `@setter`**.
+
+---
+
+## 🔹 **Version sans décorateurs (get_... et set_...)**
+Dans cette version, on utilise **des méthodes classiques** pour accéder et modifier les attributs privés (`get_email()` et `set_email()`).
+
+```python
+class Utilisateur:
+    def __init__(self, email):
+        self.__email = email  # Attribut privé
+
+    def get_email(self):
+        """Retourne l'email de l'utilisateur."""
+        return self.__email
+
+    def set_email(self, email):
+        """Modifie l'email avec une validation."""
+        if ".com" in email or ".ca" in email:
+            self.__email = email
+        else:
+            print("Nouveau courriel invalide!")
+
+# Utilisation
+user = Utilisateur("test@example.com")
+
+# Lire l'email avec get_email()
+print(user.get_email())  # ✅ Affiche : test@example.com
+
+# Modifier l'email avec set_email()
+user.set_email("nouveau@mail.com")  # ✅ Modification acceptée
+print(user.get_email())  # Affiche : nouveau@mail.com
+
+user.set_email("adresse_invalide")  # ❌ Affiche : "Nouveau courriel invalide!"
+```
+
+### 🔴 **Problèmes avec cette approche :**
+1. Il faut utiliser `get_email()` au lieu de `user.email`, ce qui est moins naturel.
+2. Il faut appeler `set_email("...")` au lieu de simplement écrire `user.email = "..."`.
+3. Si on veut transformer `email` en un simple attribut plus tard, il faudra **modifier tous les appels `get_email()` et `set_email()` dans le code**.
+
+---
+
+## 🔹 **Version avec décorateurs (@property et @setter)**
+Dans cette version, on utilise **les décorateurs `@property` et `@setter`** pour **rendre l'accès plus naturel**.
+
+```python
+class Utilisateur:
+    def __init__(self, email):
+        self.__email = email  # Attribut privé
+
+    @property
+    def email(self):
+        """Permet d’accéder à l’email comme un attribut normal."""
+        return self.__email
+
+    @email.setter
+    def email(self, email):
+        """Permet de modifier l’email avec une validation."""
+        if ".com" in email or ".ca" in email:
+            self.__email = email
+        else:
+            print("Nouveau courriel invalide!")
+
+# Utilisation
+user = Utilisateur("test@example.com")
+
+# Lire l'email (plus besoin d'une méthode spéciale)
+print(user.email)  # ✅ Affiche : test@example.com
+
+# Modifier l'email (comme un attribut normal)
+user.email = "nouveau@mail.com"  # ✅ Modification acceptée
+print(user.email)  # Affiche : nouveau@mail.com
+
+user.email = "adresse_invalide"  # ❌ Affiche : "Nouveau courriel invalide!"
+```
+
+### ✅ **Avantages de l'approche avec décorateurs :**
+1. **Plus naturel** : On accède à l’email avec `user.email` au lieu de `user.get_email()`.
+2. **Plus propre** : On modifie l’email avec `user.email = "..."` au lieu de `user.set_email("...")`.
+3. **Code plus clair et maintenable** : Si on veut changer la gestion de `email`, pas besoin de modifier tout le code qui l'utilise.
+4. **Contrôle intégré** : L’utilisateur ne peut pas modifier `email` directement sans passer par la validation.
+
+---
+
+## 📌 **Résumé**
+| Approche            | Lecture | Modification | Validation intégrée | Facilité d'utilisation |
+|---------------------|---------|-------------|----------------------|------------------------|
+| **Sans décorateurs** (`get_...()` et `set_...()`) | `user.get_email()` | `user.set_email("...")` | ✅ Oui | ❌ Moins intuitif |
+| **Avec `@property` et `@setter`** | `user.email` | `user.email = "..."` | ✅ Oui | ✅ Plus naturel |
+
+---
+
+## 🎯 **Conclusion**
+L'approche avec **décorateurs** est **plus intuitive et propre** car elle permet d'utiliser des **attributs protégés** tout en gardant une **syntaxe fluide** pour l'utilisateur final. 🚀
+
+
