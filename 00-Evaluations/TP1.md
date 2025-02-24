@@ -20,7 +20,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
 | `__code_postal` | **Privé**  | Code postal, accessible uniquement via getter et setter (ex: "10001") |
 
 ### **Méthodes à implémenter**
-1. **Encapsulation (10 points)**
+1. **Encapsulation (5 points)**
    - Implémenter un **getter** `get_code_postal()` qui renvoie le code postal.
    - Implémenter un **setter** `set_code_postal(nouveau_code)` qui modifie le code postal uniquement si la valeur est valide.
 
@@ -29,7 +29,9 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
      ```
      Manhattan, New York - 10001
      ```
-
+3. **Code final(5 points)**
+- Donnez le code final de la classe Adresse.
+  
 ---
 
 ## **2. Classe Chercheur (20 points)**  
@@ -41,7 +43,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
 | `__num_ordinateur` | **Privé**  | Numéro d’ordinateur du chercheur, accessible uniquement via getter et setter (ex: "PC001") |
 
 ### **Méthodes à implémenter**
-1. **Encapsulation (10 points)**
+1. **Encapsulation (5 points)**
    - Implémenter un **getter** `get_num_ordinateur()` qui renvoie le numéro d’ordinateur.
    - Implémenter un **setter** `set_num_ordinateur(nouveau_num)` qui modifie le numéro d’ordinateur uniquement si la valeur est valide.
 
@@ -51,9 +53,14 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
      Dr. Smith, Professeur, PC001
      ```
 
+3. **Code final(5 points)**
+- Donnez le code final de la classe Chercheur.
+
+  
 3. **Héritage (5 points)**
    - Implémentez une classe `Professeur` qui hérite de `Chercheur` et ajoute un attribut privé `__specialite` (ex: "Intelligence Artificielle").  
    - Implémentez les getters et setters correspondants.
+   - Donnez le code final de la classe Professeur.
 
 ---
 
@@ -67,7 +74,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
 | `MAX_CHERCHEURS` | **Attribut de classe** | Nombre maximal de chercheurs par bureau (5) |
 
 ### **Méthodes à implémenter**
-1. **Gestion des chercheurs (10 points)**
+1. **Gestion des chercheurs (5 points)**
    - Implémentez `ajouter_chercheur(chercheur)` qui ajoute un chercheur si la limite `MAX_CHERCHEURS` n’est pas atteinte.
    - Affichez un message d’erreur si le bureau est plein.
 
@@ -75,7 +82,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
    - La liste `__chercheurs` est privée.  
    - Implémentez une méthode `get_chercheurs()` pour obtenir la liste.
 
-3. **Affichage (10 points)**
+3. **Affichage (5 points)**
    - Implémentez `afficher_bureau()` qui retourne :  
      ```
      Bureau Machine Learning (B001):
@@ -83,6 +90,9 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
      Dr. Johnson, Chercheur, PC002
      ```
 
+4. **Code final(10 points)**
+- Donnez le code final de la classe Bureau.
+  
 ---
 
 ## **4. Classe Laboratoire (25 points)**  
@@ -96,7 +106,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
 | `MAX_BUREAUX` | **Attribut de classe** | Nombre maximal de bureaux par laboratoire (50) |
 
 ### **Méthodes à implémenter**
-1. **Gestion des bureaux (10 points)**
+1. **Gestion des bureaux (5 points)**
    - Implémentez `ajouter_bureau(bureau)` qui ajoute un bureau si la limite `MAX_BUREAUX` n’est pas atteinte.
    - Affichez un message d’erreur si le laboratoire est plein.
 
@@ -104,7 +114,7 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
    - La liste `__bureaux` est privée.  
    - Implémentez une méthode `get_bureaux()` pour obtenir la liste.
 
-3. **Affichage (10 points)**
+3. **Affichage (5 points)**
    - Implémentez `afficher_laboratoire()` qui retourne :  
      ```
      NY Tech Lab - Intelligence Artificielle
@@ -115,6 +125,9 @@ Ce TP est **noté sur 100 points** et doit être structuré de manière claire e
      Dr. Johnson, Chercheur, PC002
      ```
 
+4. **Code final(10 points)**
+- Donnez le code final de la classe Laboratoire.
+  
 ---
 
 ## **5. Mise en Œuvre et Résultat Final (15 points)**  
