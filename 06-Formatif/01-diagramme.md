@@ -1,4 +1,4 @@
-### ** Diagramme**
+### **Diagramme**
 ```
                              +--------------------+
                              |     Adresse        |
