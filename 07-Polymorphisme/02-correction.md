@@ -65,10 +65,34 @@ class Chien(Animal):
     def __str__(self):
         return f"Chien: {self.nom}, {self.age} ans"
 
+animal = Animal("Animal", 1)
+print (animal)
 chien = Chien("Rex", 4)
 print(chien)  # Affiche : Chien: Rex, 4 ans
 ```
 ✅ **Correction appliquée** : La méthode `__str__()` retourne maintenant un affichage formaté correctement.
+
+
+## Variante 2 - Méthode de Yoan
+
+```python
+class Animal:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+    def __str__(self):
+        return f"{self.__class__.__name__}: {self.nom}, {self.age} ans"
+
+class Chien(Animal):
+    def parler(self):
+        return "Ouaf ! Ouaf !"
+
+animal = Animal("Animal", 1)
+chien = Chien("Rex", 4)
+print (animal)
+print(chien)  # Affiche : Chien: Rex, 4 ans
+```
 
 ---
 
