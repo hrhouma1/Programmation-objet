@@ -169,3 +169,108 @@ L’utilisation de `self.__class__.__name__` permet d’adapter automatiquement 
 
 
 
+---
+# Annexe 2 
+---
+
+
+En Python, les attributs spéciaux entourés de **double underscore** (`__`) sont souvent des **méthodes ou attributs docusculaires** qui ont une signification particulière.
+
+---
+
+## **Différence entre `__class__` et `__name__`**
+
+### **1. `__class__`**
+- `__class__` est un attribut qui permet de connaître la **classe** d’une instance.
+- Il donne accès à la classe de l'objet.
+
+📌 **Exemple :**
+```python
+class Animal:
+    pass
+
+a = Animal()
+print(a.__class__)  # Affiche : <class '__main__.Animal'>
+```
+➡ Ici, `a.__class__` renvoie **la classe `Animal`** dont l’objet `a` est une instance.
+
+📌 **Autre exemple :**
+```python
+print("hello".__class__)  # Affiche : <class 'str'>
+print(42.__class__)       # Affiche : <class 'int'>
+print([1, 2, 3].__class__) # Affiche : <class 'list'>
+```
+➡ Peu importe le type de l’objet, `. __class__` retourne sa classe.
+
+---
+
+### **2. `__name__`**
+Il y a deux cas d’utilisation de `__name__` :
+
+#### **A. `__class__.__name__` : obtenir le nom d’une classe**
+Si on veut **uniquement le nom de la classe** d’un objet, on utilise `__class__.__name__` :
+```python
+class Chien:
+    pass
+
+rex = Chien()
+print(rex.__class__.__name__)  # Affiche : Chien
+```
+➡ `rex.__class__` renvoie `<class '__main__.Chien'>`, et `rex.__class__.__name__` extrait juste `"Chien"`.
+
+#### **B. `__name__` pour les modules**
+Dans un script Python, `__name__` est une variable spéciale qui indique **le nom du module** en cours d'exécution.
+
+📌 **Exemple dans un fichier Python (`mon_script.py`)** :
+```python
+print(__name__)
+```
+Si vous exécutez ce fichier directement (`python mon_script.py`), il affichera :
+```
+__main__
+```
+➡ Cela signifie que le fichier est **exécuté directement**.
+
+Si vous importez ce fichier dans un autre script :
+```python
+import mon_script
+```
+Alors `print(__name__)` affichera :
+```
+mon_script
+```
+➡ Cela signifie que `mon_script.py` a été **importé comme module**.
+
+C'est pourquoi on trouve souvent cette condition dans les scripts Python :
+```python
+if __name__ == "__main__":
+    print("Ce fichier est exécuté directement")
+```
+➡ Cela permet d’exécuter du code **seulement si le fichier est exécuté directement**, et pas lorsqu’il est importé dans un autre fichier.
+
+---
+
+## **Résumé des différences**
+| Attribut         | Description |
+|-----------------|------------|
+| `__class__` | Retourne la **classe** d’un objet (`obj.__class__`) |
+| `__class__.__name__` | Retourne **le nom** de la classe sous forme de chaîne (`"str"`, `"int"`, `"Chien"`, etc.) |
+| `__name__` (module) | Retourne le **nom du module** (`"__main__"` si exécuté directement, sinon le nom du fichier si importé) |
+
+---
+
+## **Exemple combiné**
+```python
+class Voiture:
+    pass
+
+v = Voiture()
+
+print(v.__class__)  # <class '__main__.Voiture'>
+print(v.__class__.__name__)  # Voiture
+print(__name__)  # "__main__" si le script est exécuté directement
+```
+➡ Cela montre bien la distinction entre **classe, nom de classe et nom de module**.
+
+
+
