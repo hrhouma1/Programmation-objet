@@ -19,7 +19,7 @@
 ## **1. Introduction**
 Les cardinalités en UML définissent le nombre d’instances pouvant être impliquées dans une relation entre classes. Elles permettent d’exprimer les contraintes quantitatives d’une association, telles que le nombre minimum et maximum d’objets pouvant participer à la relation.
 
-Différents outils, documentations et langages utilisent des notations alternatives, ce qui peut prêter à confusion. Ce document est structuré pour être **accessible aux non-voyants**, avec une mise en forme adaptée aux lecteurs d’écran et une description textuelle précise des concepts.
+Différents outils, documentations et langages utilisent des notations alternatives, ce qui peut prêter à confusion. Ce document est structuré pour être **accessible**, avec une mise en forme adaptée aux lecteurs d’écran et une description textuelle précise des concepts.
 
 ---
 
