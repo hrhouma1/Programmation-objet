@@ -131,5 +131,3 @@ Ce tableau récapitule les principales relations UML et leurs notations.
 ## **4. Conclusion**
 Les relations UML permettent de structurer et de modéliser efficacement les interactions entre classes dans un système logiciel. Ce glossaire vous aidera à comprendre et appliquer correctement ces concepts dans vos diagrammes de classes.
 
-Si vous avez des questions ou souhaitez approfondir un aspect, n’hésitez pas à poser des questions en classe !
-
