@@ -6,7 +6,7 @@
 
 
 ---
-# Partie 2: Création de votre Propre Classe Abstraite en Python**  
+# Partie 2: Création de votre Propre Classe Abstraite en Python
 ---
 
 1. **Proposez une classe abstraite de votre choix** qui pourrait être utile pour modéliser un concept précis (par exemple : `InstrumentMusical`, `AppareilElectronique`, `MoyenDeTransport`, etc.).  
