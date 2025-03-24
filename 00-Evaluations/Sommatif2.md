@@ -2,7 +2,7 @@
 # Partie 1
 ---
 
-- https://forms.office.com/r/678Cm5UPAn
+- https://forms.office.com/r/4SjFRpJSfV
 
 
 ---
