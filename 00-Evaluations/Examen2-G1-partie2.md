@@ -1,7 +1,5 @@
 # **Examen 2 – Programmation Orientée Objet en Python**  
 **Date :** Lundi 31 avril  
-**Durée :** 1h30  
-**Documentation :** Interdite (sauf une feuille manuscrite recto verso)  
 **Barème total : 100 points**
 
 
