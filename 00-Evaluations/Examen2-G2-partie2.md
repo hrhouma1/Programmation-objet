@@ -1,4 +1,4 @@
-# **Examen 2 – Programmation Orientée Objet en Python – Groupe 2**  
+# **Examen 2 – Programmation Orientée Objet en Python**  
 **Date :** Lundi 31 avril  
 **Barème total : 100 points**
 
