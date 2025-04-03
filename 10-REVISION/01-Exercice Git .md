@@ -53,7 +53,7 @@ git commit -m "Résolution de conflit"
 
 
 
-##🗑️ Étape 5 : Suppression accidentelle
+## 🗑️ Étape 5 : Suppression accidentelle
 Supposez que quelqu’un supprime le fichier :
 ```bash
 rm note.txt
