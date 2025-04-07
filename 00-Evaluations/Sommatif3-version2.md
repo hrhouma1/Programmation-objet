@@ -154,7 +154,7 @@ Vous devez **reproduire parfaitement** l’historique Git ci-dessus, en créant 
 ## Contexte
 
 Vous travaillez dans un dépôt Git collaboratif. Le fichier `rapport.txt` contient des informations essentielles.  
-Deux branches (`main` et `amélioration`) ont été modifiées séparément, ce qui génère un **conflit lors de la fusion**.  
+Deux branches (`main` et `amelioration`) ont été modifiées séparément, ce qui génère un **conflit lors de la fusion**.  
 Vous devrez ensuite simuler la **suppression accidentelle du fichier**, puis le **récupérer correctement** à l’aide de Git.
 
 
