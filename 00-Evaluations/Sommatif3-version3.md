@@ -1,7 +1,7 @@
 # PARTIE 1 – Modélisation UML complète avec types de relations
 
-Modélisez le système suivant à l’aide d’un **diagramme de classes UML**.
-
+- Modélisez le système suivant à l’aide d’un **diagramme de classes UML**. (*Vous pouvez le faire sur une feuille ou en utilisant le site draw.io (https://app.diagrams.net/)*)
+- Vous pouvez m'envoyer un document word avec les imprime-écrans de votre digramme ou un fichier .png, .jpeg, etc...
 
 **Pour chaque relation**, vous devez préciser sa **nature exacte** :
 - **Association**
