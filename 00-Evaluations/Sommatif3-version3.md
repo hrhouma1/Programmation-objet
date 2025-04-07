@@ -22,6 +22,7 @@ Modélisez le système suivant à l’aide d’un **diagramme de classes UML**.
 10. Un **Hôpital** a un **nom**, une **adresse**, et une **capacité d’accueil**.
 
 *Travail demandé :*
+
 - Créez un **diagramme de classes UML clair et complet**.
 - **Indiquez clairement la nature de chaque relation** (association, agrégation, composition, héritage).
 
