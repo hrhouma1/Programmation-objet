@@ -1,4 +1,4 @@
-# PARTIE 1 – Modélisation UML complète (relations implicites)**
+# PARTIE 1 – Modélisation UML complète (relations implicites)
 
 Modélisez le système suivant à l’aide d’un **diagramme de classes UML** :
 
