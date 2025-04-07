@@ -2,6 +2,7 @@
 
 Modélisez le système suivant à l’aide d’un **diagramme de classes UML**.
 
+
 **Pour chaque relation**, vous devez préciser sa **nature exacte** :
 - **Association**
 - **Agrégation**
