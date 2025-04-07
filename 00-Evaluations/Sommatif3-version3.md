@@ -21,7 +21,7 @@ Modélisez le système suivant à l’aide d’un **diagramme de classes UML**.
 9. Un **Département** possède un **nom** et un **chef de service**.  
 10. Un **Hôpital** a un **nom**, une **adresse**, et une **capacité d’accueil**.
 
-Travail demandé :
+*Travail demandé :*
 - Créez un **diagramme de classes UML clair et complet**.
 - **Indiquez clairement la nature de chaque relation** (association, agrégation, composition, héritage).
 
