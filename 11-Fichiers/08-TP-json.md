@@ -11,6 +11,89 @@
 
 
 
+# Fichiers json
+
+
+
+###  `eleves.json`
+```json
+[
+  {
+    "nom": "Durand",
+    "prenom": "Marie",
+    "note": 14
+  },
+  {
+    "nom": "Martin",
+    "prenom": "Paul",
+    "note": 18
+  },
+  {
+    "nom": "Benoit",
+    "prenom": "Julie",
+    "note": 11
+  }
+]
+```
+
+
+
+###  `config.json`
+```json
+{
+  "serveur": "127.0.0.1",
+  "port": 8080,
+  "debug": true
+}
+```
+
+
+
+###  `produits.json`
+```json
+[
+  {
+    "id": 1,
+    "nom": "Stylo",
+    "prix": 2.5,
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "nom": "Cahier",
+    "prix": 3.0,
+    "stock": 0
+  },
+  {
+    "id": 3,
+    "nom": "Règle",
+    "prix": 1.5,
+    "stock": 25
+  }
+]
+```
+
+---
+
+###  `eleves_bis.json`
+```json
+[
+  {
+    "nom": "Robert",
+    "prenom": "Claire",
+    "note": 16
+  },
+  {
+    "nom": "Germain",
+    "prenom": "Luc",
+    "note": 13
+  }
+]
+```
+
+
+
+
 # Partie 1 : Lecture de fichiers JSON
 
 ### Exercice 1.1 : Lecture simple  
