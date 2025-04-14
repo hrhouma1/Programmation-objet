@@ -76,7 +76,7 @@ Voici le schéma de ce fichier CSV :
 |--------|---------|------------|
 | `eleves.csv` | `Nom,Prénom,Note`<br>`Martin,Julie,15` | Virgule `,` |
 | `produits.csv` | `ID;Nom;Prix`<br>`1;Stylo;2.5` | Point-virgule `;` |
-| `emplois.csv` | `Nom\tPoste\tSalaire`<br>`Tremblay\tAnalyste\t45000` | Tabulation `\t` |
+| `emplois.csv` | `Nom Poste Salaire`<br>`Tremblay Analyste 45000` | Tabulation `\t` |
 | `comptes.csv` | `Utilisateur|MotDePasse|Email`<br>`admin|1234|admin@mail.com` | Barre verticale `|` |
 | `regions.csv` | `Code Région:Nom Région`<br>`QC:Québec` | Deux-points `:` |
 
