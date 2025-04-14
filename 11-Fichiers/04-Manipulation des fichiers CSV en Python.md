@@ -246,6 +246,203 @@ plt.show()
 ```
 
 
+
+<br/>
+
+
+
+
+# 11. Manipulation de fichiers CSV avec `pandas`
+
+## 11.1. Introduction à `pandas`
+
+La bibliothèque `pandas` est l’une des plus utilisées en Python pour l’analyse et le traitement de données. Elle permet de lire, manipuler, trier, filtrer et exporter des données tabulaires de manière simple et efficace.
+
+Un fichier CSV peut être lu en une seule ligne avec `pandas`, grâce à la fonction `read_csv()`, et être manipulé sous forme de **DataFrame**, une structure de données en colonnes similaire à une feuille Excel.
+
+---
+
+## 11.2. Lecture d’un fichier CSV avec `pandas`
+
+### Exemple de base
+
+Fichier : `eleves.csv`
+
+Contenu :
+```
+Nom,Prénom,Note
+Martin,Julie,15
+Durand,Paul,12
+Lemoine,Sarah,18
+Petit,Marc,9
+```
+
+### Lecture avec `pandas`
+
+```python
+import pandas as pd
+
+df = pd.read_csv("files/eleves.csv")
+print(df)
+```
+
+---
+
+## 11.3. Opérations de base sur un DataFrame
+
+### Afficher les 5 premières lignes
+
+```python
+print(df.head())
+```
+
+### Accéder à une colonne
+
+```python
+print(df["Note"])
+```
+
+### Filtrer les élèves ayant une note ≥ 14
+
+```python
+print(df[df["Note"] >= 14])
+```
+
+---
+
+## 11.4. Trier les données
+
+### Trier les élèves par note décroissante
+
+```python
+df_trie = df.sort_values(by="Note", ascending=False)
+print(df_trie)
+```
+
+---
+
+## 11.5. Statistiques de base
+
+### Calcul de la moyenne des notes
+
+```python
+moyenne = df["Note"].mean()
+print(f"Moyenne générale : {moyenne}")
+```
+
+### Autres mesures utiles
+
+```python
+print("Note maximale :", df["Note"].max())
+print("Note minimale :", df["Note"].min())
+print("Écart type :", df["Note"].std())
+```
+
+---
+
+## 11.6. Création d’une nouvelle colonne
+
+### Exemple : Ajouter une colonne `Mention`
+
+Règles :
+
+- Note ≥ 16 : Très bien  
+- Note ≥ 14 : Bien  
+- Note ≥ 12 : Assez bien  
+- Note ≥ 10 : Passable  
+- Sinon : Insuffisant
+
+```python
+def mention(note):
+    if note >= 16:
+        return "Très bien"
+    elif note >= 14:
+        return "Bien"
+    elif note >= 12:
+        return "Assez bien"
+    elif note >= 10:
+        return "Passable"
+    else:
+        return "Insuffisant"
+
+df["Mention"] = df["Note"].apply(mention)
+print(df)
+```
+
+---
+
+## 11.7. Exporter un fichier CSV modifié
+
+### Sauvegarde du fichier `eleves_avec_mentions.csv`
+
+```python
+df.to_csv("files/eleves_avec_mentions.csv", index=False)
+```
+
+Le paramètre `index=False` permet de ne pas inclure la colonne d’index dans le fichier exporté.
+
+---
+
+## 11.8. Exercice guidé
+
+**Objectif** : Travailler sur le fichier `eleves.csv` à l’aide de `pandas`.
+
+### Étapes à suivre :
+
+1. Lire le fichier `eleves.csv`
+2. Afficher les lignes contenant une note strictement inférieure à 10
+3. Afficher les prénoms des élèves ayant obtenu exactement 20
+4. Ajouter une colonne `Mention` (cf. section 11.6)
+5. Trier les élèves par nom puis prénom
+6. Exporter le résultat dans `eleves_resultats.csv`
+
+### Correction proposée
+
+```python
+import pandas as pd
+
+df = pd.read_csv("files/eleves.csv")
+
+# Étape 2
+print(df[df["Note"] < 10])
+
+# Étape 3
+print(df[df["Note"] == 20]["Prénom"])
+
+# Étape 4
+def mention(note):
+    if note >= 16:
+        return "Très bien"
+    elif note >= 14:
+        return "Bien"
+    elif note >= 12:
+        return "Assez bien"
+    elif note >= 10:
+        return "Passable"
+    else:
+        return "Insuffisant"
+
+df["Mention"] = df["Note"].apply(mention)
+
+# Étape 5
+df = df.sort_values(by=["Nom", "Prénom"])
+
+# Étape 6
+df.to_csv("files/eleves_resultats.csv", index=False)
+```
+
+---
+
+## 11.9. Questions de compréhension
+
+1. Quelle fonction de `pandas` permet de lire un fichier CSV ?
+2. Quelle structure est renvoyée par `read_csv()` ?
+3. Quelle commande permet de filtrer les lignes d’un DataFrame ?
+4. Pourquoi utilise-t-on `apply()` pour créer une colonne conditionnelle ?
+5. Que signifie `index=False` dans la fonction `to_csv()` ?
+
+
+
 <br/> 
 
 # Annexes : Fichiers CSV utilisés
