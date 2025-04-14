@@ -260,6 +260,9 @@ La bibliothèque `pandas` est l’une des plus utilisées en Python pour l’ana
 
 Un fichier CSV peut être lu en une seule ligne avec `pandas`, grâce à la fonction `read_csv()`, et être manipulé sous forme de **DataFrame**, une structure de données en colonnes similaire à une feuille Excel.
 
+
+
+
 ---
 
 ## 11.2. Lecture d’un fichier CSV avec `pandas`
@@ -275,6 +278,12 @@ Martin,Julie,15
 Durand,Paul,12
 Lemoine,Sarah,18
 Petit,Marc,9
+```
+
+### Prérequis :
+
+```python
+!pip install pandas
 ```
 
 ### Lecture avec `pandas`
