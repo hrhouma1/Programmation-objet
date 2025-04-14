@@ -96,7 +96,7 @@ Voici le schéma de ce fichier CSV :
 4. `Utilisateur|MotDePasse|Email`  
    Séparateur : `________`
 
-5. `Nom\tPoste\tSalaire`  
+5. `Nom Poste Salaire`  
    Séparateur : `________`  
    *(indice : cette ligne vient d'un fichier avec tabulation)*
 
