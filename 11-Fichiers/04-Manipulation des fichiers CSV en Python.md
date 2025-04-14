@@ -524,10 +524,10 @@ ID;Nom;Prix
 
 ### 📁 `emplois.csv`
 ```
-Nom\tPoste\tSalaire
-Tremblay\tAnalyste\t45000
-Chartrand\tDéveloppeur\t55000
-Nguyen\tDesigner\t47000
+Nom Poste Salaire
+Tremblay   Analyste   45000
+Chartrand   Développeur   55000
+Nguyen   Designer   47000
 ```
 
 ---
