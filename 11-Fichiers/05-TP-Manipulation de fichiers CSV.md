@@ -46,7 +46,19 @@ Durand,Paul,12
 Nguyen,Minh,17
 ```
 
+
+## ✅ Correction Partie 1 – Lecture simple sans `csv`
+
+```python
+with open("files/eleves.csv", "r", encoding="utf-8") as f:
+    for ligne in f:
+        print(ligne.strip())
+```
+
+
+
 ---
+
 
 ## Partie 2 – Lecture avec `csv.reader`
 
@@ -66,6 +78,27 @@ Nguyen,Minh,17
 ['Nguyen', 'Minh', '17']
 ```
 
+
+
+
+
+## ✅ Correction Partie 2 – Lecture avec `csv.reader`
+
+```python
+import csv
+
+with open("files/eleves.csv", newline='', encoding="utf-8") as f:
+    lecteur = csv.reader(f)
+    for ligne in lecteur:
+        print(ligne)
+```
+
+
+
+
+
+
+
 ---
 
 ## Partie 3 – Lecture d’un fichier avec séparateur `;`
@@ -82,6 +115,23 @@ ID;Nom;Prix
 ### Instructions :
 1. Utiliser `csv.reader` avec `delimiter=';'`
 2. Afficher chaque ligne
+
+
+
+## ✅ Correction Partie 3 – Lecture avec séparateur `;`
+
+```python
+import csv
+
+with open("files/produits.csv", newline='', encoding="utf-8") as f:
+    lecteur = csv.reader(f, delimiter=';')
+    for ligne in lecteur:
+        print(ligne)
+```
+
+
+
+
 
 ---
 
@@ -100,6 +150,24 @@ Morin\tDéveloppeur\t52000
 ### Instructions :
 1. Utiliser `delimiter='\t'`
 2. Afficher les lignes
+
+
+
+
+## ✅ Correction Partie 4 – Lecture avec tabulation `\t`
+
+```python
+import csv
+
+with open("files/emplois.csv", newline='', encoding="utf-8") as f:
+    lecteur = csv.reader(f, delimiter='\t')
+    for ligne in lecteur:
+        print(ligne)
+```
+
+
+
+
 
 ---
 
@@ -126,6 +194,23 @@ L'utilisateur admin a l'email admin@mail.com
 L'utilisateur user1 a l'email user1@mail.com
 ```
 
+## ✅ Correction Partie 5 – Lecture avec `csv.DictReader`
+
+```python
+import csv
+
+with open("files/comptes.csv", newline='', encoding="utf-8") as f:
+    lecteur = csv.DictReader(f, delimiter='|')
+    for ligne in lecteur:
+        print(f"L'utilisateur {ligne['Utilisateur']} a l'email {ligne['Email']}")
+```
+
+
+
+
+
+
+
 ---
 
 ## Partie 6 – Écriture manuelle dans un fichier
@@ -141,6 +226,22 @@ Données à écrire :
 2. Utiliser `",".join(...)` pour assembler les éléments
 3. Vérifier le résultat
 
+
+## ✅ Correction Partie 6 – Écriture manuelle dans un fichier
+
+```python
+donnees = [["Nom", "Note"], ["Julie", 15], ["Paul", 12], ["Minh", 17]]
+
+with open("files/resultats.csv", "w", encoding="utf-8", newline='') as f:
+    for ligne in donnees:
+        ligne_str = [str(element) for element in ligne]
+        f.write(",".join(ligne_str) + "\n")
+```
+
+
+
+
+
 ---
 
 ## Partie 7 – Écriture avec `csv.writer`
@@ -150,6 +251,27 @@ Données à écrire :
 ### Instructions :
 1. Utiliser `csv.writer`
 2. Appeler `writerow()` pour chaque ligne
+
+
+
+
+
+
+
+## ✅ Correction Partie 7 – Écriture avec `csv.writer`
+
+```python
+import csv
+
+donnees = [["Nom", "Note"], ["Julie", 15], ["Paul", 12], ["Minh", 17]]
+
+with open("files/resultats.csv", "w", newline='', encoding="utf-8") as f:
+    writer = csv.writer(f, delimiter=',')
+    writer.writerows(donnees)
+```
+
+
+
 
 ---
 
@@ -165,6 +287,23 @@ Données à écrire :
    ```
 2. Utiliser le mode `append` (`"a"`)
 3. Afficher ensuite tout le fichier pour vérifier
+
+
+
+## ✅ Correction Partie 8 – Ajout de lignes à un fichier existant
+
+```python
+import csv
+
+with open("files/eleves.csv", "a", newline='', encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Lemoine", "Sarah", 18])
+    writer.writerow(["Lopez", "Carlos", 16])
+```
+
+
+
+
 
 ---
 
@@ -185,6 +324,37 @@ X,Y
 3. Convertir les valeurs en float
 4. Afficher un graphique avec `matplotlib.pyplot.scatter(x, y)`
 
+
+
+## ✅ Correction Partie 9 – Tracer des coordonnées
+
+```python
+import csv
+from matplotlib import pyplot as plt
+
+x = []
+y = []
+
+with open("files/coordonnees.csv", newline='', encoding="utf-8") as f:
+    lecteur = csv.reader(f)
+    next(lecteur)  # Ignorer l'entête
+    for ligne in lecteur:
+        x.append(float(ligne[0]))
+        y.append(float(ligne[1]))
+
+plt.scatter(x, y)
+plt.title("Coordonnées")
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.grid(True)
+plt.show()
+```
+
+
+
+
+   
+
 ---
 
 ## Partie 10 – Quiz de vérification
@@ -199,3 +369,12 @@ X,Y
    - `writer.writerows()` ?
 5. Comment lire correctement un fichier CSV avec des caractères accentués ?
 
+
+## ✅ Correction Partie 10 – Correction du quiz
+
+1. `emplois.csv` → Séparateur : tabulation `\t`  
+2. `newline=''` empêche l'ajout de lignes vides lors de l’écriture (important sous Windows).  
+3. `csv.DictReader` renvoie chaque ligne sous forme de dictionnaire avec les clés issues de l'entête.  
+4. - `writer.writerow()` écrit **une seule ligne**  
+   - `writer.writerows()` écrit **plusieurs lignes à la suite**  
+5. Utiliser `encoding="utf-8"` avec `open()`.
