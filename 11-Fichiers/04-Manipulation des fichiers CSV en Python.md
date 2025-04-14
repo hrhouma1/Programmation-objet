@@ -13,7 +13,7 @@ Grâce à leur format universel, les fichiers CSV sont un standard courant pour 
 
 ### 1.2. Exemple de fichier csv
 
-##### Contenu du fichier `employes.csv` :**
+##### Contenu du fichier `employes.csv` :
 
 ```
 ID,Nom,Service,DateEmbauche,Salaire
