@@ -1,0 +1,97 @@
+Lecture manuelle d’un fichier CSV en Python (sans la bibliothèque csv)
+======================================================================
+
+Objectif :
+----------
+Apprendre à ouvrir un fichier .csv, lire son contenu ligne par ligne,
+et afficher les données sans utiliser de bibliothèque externe.
+
+Contenu du fichier : eleves.csv
+-------------------------------
+Nom,Prénom,Note
+Martin,Julie,15
+Durand,Paul,12
+
+Chaque ligne contient :
+- Le nom de l'élève
+- Son prénom
+- Sa note
+
+Les éléments sont séparés par des virgules.
+
+Étapes à suivre pour exécuter ce programme :
+============================================
+
+1. Ouvrir l’invite de commandes Windows (cmd) :
+   --------------------------------------------
+   - Appuyer sur la touche Windows de votre clavier.
+   - Taper "cmd" (sans les guillemets).
+   - Appuyer sur Entrée pour ouvrir l’invite de commandes.
+
+2. Créer un dossier de travail :
+   -----------------------------
+   - Dans la console cmd, tapez :
+     mkdir mon_projet_csv
+     puis appuyez sur Entrée.
+   - Ensuite, tapez :
+     cd mon_projet_csv
+     et appuyez sur Entrée pour entrer dans le dossier.
+
+3. Créer le fichier "eleves.csv" :
+   -------------------------------
+   - Tapez la commande suivante :
+     notepad eleves.csv
+   - Appuyez sur Entrée.
+   - Quand Notepad s’ouvre, copiez-collez le texte suivant :
+     Nom,Prénom,Note
+     Martin,Julie,15
+     Durand,Paul,12
+   - Enregistrez et fermez Notepad (Ctrl + S, puis Alt + F4).
+
+4. Créer le fichier Python :
+   -------------------------
+   - Tapez :
+     notepad lire_csv.py
+   - Appuyez sur Entrée.
+   - Dans Notepad, copiez-collez ce code :
+
+     with open("eleves.csv", "r", encoding="utf-8") as f:
+         for ligne in f:
+             print(ligne.strip())
+
+   - Enregistrez (Ctrl + S) puis fermez Notepad (Alt + F4).
+
+5. Exécuter le fichier Python :
+   ----------------------------
+   - Toujours dans le même dossier cmd, tapez :
+     python lire_csv.py
+   - Appuyez sur Entrée.
+   - Vous verrez s’afficher :
+
+     Nom,Prénom,Note
+     Martin,Julie,15
+     Durand,Paul,12
+
+IMPORTANT :
+-----------
+- Assurez-vous que Python est bien installé sur votre machine.
+- Pour vérifier, tapez :
+  python --version
+  et appuyez sur Entrée.
+- Si un numéro de version s’affiche (par exemple Python 3.10.5), c’est bon.
+- Sinon, il faudra d’abord installer Python depuis le site officiel : https://www.python.org/
+
+Variante avec séparation des champs :
+-------------------------------------
+Remplacez le contenu de "lire_csv.py" par ce code :
+
+with open("eleves.csv", "r", encoding="utf-8") as f:
+    for ligne in f:
+        elements = ligne.strip().split(",")
+        print(f"Nom : {elements[0]}, Prénom : {elements[1]}, Note : {elements[2]}")
+
+Résultat :
+----------
+Nom : Nom, Prénom : Prénom, Note : Note
+Nom : Martin, Prénom : Julie, Note : 15
+Nom : Durand, Prénom : Paul, Note : 12
