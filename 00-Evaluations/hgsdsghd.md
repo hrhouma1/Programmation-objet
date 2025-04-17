@@ -32,13 +32,12 @@
 
 Complétez les commandes suivantes exactement :
 
-```bash
-Commande 1 : _______________________________________ # 
-Commande 2 : _______________________________________ # 
-Commande 3 : _______________________________________ #
-Commande 4 : _______________________________________ # 
-Commande 5 : _______________________________________ # 
-Commande 6 : _______________________________________ # 
+
+➤ Vos commandes Git: 
+
+```python
+# Écrire ici vos commandes Git :
+................................................................................
 ```
 
 
@@ -112,13 +111,19 @@ Jour 20 : Conclusion et révision
 - Fichier modifié : `data/journal.txt`
 
 - Réécrivez les mêmes lignes précédentes avec `with open()`.  
-- Ajoutez ensuite une ligne en mode `"a"` : `Jour 4 : Boucles`
+- Ajoutez ensuite une ligne en mode `"a"` : `Jour 21 : Examen 1`
+
+
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
 
 ```python
-# Écrire ici le script Python :
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
 ```
 
-**Commandes Git à effectuer** (complètes comme en 1.1)
+
 
 
 <br/>
@@ -137,18 +142,24 @@ Ligne 1 : Jour 1 : Introduction
 Ligne 2 : Jour 2 : Variables
 Ligne 3 : Jour 3 : Conditions
 Ligne 4 : Jour 4 : Boucles
+....
 ```
+
+
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
 
 ```python
-# Écrire ici le script Python :
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
 ```
 
-**Commandes Git à effectuer** (complètes comme précédemment)
 
 
 <br/>
 
-## 2. FICHIERS CSV (.csv)
+# 2. FICHIERS CSV (.csv)
 
 ### 2.1 Création CSV avec `csv.writer()`
 
@@ -165,13 +176,19 @@ Nom,Note
 Alice,90
 Bob,72
 Chloe,88
+...
+
 ```
+
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
 
 ```python
-# Écrire ici le script Python :
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
 ```
 
-**Commandes Git à effectuer** (complètes)
 
 
 <br/>
@@ -185,11 +202,15 @@ Chloe,88
 
 - Lisez et affichez simplement le contenu du fichier CSV comme texte brut avec `open()`.
 
-```python
-# Écrire ici le script Python :
-```
 
-**Commandes Git à effectuer** (complètes)
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
+
+```python
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
+```
 
 
 <br/>
@@ -209,11 +230,15 @@ Bob a obtenu 72
 Chloe a obtenu 88
 ```
 
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
+
 ```python
-# Écrire ici le script Python :
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
 ```
 
-**Commandes Git à effectuer** (complètes)
 
 
 <br/>
@@ -229,12 +254,22 @@ Chloe a obtenu 88
 - Fusionnez ces deux branches dans `main` pour provoquer un conflit.  
   Résolvez le conflit manuellement et expliquez votre résolution dans `analyse.txt`.
 
-**Commandes Git à effectuer précisément :** `branch`, `checkout`, `add`, `commit`, `checkout main`, `merge`, résoudre conflit, `branch -d`
+**Commandes Git à effectuer :** `branch`, `checkout`, `add`, `commit`, `checkout main`, `merge`, résoudre conflit, `branch -d`
+
+
+
+➤ Votre réponse
+
+
+```python
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
+```
 
 
 <br/>
 
-## 3. FICHIERS JSON (.json)
+# 3. FICHIERS JSON (.json)
 
 ### 3.1 Création JSON
 
@@ -257,6 +292,16 @@ Créez exactement :
 **Commandes Git à effectuer** (complètes)
 
 
+➤ Vos Commandes Git à effectuer :
+
+
+```python
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
+```
+
+
+
 <br/>
 
 ### 3.2 Conflit Git volontaire JSON à créer
@@ -271,7 +316,7 @@ Créez exactement :
 
 <br/>
 
-## 4. FICHIERS NUMPY (.csv avec numpy)
+# 4. FICHIERS NUMPY (.csv avec numpy)
 
 ### 4.1 Sauvegarde tableau NumPy
 
@@ -294,6 +339,17 @@ Créez exactement :
 - Script : `scripts/load_analyse_numpy.py`
 
 - Chargez `fibonacci.csv`, puis affichez la moyenne, le minimum, le maximum.
+
+
+
+➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
+
+```python
+# Écrire ici le script Python et les commandes Git dans l'ordre :
+................................................................................
+```
+
 
 
 <br/>
@@ -330,11 +386,31 @@ Copiez le résultat exact dans l'espace suivant :
 
 ## 7. LIVRABLES À FOURNIR EXACTEMENT
 
-- Dossier complet du projet (`tp_fichiers_git.zip`) avec dossier `.git`.
-- Dossiers complets : `scripts/`, `data/`.
-- Fichier `git_commands.txt` complet.
-- Fichier `analyse.txt` intégralement rempli.
 
+D'accord. Voici la version concise du livrable à remettre :
+
+---
+
+## RAPPORT À REMETTRE
+
+Remettez **un seul fichier** nommé :
+
+```
+tp_fichiers_NOM_PRENOM.docx  (ou .pdf, .txt ou .py)
+```
+
+Le rapport doit contenir :
+
+- Le **code Python complet** pour chaque étape (copié dans le document)  
+- Les **commandes Git** associées à chaque script (branch, checkout, add, commit, merge, branch -d)  
+- Les **résolutions de conflits Git**, avec explication claire  
+- Les **réponses aux questions finales**  
+- Le **résultat complet de** :  
+  ```
+  git log --oneline --graph
+  ```  
+
+Aucun `.zip` ou dossier séparé n’est accepté. Le code et les commandes doivent être intégrés dans ce seul fichier.
 
 
 **Vérifiez soigneusement chaque étape avant remise du TP.**
