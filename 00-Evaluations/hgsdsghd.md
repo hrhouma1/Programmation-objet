@@ -403,7 +403,7 @@ Mobiliser vos compétences sur :
 
 ###  7.2. CONTEXTE DU SCÉNARIO :
 
-Vous travaillez sur un fichier de résultats `data/reponses.csv`, contenant les réponses à un questionnaire de satisfaction.  
+Vous travaillez sur un fichier de résultats `data/reponses.csv`, contenant les réponses à un questionnaire de satisfaction. 
 Il est structuré comme suit :
 
 ```
@@ -415,7 +415,9 @@ Smith,John,3
 ...
 ```
 
-Le fichier contient **20 lignes de réponses valides**. Il a été **commité dans `main`** au début du projet.
+- Le fichier contient **20 lignes de réponses valides**. 
+- Le fichier complet peut être copié de l'annexe ci-bas (fichier responses.csv)
+- Il a été **commité dans `main`** au début du projet.
 
 Un autre fichier `data/meta.json` contient les métadonnées associées :
 
@@ -576,7 +578,7 @@ Aucun `.zip` ou dossier séparé n’est accepté. Le code et les commandes doiv
 
 <br/>
 
-# Annexe : Fichiers
+# Annexe : Fichiers à utiliser dans le TP
 
 
 ### `data/journal.txt`
@@ -628,5 +630,36 @@ Chloe,88
     {"nom": "Stylo", "prix": 2.0}
   ]
 }
+```
+
+
+
+
+### `data/responses.csv`
+
+
+```
+Nom,Prénom,Note
+Garcia,Ana,4
+Dubois,Jean,5
+Nguyen,Linh,4
+Smith,John,3
+Tremblay,Marie,2
+Zhao,Yan,1
+Roy,Éric,4
+Mendes,Carlos,5
+Bouchard,Laurie,5
+Khan,Imran,3
+Ouellet,Lucie,4
+Kim,Min,2
+Martin,Chloé,1
+Benoit,Paul,2
+Bergeron,Julie,3
+Côté,Alex,5
+Lavoie,Noémie,5
+Ahmed,Yasmin,4
+Gagnon,Sylvain,3
+Lemay,Maude,2
+
 ```
 
