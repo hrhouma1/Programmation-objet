@@ -354,7 +354,7 @@ Créez exactement :
 
 <br/>
 
-## 5. QUESTIONS FINALES (`analyse.txt` à compléter précisément)
+# 5. QUESTIONS FINALES (`analyse.txt` à compléter précisément)
 
 1. Pourquoi est-il conseillé d'utiliser `with open()` plutôt que `open()/close()` ?
 Réponse : ______________________________________________________
@@ -368,7 +368,7 @@ Réponse : ______________________________________________________
 
 <br/>
 
-## 6. VÉRIFICATION FINALE
+# 6. VÉRIFICATION FINALE
 
 Exécutez cette commande exactement dans votre dépôt à la fin du TP :
 
@@ -384,12 +384,167 @@ Copiez le résultat exact dans l'espace suivant :
 
 <br/>
 
-## 7. LIVRABLES À FOURNIR EXACTEMENT
 
 
-D'accord. Voici la version concise du livrable à remettre :
+# 7. QUESTION FINALE – SCÉNARIO RÉALISTE AVEC DONNÉES COMPLEXES 
 
----
+###  7.1. Objectif pédagogique
+
+Mobiliser vos compétences sur :
+- Lecture et filtrage de données CSV avec en-tête  
+- Traitement de données numériques avec NumPy  
+- Commandes Git avancées : suppression, restauration, historique, résolution de conflit  
+- Automatisation d’une analyse avec génération conditionnelle d’un fichier JSON
+
+<br/>
+
+###  7.2. CONTEXTE DU SCÉNARIO :
+
+Vous travaillez sur un fichier de résultats `data/reponses.csv`, contenant les réponses à un questionnaire de satisfaction.  
+Il est structuré comme suit :
+
+```
+Nom,Prénom,Note
+Garcia,Ana,4
+Dubois,Jean,5
+Nguyen,Linh,4
+Smith,John,3
+...
+```
+
+Le fichier contient **20 lignes de réponses valides**. Il a été **commité dans `main`** au début du projet.
+
+Un autre fichier `data/meta.json` contient les métadonnées associées :
+
+```json
+{
+  "questionnaire": "Évaluation du cours",
+  "type": "satisfaction",
+  "nb_repondants": 20
+}
+```
+
+
+
+### 7.3. ÉTAPE 1 – Suppression accidentelle d’un fichier critique
+
+1. À partir de `main`, créez la branche `analyse-1`.
+2. Dans cette branche, **supprimez** le fichier `data/reponses.csv` :
+```bash
+rm data/reponses.csv
+git rm data/reponses.csv
+git commit -m "Suppression accidentelle du fichier de réponses"
+```
+
+
+
+### 7.4. ÉTAPE 2 – Échec d’analyse dans une autre branche
+
+1. Revenez dans `main`, puis créez la branche `analyse-2`.
+2. Dans cette branche, vous tentez de faire une analyse avec ce script :
+
+```python
+import numpy as np
+
+data = np.loadtxt("data/reponses.csv", delimiter=",", skiprows=1, usecols=2)
+```
+
+Cela génère une **erreur**, car le fichier a été supprimé dans l’autre branche.
+
+
+
+### 7.5. ÉTAPE 3 – Restauration correcte avec Git
+
+1. **Identifiez le commit** dans lequel le fichier existait encore (`git log`, `git checkout`, etc.).
+2. **Restaurez** le fichier supprimé dans la branche `analyse-2`, sans le recréer manuellement :
+```bash
+git checkout main data/reponses.csv
+```
+3. Commitez cette récupération :
+```bash
+git add data/reponses.csv
+git commit -m "Restauration du fichier supprimé depuis l’historique"
+```
+
+
+
+### 7.6. ÉTAPE 4 – Script d’analyse avancée
+
+Créez le fichier suivant :  
+`scripts/analyse_satisfaction.py`
+
+Il doit :
+- Lire la colonne `Note` du fichier CSV (`usecols=2`)
+- Calculer :
+  - Moyenne des notes
+  - Médiane
+  - Pourcentage de notes supérieures ou égales à 4
+- Afficher les résultats sous forme lisible
+- Si la moyenne est inférieure à 3.0, **générer automatiquement un fichier `data/alerte.json`** :
+
+```json
+{
+  "alerte": true,
+  "moyenne": 2.6,
+  "seuil": 3.0,
+  "message": "Satisfaction étudiante anormalement basse"
+}
+```
+
+Sinon, **ne rien créer**.
+
+
+
+### 7.7. À REMPLIR DANS VOTRE RAPPORT
+
+1. Script complet `scripts/analyse_satisfaction.py` :
+
+```python
+# Script Python :
+................................................................................
+```
+
+2. Liste complète des commandes Git utilisées (suppression, checkout, restauration, commit, etc.) :
+
+```bash
+# Commandes Git :
+................................................................................
+```
+
+3. Contenu final du fichier `data/reponses.csv` (après restauration) :
+
+```
+# Contenu CSV :
+................................................................................
+```
+
+4. Si généré, collez le contenu de `data/alerte.json` :
+
+```json
+# JSON :
+................................................................................
+```
+
+
+
+### Rappels importants :
+
+- Ne modifiez jamais manuellement les fichiers supprimés : utilisez Git.
+- `np.loadtxt()` ou `np.genfromtxt()` peuvent tous deux être utilisés.
+- N’oubliez pas `skip_header=1` si vous avez une ligne d’en-tête.
+- Si vous utilisez `csv.reader`, veillez à convertir les notes en `int` ou `float`.
+
+
+
+
+
+
+<br/>
+
+# 8. LIVRABLES À FOURNIR EXACTEMENT
+
+
+
 
 ## RAPPORT À REMETTRE
 
@@ -416,14 +571,9 @@ Aucun `.zip` ou dossier séparé n’est accepté. Le code et les commandes doiv
 **Vérifiez soigneusement chaque étape avant remise du TP.**
 
 
-
+<br/>
 
 # Annexe : Fichiers
-
-
-
-
-<br/>
 
 
 ### `data/journal.txt`
