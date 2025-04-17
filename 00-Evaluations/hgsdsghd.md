@@ -414,3 +414,66 @@ Aucun `.zip` ou dossier séparé n’est accepté. Le code et les commandes doiv
 
 
 **Vérifiez soigneusement chaque étape avant remise du TP.**
+
+
+
+
+# Annexe : Fichiers
+
+
+
+
+<br/>
+
+
+### `data/journal.txt`
+
+```
+Jour 1 : Introduction
+Jour 2 : Variables
+Jour 3 : Conditions
+Jour 4 : Boucles
+Jour 5 : Fonctions
+Jour 6 : Listes
+Jour 7 : Dictionnaires
+Jour 8 : Tuples
+Jour 9 : Ensembles
+Jour 10 : Manipulation de fichiers texte
+Jour 11 : Manipulation de fichiers CSV
+Jour 12 : Manipulation de fichiers JSON
+Jour 13 : NumPy - Sauvegarde de tableaux
+Jour 14 : NumPy - Chargement de tableaux
+Jour 15 : Graphiques avec matplotlib
+Jour 16 : Résolution d'erreurs JSON
+Jour 17 : Gestion des exceptions en Python
+Jour 18 : Écriture avancée avec format()
+Jour 19 : Encodage de fichiers texte
+Jour 20 : Conclusion et révision
+```
+
+
+<br/>
+
+
+### `data/notes.csv`
+
+```
+Nom,Note
+Alice,90
+Bob,72
+Chloe,88
+```
+
+<br/>
+
+### `data/produits.json`
+
+```json
+{
+  "produits": [
+    {"nom": "Clé USB", "prix": 12.5},
+    {"nom": "Stylo", "prix": 2.0}
+  ]
+}
+```
+
