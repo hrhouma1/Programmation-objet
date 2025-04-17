@@ -417,7 +417,7 @@ Smith,John,3
 
 - Le fichier contient **20 lignes de réponses valides**. 
 - Le fichier complet peut être copié de l'annexe ci-bas (fichier responses.csv)
-- Il a été **commité dans `main`** au début du projet.
+- Il doit être **commité dans `main`** au début du projet.
 
 Un autre fichier `data/meta.json` contient les métadonnées associées :
 
