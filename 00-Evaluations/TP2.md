@@ -92,7 +92,7 @@ Jour 20 : Conclusion et révision
 
 
 
-**Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+*Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ➤ Vos commandes Git: 
