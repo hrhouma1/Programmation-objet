@@ -78,10 +78,10 @@ Jour 19 : Encodage de fichiers texte
 Jour 20 : Conclusion et révision
 ```
 
-```python
-# Écrire ici le script Python :
-```
-Votre script python : 
+
+
+
+➤ Votre script python : 
 
 
 ```python
@@ -93,6 +93,8 @@ Votre script python :
 
 **Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
+
+➤ Vos commandes Git: 
 
 ```python
 # Écrire ici vos commandes Git :
