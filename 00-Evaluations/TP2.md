@@ -1,6 +1,5 @@
 # TRAVAIL PRATIQUE – MANIPULATION DE FICHIERS ET GESTION AVEC GIT  
-
-**Durée** : 3 semaines  
+ 
 **Nom de l'étudiant** : _______________________________ Groupe : ___________  
 
 
