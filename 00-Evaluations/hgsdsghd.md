@@ -26,7 +26,10 @@
 
 <br/>
 
-## 0. INITIALISATION DU PROJET
+
+## 1. Travailler avec des fichiers TEXTE (.txt)
+
+# 1.1. INITIALISATION DU PROJET
 
 **Emplacement :** à la racine de votre espace de travail.
 
@@ -43,9 +46,9 @@ Complétez les commandes suivantes exactement :
 
 <br/>
 
-## 1. FICHIERS TEXTE (.txt)
 
-### 1.1 Écriture sans utiliser `with open()`  
+
+### 1.2 Écriture sans utiliser `with open()`  
 
 **Branche Git à créer :** `txt-sans-with`
 
@@ -102,7 +105,7 @@ Jour 20 : Conclusion et révision
 
 <br/>
 
-### 1.2 Réécriture avec utilisation de `with open()`
+### 1.3 Réécriture avec utilisation de `with open()`
 
 **Branche Git à créer :** `txt-avec-with`
 
@@ -128,7 +131,7 @@ Jour 20 : Conclusion et révision
 
 <br/>
 
-### 1.3 Lecture numérotée du fichier texte
+### 1.4 Lecture numérotée du fichier texte
 
 **Branche Git à créer :** `txt-lecture`
 
