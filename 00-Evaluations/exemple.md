@@ -1,6 +1,6 @@
-# TRAVAIL PRATIQUE – MANIPULATION DE FICHIERS ET GESTION AVEC GIT  
-**Nom de l'étudiant :** [ex: Jean Dupont]  
-**Groupe :** [ex: 401-1A]
+##  TRAVAIL PRATIQUE – MANIPULATION DE FICHIERS ET GESTION AVEC GIT  
+**Nom de l'étudiant :** Jean Dupont  
+**Groupe :** 401-1A
 
 
 
@@ -8,35 +8,35 @@
 
 #### ➤ **Vos commandes Git :**
 ```bash
-# Créer un dossier pour le projet
+# Étape 1 : Créer un dossier de travail
 mkdir tp_fichiers_git
 cd tp_fichiers_git
 
-# Initialiser le dépôt Git
+# Étape 2 : Initialiser le dépôt Git
 git init
 
-# Créer les dossiers nécessaires
+# Étape 3 : Créer les répertoires pour les scripts et les données
 mkdir scripts
 mkdir data
 
-# Ajouter un fichier README de base
+# Étape 4 : Créer un fichier README
 echo "# TP FICHIERS ET GIT" > README.md
 
-# Ajouter le fichier à l’index Git
+# Étape 5 : Ajouter et valider le fichier README
 git add README.md
-git commit -m "Initialisation du projet avec README"
+git commit -m "Initialisation du projet avec README.md"
 
-# Enregistrer cette commande dans le fichier de log
-echo "git init" >> git_commands.txt
+# Étape 6 : Enregistrer dans le log de commandes
+echo "git init" > git_commands.txt
 echo "git add README.md" >> git_commands.txt
-echo "git commit -m \"Initialisation du projet avec README\"" >> git_commands.txt
+echo "git commit -m \"Initialisation du projet avec README.md\"" >> git_commands.txt
 ```
 
 
 
 # 1.2 Écriture sans utiliser with open()
 
-#### ➤ **Script Python (scripts/ecriture_sans_with.py) :**
+#### ➤ **Script Python à créer :** `scripts/ecriture_sans_with.py`
 
 ```python
 # scripts/ecriture_sans_with.py
@@ -68,40 +68,87 @@ fichier.close()
 ```
 
 
-# ➤ **Commandes Git à effectuer :**
+
+# Étape intermédiaire : Exécution et vérification
+
+#### ➤ **Exécuter le script :**
 ```bash
-# Créer et se placer sur la branche
+python scripts/ecriture_sans_with.py
+```
+
+#### ➤ **Vérifier le contenu généré :**
+```bash
+cat data/journal.txt
+```
+
+#### ➤ **Contenu attendu dans journal.txt :**
+```
+Jour 1 : Introduction
+Jour 2 : Variables
+Jour 3 : Conditions
+Jour 4 : Boucles
+Jour 5 : Fonctions
+Jour 6 : Listes
+Jour 7 : Dictionnaires
+Jour 8 : Tuples
+Jour 9 : Ensembles
+Jour 10 : Manipulation de fichiers texte
+Jour 11 : Manipulation de fichiers CSV
+Jour 12 : Manipulation de fichiers JSON
+Jour 13 : NumPy - Sauvegarde de tableaux
+Jour 14 : NumPy - Chargement de tableaux
+Jour 15 : Graphiques avec matplotlib
+Jour 16 : Résolution d'erreurs JSON
+Jour 17 : Gestion des exceptions en Python
+Jour 18 : Écriture avancée avec format()
+Jour 19 : Encodage de fichiers texte
+Jour 20 : Conclusion et révision
+```
+
+
+
+# Commandes Git à effectuer :
+
+```bash
+# Étape 1 : Créer et basculer sur une nouvelle branche
 git branch txt-sans-with
 git checkout txt-sans-with
 
-# Ajouter le script et le fichier de données généré
+# Étape 2 : Ajouter le script Python et le fichier de données
 git add scripts/ecriture_sans_with.py
 git add data/journal.txt
 
-# Commit clair
-git commit -m "Ajout du script d'écriture sans with open() et génération de journal.txt"
+# Étape 3 : Commit clair et descriptif
+git commit -m "Ajout script sans with open() + génération de journal.txt"
 
-# Revenir sur main
+# Étape 4 : Revenir sur main
 git checkout main
 
-# Fusionner la branche
+# Étape 5 : Fusionner la branche txt-sans-with
 git merge txt-sans-with
 
-# Supprimer la branche fusionnée
+# Étape 6 : Supprimer la branche
 git branch -d txt-sans-with
 ```
 
 
 
-# ➤ **Log dans git_commands.txt (à compléter dans le dépôt) :**
+# `git_commands.txt` mis à jour :
+
 ```txt
+git init
+git add README.md
+git commit -m "Initialisation du projet avec README.md"
+
+# Partie 1.2
 git branch txt-sans-with
 git checkout txt-sans-with
+python scripts/ecriture_sans_with.py
+cat data/journal.txt
 git add scripts/ecriture_sans_with.py
 git add data/journal.txt
-git commit -m "Ajout du script d'écriture sans with open() et génération de journal.txt"
+git commit -m "Ajout script sans with open() + génération de journal.txt"
 git checkout main
 git merge txt-sans-with
 git branch -d txt-sans-with
 ```
-
