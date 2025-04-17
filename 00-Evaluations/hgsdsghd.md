@@ -83,16 +83,21 @@ Jour 20 : Conclusion et révision
 ```
 Votre script python : 
 
+
+```python
+# Écrire ici le script Python :
 ................................................................................
+```
+
 
 
 **Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
-Vos commandes Git : 
-
+```python
+# Écrire ici vos commandes Git :
 ................................................................................
-
+```
 
 <br/>
 
