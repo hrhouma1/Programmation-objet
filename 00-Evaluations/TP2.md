@@ -117,7 +117,7 @@ Jour 20 : Conclusion et révision
 
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
@@ -149,7 +149,7 @@ Ligne 4 : Jour 4 : Boucles
 
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
@@ -183,7 +183,7 @@ Chloe,88
 ```
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
@@ -206,7 +206,7 @@ Chloe,88
 
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
@@ -233,7 +233,7 @@ Chloe a obtenu 88
 ```
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
@@ -344,7 +344,7 @@ Créez exactement :
 
 
 
-➤ Votre script python et vos Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+➤ *Votre script python et vos Commandes Git à effectuer :* (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
 
 
 ```python
