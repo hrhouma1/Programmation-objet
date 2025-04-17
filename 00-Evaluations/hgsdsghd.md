@@ -33,12 +33,12 @@
 Complétez les commandes suivantes exactement :
 
 ```bash
-Commande 1 : _______________________________________ # mkdir tp_fichiers_git
-Commande 2 : _______________________________________ # cd tp_fichiers_git
-Commande 3 : _______________________________________ # git init
-Commande 4 : _______________________________________ # Créer README.md (à la racine)
-Commande 5 : _______________________________________ # git add README.md
-Commande 6 : _______________________________________ # git commit -m "Initialisation du projet"
+Commande 1 : _______________________________________ # 
+Commande 2 : _______________________________________ # 
+Commande 3 : _______________________________________ #
+Commande 4 : _______________________________________ # 
+Commande 5 : _______________________________________ # 
+Commande 6 : _______________________________________ # 
 ```
 
 
@@ -59,13 +59,39 @@ Commande 6 : _______________________________________ # git commit -m "Initialisa
 Jour 1 : Introduction
 Jour 2 : Variables
 Jour 3 : Conditions
+Jour 4 : Boucles
+Jour 5 : Fonctions
+Jour 6 : Listes
+Jour 7 : Dictionnaires
+Jour 8 : Tuples
+Jour 9 : Ensembles
+Jour 10 : Manipulation de fichiers texte
+Jour 11 : Manipulation de fichiers CSV
+Jour 12 : Manipulation de fichiers JSON
+Jour 13 : NumPy - Sauvegarde de tableaux
+Jour 14 : NumPy - Chargement de tableaux
+Jour 15 : Graphiques avec matplotlib
+Jour 16 : Résolution d'erreurs JSON
+Jour 17 : Gestion des exceptions en Python
+Jour 18 : Écriture avancée avec format()
+Jour 19 : Encodage de fichiers texte
+Jour 20 : Conclusion et révision
 ```
 
 ```python
 # Écrire ici le script Python :
 ```
+Votre script python : 
+
+................................................................................
+
 
 **Commandes Git à effectuer :** (`branch`, `checkout`, `add`, `commit`, retour sur `main`, `merge`, `branch -d`)
+
+
+Vos commandes Git : 
+
+................................................................................
 
 
 <br/>
