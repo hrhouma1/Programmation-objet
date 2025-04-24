@@ -55,7 +55,8 @@ Commande 6 : ___________________________________________   # Effectuer un commit
 
 ➤ Exemple 2 : 
 
-- Allez voir demo.md dans ce mnçeme dossier
+- Allez voir exemple.md dans le même dossier ici
+
 
 
 ### 1.2 Écriture sans utiliser `with open()`  
