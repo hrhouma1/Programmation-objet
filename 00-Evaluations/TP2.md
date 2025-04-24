@@ -42,9 +42,20 @@ Complétez les commandes suivantes exactement :
 ................................................................................
 ```
 
+➤ Exemple 1 : 
 
-<br/>
+```bash
+Commande 1 : ___________________________________________   # Créer un dossier nommé projet_git_text (nom explicite et sans espaces)
+Commande 2 : ___________________________________________   # Se déplacer dans le dossier nouvellement créé
+Commande 3 : ___________________________________________   # Initialiser un dépôt Git local dans ce dossier
+Commande 4 : ___________________________________________   # Créer un fichier README.md contenant une courte description du projet
+Commande 5 : ___________________________________________   # Ajouter le fichier README.md à la zone de staging (index Git)
+Commande 6 : ___________________________________________   # Effectuer un commit initial avec un message clair (ex. : "Initialisation du projet avec README")
+```
 
+➤ Exemple 2 : 
+
+- Allez voir demo.md dans ce mnçeme dossier
 
 
 ### 1.2 Écriture sans utiliser `with open()`  
