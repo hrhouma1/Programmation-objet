@@ -1,4 +1,4 @@
-# **README – Pratique 2 : Manipulations tkinter**
+# **Pratique 2 : Manipulations tkinter**
 
 ## 1. Objectif général
 
