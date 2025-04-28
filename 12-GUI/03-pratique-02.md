@@ -18,6 +18,8 @@ python code.py
 ```
 
 # 2 - Manipulations
+
+## Code 1 
 ```
 cd 01_labels/
 python code.py
@@ -26,17 +28,32 @@ pip install pipreqs
 pipreqs .
 pip install -r requirements.txt
 python code.py
-cls
 cd ..
+```
+
+## Code 2
+
+```
+cls
 dir
 cd 02_text_widgets
 python code.py
 CTL+C pour fermer
 cls
 cd ..
+```
+
+## Code 2
+
+```
+cls
+dir
 cd 03_scrollbars
 python code.py
 cd ..
+```
+
+```python
 cd 04_separators
 python code.py
 cd ..
