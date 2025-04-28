@@ -305,7 +305,7 @@ doskey /history
 <br/>
 
 
-# 3 - Références : 
+# 4 - Références : 
 https://stackoverflow.com/questions/31684375/automatically-create-file-requirements-txt
 
 
@@ -314,3 +314,152 @@ https://stackoverflow.com/questions/31684375/automatically-create-file-requireme
 pip freeze > requirements1.txt
 pip install -r requirements1.txt
 ```
+
+
+
+
+<br/>
+<br/>
+# Annexe 1
+
+
+
+
+
+### Résumé des Manipulations 
+
+## Code 1
+
+```bash
+cd 01_labels/
+python code.py
+pip install PIL
+pip install pipreqs
+pipreqs .
+pip install -r requirements.txt
+python code.py
+cd ..
+```
+
+---
+
+## Code 2
+
+```bash
+cls
+dir
+cd 02_text_widgets
+python code.py
+CTRL+C pour fermer
+cls
+cd ..
+```
+
+---
+
+## Code 3
+
+```bash
+cls
+dir
+cd 03_scrollbars
+python code.py
+cd ..
+```
+
+---
+
+## Code 4
+
+```bash
+cls
+dir
+cd 04_separators
+python code.py
+cd ..
+```
+
+---
+
+## Code 5
+
+```bash
+cls
+dir
+cd 05_check_buttons
+python code.py
+cd ..
+```
+
+---
+
+## Code 6
+
+```bash
+cls
+dir
+cd 06_radio_buttons
+python code.py
+cd ..
+```
+
+---
+
+## Code 7
+
+```bash
+cls
+dir
+cd 07_combo_boxes
+python code.py
+cd ..
+```
+
+---
+
+## Code 8
+
+```bash
+cls
+dir
+cd 08_list_boxes
+python code.py
+cd ..
+```
+
+---
+
+## Code 9
+
+```bash
+cls
+dir
+cd 09_spin_boxes
+python code.py
+cd ..
+```
+
+---
+
+## Code 10
+
+```bash
+cls
+dir
+cd 10_scales
+python code.py
+cd ..
+```
+
+---
+
+## Historique
+
+Pour afficher toutes les commandes tapées jusqu'ici :
+
+```bash
+doskey /history
+```
+
+
+
