@@ -1,2 +1,9 @@
-https://github.com/hrhouma1/demo2-tkinter.git
+
+
+
+```bash
+
+git clone https://github.com/hrhouma1/demo2-tkinter.git
 cd demo2-tkinter
+
+```
