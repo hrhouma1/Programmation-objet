@@ -43,7 +43,7 @@ cls
 cd ..
 ```
 
-## Code 2
+## Code 3
 
 ```
 cls
@@ -53,14 +53,86 @@ python code.py
 cd ..
 ```
 
-```python
+
+
+## Code 4
+
+```
+cls
+dir
 cd 04_separators
 python code.py
 cd ..
+```
+
+## Code 5
+
+```
+cls
+dir
 cd 05_check_buttons
 python code.py
+cd ..
+```
+
+## Code 6
+
+```
 cls
-etc ..
+dir
+cd 06_radio_buttons
+python code.py
+cd ..
+```
+
+## Code 7
+
+```
+cls
+dir
+cd 07_combo_boxes
+python code.py
+cd ..
+```
+
+## Code 8
+
+```
+cls
+dir
+cd 08_list_boxes
+python code.py
+cd ..
+```
+
+## Code 9
+
+```
+cls
+dir
+cd 09_spin_boxes
+python code.py
+cd ..
+```
+
+## Code 10
+
+```
+cls
+dir
+cd 10_scales
+python code.py
+cd ..
+```
+
+
+
+
+
+## Historique
+
+```python
+doskey /history
 (env) C:\Users\hrehouma.CMAISONNEUVE\Documents\demo3-tkinter>doskey /history
 ```
 
