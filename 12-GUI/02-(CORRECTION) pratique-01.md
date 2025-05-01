@@ -146,3 +146,165 @@ root.mainloop()
 Créer une interface avec une zone de texte dans laquelle l’utilisateur peut saisir son nom.  
 Ajouter une étiquette explicative "Entrez votre nom :" au-dessus de cette zone.  
 Un bouton "Valider" doit afficher le texte saisi dans la console.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Exercice 4 – Mise en page simple avec plusieurs Labels
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("300x200")
+root.title("Exercice 4")
+
+label_nom = tk.Label(root, text="Nom :")
+label_nom.pack()
+entry_nom = tk.Entry(root)
+entry_nom.pack()
+
+label_prenom = tk.Label(root, text="Prénom :")
+label_prenom.pack()
+entry_prenom = tk.Entry(root)
+entry_prenom.pack()
+
+label_age = tk.Label(root, text="Âge :")
+label_age.pack()
+entry_age = tk.Entry(root)
+entry_age.pack()
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Trois paires étiquette (`Label`) et champ de saisie (`Entry`) pour le nom, le prénom et l’âge.
+2. Chaque paire est empilée verticalement avec la méthode `.pack()`.
+3. L’interface présente une structure simple de formulaire.
+
+### Énoncé de l’exercice :
+
+Créer une interface contenant trois champs d’information : Nom, Prénom et Âge.  
+Chaque champ doit comporter une étiquette descriptive et une zone de saisie juste en dessous.
+
+---
+
+## Exercice 5 – Boutons Radio (Radiobutton)
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("300x180")
+root.title("Exercice 5")
+
+genre = tk.IntVar()
+
+def afficher_genre():
+    choix = genre.get()
+    if choix == 1:
+        print("Genre sélectionné : Homme")
+    elif choix == 2:
+        print("Genre sélectionné : Femme")
+    elif choix == 3:
+        print("Genre sélectionné : Autre")
+    else:
+        print("Aucun choix sélectionné")
+
+radio1 = tk.Radiobutton(root, text="Homme", variable=genre, value=1)
+radio2 = tk.Radiobutton(root, text="Femme", variable=genre, value=2)
+radio3 = tk.Radiobutton(root, text="Autre", variable=genre, value=3)
+
+radio1.pack()
+radio2.pack()
+radio3.pack()
+
+btn_valider = tk.Button(root, text="Valider", command=afficher_genre)
+btn_valider.pack(pady=10)
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Une variable `IntVar` pour stocker le choix sélectionné parmi les boutons radio.
+2. Trois boutons radio (`Radiobutton`) représentant les options : Homme, Femme, Autre.
+3. Une fonction `afficher_genre()` pour interpréter la valeur choisie et l’afficher dans la console.
+4. Un bouton "Valider" déclenchant l’affichage du choix.
+
+### Énoncé de l’exercice :
+
+Créer une interface avec trois boutons radio permettant de choisir un genre parmi : Homme, Femme ou Autre.  
+Lorsqu’on clique sur "Valider", afficher en console le choix sélectionné.
+
+---
+
+## Exercice 6 – Cases à cocher (Checkbutton)
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("300x200")
+root.title("Exercice 6")
+
+python_var = tk.IntVar()
+js_var = tk.IntVar()
+cpp_var = tk.IntVar()
+
+def afficher_langages():
+    print("Langages sélectionnés :")
+    if python_var.get():
+        print("- Python")
+    if js_var.get():
+        print("- JavaScript")
+    if cpp_var.get():
+        print("- C++")
+
+check1 = tk.Checkbutton(root, text="Python", variable=python_var)
+check2 = tk.Checkbutton(root, text="JavaScript", variable=js_var)
+check3 = tk.Checkbutton(root, text="C++", variable=cpp_var)
+
+check1.pack()
+check2.pack()
+check3.pack()
+
+btn_afficher = tk.Button(root, text="Afficher", command=afficher_langages)
+btn_afficher.pack(pady=10)
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Trois variables `IntVar` associées à chaque case à cocher.
+2. Trois composants `Checkbutton` représentant des langages de programmation.
+3. Une fonction `afficher_langages()` qui vérifie quelles cases sont cochées et les affiche dans la console.
+4. Un bouton "Afficher" qui appelle cette fonction.
+
+### Énoncé de l’exercice :
+
+Créer une interface avec trois cases à cocher représentant les langages suivants : Python, JavaScript, C++.  
+Lorsqu’on clique sur le bouton "Afficher", les langages sélectionnés doivent être affichés dans la console.
+
+
