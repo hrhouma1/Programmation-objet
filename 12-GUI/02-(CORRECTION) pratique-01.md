@@ -395,7 +395,7 @@ root.mainloop()
 Créer une interface avec un menu déroulant contenant les couleurs suivantes : Rouge, Vert, Bleu.  
 Lorsqu’une couleur est sélectionnée, un message affiché dans un `Label` sous le menu doit indiquer la couleur choisie.
 
----
+
 
 ## Exercice 9 – Mise en page améliorée (grid)
 
@@ -474,7 +474,6 @@ root.mainloop()
 Créer une fenêtre Tkinter qui affiche dans la console la touche du clavier pressée par l’utilisateur.  
 Utiliser l’événement `<KeyPress>` pour détecter les touches.
 
----
 
 ## Exercice 11 – Interaction souris
 
@@ -506,7 +505,7 @@ root.mainloop()
 Créer une interface qui affiche en temps réel, dans la console, la position de la souris lorsqu’elle se déplace dans la fenêtre.  
 Utiliser l’événement `<Motion>` pour capter les mouvements.
 
----
+
 
 ## Exercice 12 – Mini-projet 1 : Formulaire Complet
 
@@ -577,4 +576,180 @@ Créer une interface qui permet à un utilisateur de remplir un formulaire compl
 - Trois boutons radio pour le genre : Homme, Femme, Autre
 - Trois cases à cocher pour les langages connus : Python, Java, JavaScript  
 Un bouton "Envoyer" doit afficher en console toutes les informations saisies.
+
+
+
+
+
+
+
+
+## Exercice 13 – Mini-projet 2 : Saisie et calcul simple
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("300x200")
+root.title("Exercice 13")
+
+def additionner():
+    try:
+        a = int(entry1.get())
+        b = int(entry2.get())
+        resultat.config(text="Résultat : " + str(a + b))
+    except ValueError:
+        resultat.config(text="Veuillez entrer deux entiers valides.")
+
+tk.Label(root, text="Entier 1 :").pack()
+entry1 = tk.Entry(root)
+entry1.pack()
+
+tk.Label(root, text="Entier 2 :").pack()
+entry2 = tk.Entry(root)
+entry2.pack()
+
+tk.Button(root, text="Additionner", command=additionner).pack(pady=10)
+
+resultat = tk.Label(root, text="")
+resultat.pack()
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Deux champs `Entry` pour entrer des nombres entiers.
+2. Une fonction `additionner()` qui lit, convertit, additionne et affiche le résultat.
+3. Une gestion d’erreur avec `try/except` pour éviter les plantages si l’utilisateur entre du texte.
+4. Un `Label` dynamique qui affiche le résultat sous le bouton.
+
+### Énoncé de l’exercice :
+
+Créer une interface contenant deux zones de saisie pour des entiers.  
+Un bouton "Additionner" calcule la somme des deux entiers et affiche le résultat sous le bouton.  
+Le programme doit gérer les cas d’erreur si l’utilisateur entre autre chose qu’un entier.
+
+---
+
+## Exercice 14 – Mini-projet 3 : Jeu de couleur
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("300x150")
+root.title("Exercice 14")
+
+def changer_couleur(couleur):
+    root.config(bg=couleur)
+    label_info.config(text="Couleur actuelle : " + couleur)
+
+couleurs = ["lightblue", "lightgreen", "pink", "yellow"]
+var_couleur = tk.StringVar(value="Choisissez une couleur")
+
+menu = tk.OptionMenu(root, var_couleur, *couleurs, command=changer_couleur)
+menu.pack(pady=10)
+
+label_info = tk.Label(root, text="")
+label_info.pack()
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Une `OptionMenu` avec des couleurs personnalisées (valeurs utilisables par `bg`).
+2. Une fonction `changer_couleur()` qui applique la couleur au fond de la fenêtre avec `root.config(bg=...)`.
+3. Un `Label` qui indique la couleur actuellement sélectionnée.
+4. Une liaison directe entre le menu et la fonction via `command=...`.
+
+### Énoncé de l’exercice :
+
+Créer une interface avec un menu déroulant contenant plusieurs couleurs (par exemple : lightblue, lightgreen, pink, yellow).  
+Lorsqu’une couleur est sélectionnée, la couleur de fond de la fenêtre doit changer.  
+Afficher sous le menu un message indiquant la couleur actuelle.
+
+---
+
+## Exercice 15 – Projet Final : Interface "Caisse enregistreuse"
+
+### Correction
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.geometry("350x300")
+root.title("Exercice 15")
+
+produits = {
+    "Pain": 2.5,
+    "Lait": 1.8,
+    "Oeufs": 3.2
+}
+
+total = 0
+panier = []
+
+def ajouter_au_panier():
+    global total
+    selection = listbox.get(listbox.curselection())
+    try:
+        quantite = int(entry_quantite.get())
+        prix = produits[selection] * quantite
+        total += prix
+        panier.append(f"{selection} x{quantite} = {prix:.2f} $")
+        label_total.config(text=f"Total : {total:.2f} $")
+    except:
+        label_total.config(text="Erreur : sélection ou quantité invalide.")
+
+def payer():
+    print("Contenu du panier :")
+    for ligne in panier:
+        print(ligne)
+    print(f"Total payé : {total:.2f} $")
+    label_total.config(text="Paiement effectué.")
+
+# Liste de produits
+listbox = tk.Listbox(root)
+for produit in produits:
+    listbox.insert(tk.END, produit)
+listbox.pack()
+
+# Quantité
+entry_quantite = tk.Entry(root)
+entry_quantite.pack()
+
+tk.Button(root, text="Ajouter au panier", command=ajouter_au_panier).pack(pady=5)
+tk.Button(root, text="Payer", command=payer).pack(pady=5)
+
+label_total = tk.Label(root, text="Total : 0.00 $")
+label_total.pack()
+
+root.mainloop()
+```
+
+### Ce qu’on a ajouté dans cet exercice :
+
+1. Une `Listbox` contenant les produits disponibles.
+2. Un `Entry` pour saisir la quantité désirée.
+3. Un dictionnaire `produits` contenant le prix de chaque article.
+4. Une fonction `ajouter_au_panier()` qui calcule le prix et met à jour le total.
+5. Une fonction `payer()` qui affiche le détail des achats dans la console.
+6. Une gestion des erreurs pour éviter les crashs si aucun produit ou une mauvaise quantité est sélectionné(e).
+7. Un `Label` dynamique qui affiche le total en temps réel.
+
+### Énoncé de l’exercice :
+
+Créer une interface de caisse enregistreuse avec les fonctionnalités suivantes :
+- Une `Listbox` contenant les produits : Pain, Lait, Oeufs
+- Une zone de saisie pour la quantité
+- Un bouton "Ajouter au panier" qui cumule le prix total
+- Un bouton "Payer" qui affiche le contenu du panier et le montant total payé
+- Un `Label` qui indique en temps réel le total à payer
 
