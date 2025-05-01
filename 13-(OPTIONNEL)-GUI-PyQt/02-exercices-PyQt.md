@@ -323,3 +323,196 @@ Créer une interface de formulaire de contact avec :
 - une grande zone pour écrire un message  
 Ajouter un bouton "Envoyer" qui affiche un message de confirmation si tous les champs sont remplis.
 
+
+
+
+
+
+---
+
+# **TP Final – Interface de Gestion de Produits**
+
+## Objectif
+
+Concevoir une interface graphique avec PyQt5 permettant de gérer dynamiquement une liste de produits achetés, en affichant à tout moment le total cumulé.
+
+Ce mini-projet couvre :
+
+- L’ajout de produits via formulaire (`QLineEdit`, `QDoubleSpinBox`)  
+- L’affichage dans une `QListWidget`  
+- La suppression d’un produit sélectionné  
+- Le calcul automatique du total  
+- Une structure orientée objet claire (`QMainWindow`)
+
+
+## Consignes
+
+Vous devez développer une application PyQt5 avec les fonctionnalités suivantes :
+
+### 1. **Saisie des produits**
+- Un champ de saisie (`QLineEdit`) pour le **nom du produit**.
+- Un champ numérique (`QDoubleSpinBox`) pour entrer le **prix du produit**.
+- Un bouton **"Ajouter"** pour valider l’ajout du produit à la liste.
+
+### 2. **Affichage des produits**
+- Une zone de type `QListWidget` pour afficher les produits ajoutés.  
+  Chaque ligne doit afficher :  
+  `Nom – $ prix` (exemple : *Stylo – $ 3.50*).
+
+### 3. **Suppression**
+- Un bouton **"Supprimer"** permet de retirer l’élément actuellement sélectionné dans la liste.
+- Le **total cumulé** doit être mis à jour en conséquence.
+
+### 4. **Total**
+- Un `QLabel` affiche en bas de la fenêtre le total des prix des produits ajoutés, sous la forme :  
+  `Total : $ montant`.
+
+---
+
+## Règles de validation
+
+- Si le champ nom est vide ou le prix est à zéro, l’ajout ne doit pas se faire.
+- Le champ nom doit être vidé automatiquement après chaque ajout.
+- Le prix doit être remis à zéro après chaque ajout.
+- Le bouton supprimer ne fait rien si aucun produit n’est sélectionné.
+
+---
+
+## Résultat attendu
+
+Une interface simple, propre, fonctionnelle, avec au minimum les composants suivants :
+
+- `QLineEdit` pour le nom  
+- `QDoubleSpinBox` pour le prix  
+- `QPushButton` pour Ajouter  
+- `QListWidget` pour afficher les produits  
+- `QPushButton` pour Supprimer  
+- `QLabel` pour le total cumulé
+
+
+
+
+
+
+---
+
+## TP Final – Gestion de produits
+
+### Objectifs pédagogiques
+
+1. Maîtriser la gestion des événements et composants PyQt5  
+2. Manipuler les listes, champs numériques et signaux/slots  
+3. Structurer un projet graphique fonctionnel en mode POO
+
+---
+
+### Correction
+
+```python
+import sys
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QLabel, QPushButton,
+    QLineEdit, QListWidget, QDoubleSpinBox
+)
+
+class GestionProduits(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("TP Final – Gestion de Produits")
+        self.setGeometry(100, 100, 500, 400)
+
+        self.total = 0.0
+
+        # Nom du produit
+        QLabel("Produit :", self).move(30, 30)
+        self.input_nom = QLineEdit(self)
+        self.input_nom.move(100, 30)
+        self.input_nom.resize(200, 25)
+
+        # Prix du produit
+        QLabel("Prix :", self).move(30, 70)
+        self.input_prix = QDoubleSpinBox(self)
+        self.input_prix.setMaximum(10000)
+        self.input_prix.setPrefix("$ ")
+        self.input_prix.move(100, 70)
+
+        # Bouton Ajouter
+        self.btn_ajouter = QPushButton("Ajouter", self)
+        self.btn_ajouter.move(320, 30)
+        self.btn_ajouter.clicked.connect(self.ajouter_produit)
+
+        # Liste des produits
+        self.liste = QListWidget(self)
+        self.liste.move(30, 120)
+        self.liste.resize(300, 200)
+
+        # Bouton Supprimer
+        self.btn_supprimer = QPushButton("Supprimer", self)
+        self.btn_supprimer.move(350, 120)
+        self.btn_supprimer.clicked.connect(self.supprimer_selection)
+
+        # Total
+        self.label_total = QLabel("Total : $ 0.00", self)
+        self.label_total.move(30, 340)
+        self.label_total.resize(300, 30)
+
+    def ajouter_produit(self):
+        nom = self.input_nom.text().strip()
+        prix = self.input_prix.value()
+        if nom and prix > 0:
+            ligne = f"{nom} – $ {prix:.2f}"
+            self.liste.addItem(ligne)
+            self.total += prix
+            self.mettre_a_jour_total()
+            self.input_nom.clear()
+            self.input_prix.setValue(0)
+        else:
+            self.label_total.setText("Erreur : nom ou prix invalide.")
+
+    def supprimer_selection(self):
+        item = self.liste.currentItem()
+        if item:
+            texte = item.text()
+            try:
+                prix = float(texte.split("$")[-1])
+                self.total -= prix
+                self.liste.takeItem(self.liste.currentRow())
+                self.mettre_a_jour_total()
+            except:
+                pass
+
+    def mettre_a_jour_total(self):
+        self.label_total.setText(f"Total : $ {self.total:.2f}")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    fenetre = GestionProduits()
+    fenetre.show()
+    sys.exit(app.exec_())
+```
+
+---
+
+### Ce qu’on a intégré dans ce TP :
+
+1. Un champ `QLineEdit` pour le nom du produit.
+2. Un champ `QDoubleSpinBox` pour saisir un prix numérique.
+3. Une `QListWidget` pour afficher dynamiquement la liste des articles.
+4. Un bouton **Ajouter** et un bouton **Supprimer**.
+5. Une mise à jour dynamique du **total cumulé**.
+6. Une validation des entrées (pas de nom vide, pas de prix nul).
+7. Une architecture propre en **orienté objet** avec `QMainWindow`.
+
+---
+
+### Énoncé du TP final :
+
+Créer une interface graphique permettant de :
+- Saisir le **nom** et le **prix** d’un produit,
+- L’ajouter à une liste visuelle,
+- Supprimer un produit sélectionné dans la liste,
+- Afficher en temps réel le **total cumulé** de tous les produits ajoutés.
+
+Chaque produit affiché doit comporter : `nom – $ prix`.  
+La suppression doit mettre à jour le total. L’ajout vide les champs après insertion.
+
