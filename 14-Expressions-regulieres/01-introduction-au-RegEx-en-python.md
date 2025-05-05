@@ -213,6 +213,14 @@ Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiff
 
 > Motif possible : `^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$`
 > Test : `"Professeur@2024"` → Valide
+> Décommposée en:
+>> ^
+>> (?=.*[A-Z])
+>> (?=.*\d)
+>> (?=.*[@#$%^&+=])
+>> .{8,}
+>> $
+> L'ordre n'est pas important !
 
 
 
@@ -223,6 +231,13 @@ Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiff
 ```
 
 Ce motif est utilisé dans une expression régulière pour s'assurer qu’un mot de passe respecte **trois règles de sécurité**, en plus d’avoir une **longueur minimale** :
+
+>> ^ : début de la chaîne
+>> (?=.*[A-Z])
+>> (?=.*\d)
+>> (?=.*[@#$%^&+=])
+>> .{8,}
+>> $
 
 
 
@@ -312,7 +327,7 @@ else:
 
 
 
-## **Résumé **
+## **Résumé**
 
 | Élément              | Représentation dans le motif | Ce que ça impose                   |
 | -------------------- | ---------------------------- | ---------------------------------- |
