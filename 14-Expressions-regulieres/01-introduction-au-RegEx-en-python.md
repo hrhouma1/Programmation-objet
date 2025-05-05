@@ -193,7 +193,7 @@ print(dates)
 
 
 
-### Exercice 3
+# Exercice 3
 
 Supprimer tous les caractères non alphabétiques d’un nom complet :
 
@@ -208,7 +208,220 @@ print(nettoye)
 
 
 
-# Exercice 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#  Exercice 4 — Validation de mot de passe sécurisé
+
+Valider un mot de passe qui respecte **toutes** les règles suivantes :
+
+1. **Au moins 8 caractères**
+2. **Au moins une majuscule**
+3. **Au moins un chiffre**
+4. **Au moins un symbole** parmi `@ # $ % ^ & + =`
+
+> **Motif RegEx utilisé** :
+> `^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$`
+
+
+
+## Exemple
+
+> `"Professeur@2024"`
+> ✔️ Contient une majuscule (`P`), un chiffre (`2024`), un symbole (`@`), et fait plus de 8 caractères → **valide**
+
+1. Longueur ≥ 8 ? ✅ (15 caractères)
+2. Contient une majuscule ? ✅ (`P`)
+3. Contient un chiffre ? ✅ (`2`, `0`, `2`, `4`)
+4. Contient un symbole spécial ? ✅ (`@`)
+
+Donc : **mot de passe valide.**
+
+
+##  Décomposition du motif
+
+```regex
+^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$
+```
+
+### 1. `^`
+
+> **Signifie** : début de la chaîne
+> Cela garantit que la vérification commence **au tout début du mot de passe**.
+
+
+> **Début de la chaîne** : garantit qu’on commence à lire dès le premier caractère.
+
+### 2. `(?=.*[A-Z])`
+
+> Vérifie la présence **d’au moins une majuscule**.
+>
+> * `.` : n’importe quel caractère
+> * `*` : zéro ou plusieurs fois
+> * `[A-Z]` : une lettre majuscule
+> * `(?=...)` : vérifie la présence sans consommer les caractères (**lookahead**)
+
+## Pour résumé 
+
+> **C’est une assertion appelée "lookahead positif"**. Elle signifie :
+> → “Il doit y avoir **au moins une lettre majuscule** quelque part dans la chaîne.”
+
+* `.` : n’importe quel caractère (sauf saut de ligne)
+* `*` : zéro ou plusieurs fois
+* `[A-Z]` : une lettre majuscule
+* Donc `.*[A-Z]` : on permet n'importe quoi **jusqu'à ce qu’on trouve** une majuscule.
+* Le `(?=...)` ne consomme pas de caractères, il **vérifie seulement leur présence**.
+
+
+
+
+
+### 3. `(?=.*\d)`
+
+> Condition à vérifier :
+> → “Il doit y avoir **au moins un chiffre** quelque part.”
+
+* `\d` : un chiffre (équivalent à `[0-9]`)
+* `.*\d` : on autorise tous les caractères jusqu’à ce qu’on trouve **au moins un chiffre**.
+
+> Vérifie la présence **d’au moins un chiffre** (`\d` est équivalent à `[0-9]`)
+
+### 4. `(?=.*[@#$%^&+=])`
+
+
+> Condition imposée :
+> → “Il doit y avoir **au moins un caractère spécial** parmi ceux-ci : `@ # $ % ^ & + =`.”
+
+* On peut modifier cette partie selon les symboles autorisés dans le mot de passe.
+* `.*[@#$%^&+=]` : tout caractère jusqu’à ce qu’on **trouve un de ces symboles**.
+
+> Vérifie la présence **d’au moins un caractère spécial** parmi `@#$%^&+=`
+
+### 5. `.{8,}`
+
+> C’est la **dernière contrainte** :
+> → “La chaîne doit contenir **au moins 8 caractères** (n’importe lesquels).”
+
+* `.` : tout caractère
+* `{8,}` : **au moins 8 fois**
+
+> Vérifie que la chaîne fait **au moins 8 caractères**, n’importe lesquels
+
+
+### 6. `$`
+
+> **Fin de la chaîne** : rien ne doit venir après.
+> Cela signifie qu’on valide le mot de passe **dans sa totalité**, sans qu’il dépasse ou soit tronqué.
+
+
+
+
+##  Code Python pour tester
+
+```python
+import re
+
+mot_de_passe = "Professeur@2024"
+motif = r"^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$"
+
+if re.match(motif, mot_de_passe):
+    print("Mot de passe valide ✅")
+else:
+    print("Mot de passe invalide ❌")
+```
+
+
+
+## Résumé des contraintes
+
+| Critère                | Exemple valide |
+| ---------------------- | -------------- |
+| Longueur ≥ 8           | `"A1@xyzab"`   |
+| Contient une majuscule | `"A1@xyzab"`   |
+| Contient un chiffre    | `"A1@xyzab"`   |
+| Contient un symbole    | `"A1@xyzab"`   |
+
+
+
+## ✅ Mots de passe valides
+
+> `"Professeur@2024"`
+> `"Securite123$"`
+> `"PassWord1@"`
+> `"A1#b2C3@"`
+
+
+
+## ❌ Mots de passe invalides
+
+> `"motdepasse"`
+> ❌ Aucun chiffre, majuscule ou symbole
+
+> `"Motdepasse"`
+> ❌ Majuscule présente, mais ni chiffre ni symbole
+
+> `"Motdepasse1"`
+> ❌ Majuscule + chiffre, mais pas de symbole
+
+> `"motdepasse@1"`
+> ❌ Chiffre + symbole, mais pas de majuscule
+
+> `"M1@"`
+> ❌ Trop court (3 caractères seulement)
+
+> `"Mdp@202"`
+> ❌ Longueur = 7 → trop court
+
+
+
+
+# Résumé de l'exercice 4
 
 Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiffre et un symbole.
 
@@ -255,93 +468,7 @@ Ce motif est utilisé pour valider un mot de passe sécurisé. Il vérifie les c
 
 
 
-## **Décomposition du motif**
 
-### Exercice 4.1. `^`
-
-> **Signifie** : début de la chaîne
-> Cela garantit que la vérification commence **au tout début du mot de passe**.
-
-
-
-### Exercice 4.2. `(?=.*[A-Z])`
-
-> **C’est une assertion appelée "lookahead positif"**. Elle signifie :
-> → “Il doit y avoir **au moins une lettre majuscule** quelque part dans la chaîne.”
-
-* `.` : n’importe quel caractère (sauf saut de ligne)
-* `*` : zéro ou plusieurs fois
-* `[A-Z]` : une lettre majuscule
-* Donc `.*[A-Z]` : on permet n'importe quoi **jusqu'à ce qu’on trouve** une majuscule.
-* Le `(?=...)` ne consomme pas de caractères, il **vérifie seulement leur présence**.
-
-
-
-### Exercice 4.3. `(?=.*\d)`
-
-> Deuxième condition à vérifier :
-> → “Il doit y avoir **au moins un chiffre** quelque part.”
-
-* `\d` : un chiffre (équivalent à `[0-9]`)
-* `.*\d` : on autorise tous les caractères jusqu’à ce qu’on trouve **au moins un chiffre**.
-
-
-
-### Exercice 4.4. `(?=.*[@#$%^&+=])`
-
-> Troisième condition imposée :
-> → “Il doit y avoir **au moins un caractère spécial** parmi ceux-ci : `@ # $ % ^ & + =`.”
-
-* On peut modifier cette partie selon les symboles autorisés dans le mot de passe.
-* `.*[@#$%^&+=]` : tout caractère jusqu’à ce qu’on **trouve un de ces symboles**.
-
-
-
-### Exercice 4.5. `.{8,}`
-
-> C’est la **dernière contrainte** :
-> → “La chaîne doit contenir **au moins 8 caractères** (n’importe lesquels).”
-
-* `.` : tout caractère
-* `{8,}` : **au moins 8 fois**
-
-
-
-### Exercice 4.6. `$`
-
-> **Fin de la chaîne**.
-> Cela signifie qu’on valide le mot de passe **dans sa totalité**, sans qu’il dépasse ou soit tronqué.
-
-
-
-## ✅ **Exemple de mot de passe :** `"Professeur@2024"`
-
-1. Longueur ≥ 8 ? ✅ (15 caractères)
-2. Contient une majuscule ? ✅ (`P`)
-3. Contient un chiffre ? ✅ (`2`, `0`, `2`, `4`)
-4. Contient un symbole spécial ? ✅ (`@`)
-
-Donc : **mot de passe valide.**
-
-
-
-## **Code Python de test**
-
-```python
-import re
-
-mot_de_passe = "Professeur@2024"
-motif = r"^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$"
-
-if re.match(motif, mot_de_passe):
-    print("Mot de passe valide ✅")
-else:
-    print("Mot de passe invalide ❌")
-```
-
-
-
-## **Résumé**
 
 | Élément              | Représentation dans le motif | Ce que ça impose                   |
 | -------------------- | ---------------------------- | ---------------------------------- |
@@ -355,7 +482,7 @@ else:
 
 
 
-# **13. Résumé**
+# **13. Résumé final**
 
 1. Une expression régulière définit un **motif textuel** à reconnaître.
 2. Python fournit plusieurs fonctions pour **chercher**, **remplacer**, **valider** ou **découper** des chaînes avec ces motifs.
