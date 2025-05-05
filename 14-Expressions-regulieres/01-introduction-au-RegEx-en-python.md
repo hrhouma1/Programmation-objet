@@ -216,7 +216,117 @@ Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiff
 
 
 
-## **13. Résumé**
+ # *Explication détaillée, pas à pas*
+
+```regex
+^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$
+```
+
+Ce motif est utilisé dans une expression régulière pour s'assurer qu’un mot de passe respecte **trois règles de sécurité**, en plus d’avoir une **longueur minimale** :
+
+
+
+## **Décomposition du motif**
+
+### Exercice 4.1. `^`
+
+> **Signifie** : début de la chaîne
+> Cela garantit que la vérification commence **au tout début du mot de passe**.
+
+
+
+### Exercice 4.2. `(?=.*[A-Z])`
+
+> **C’est une assertion appelée "lookahead positif"**. Elle signifie :
+> → “Il doit y avoir **au moins une lettre majuscule** quelque part dans la chaîne.”
+
+* `.` : n’importe quel caractère (sauf saut de ligne)
+* `*` : zéro ou plusieurs fois
+* `[A-Z]` : une lettre majuscule
+* Donc `.*[A-Z]` : on permet n'importe quoi **jusqu'à ce qu’on trouve** une majuscule.
+* Le `(?=...)` ne consomme pas de caractères, il **vérifie seulement leur présence**.
+
+
+
+### Exercice 4.3. `(?=.*\d)`
+
+> Deuxième condition à vérifier :
+> → “Il doit y avoir **au moins un chiffre** quelque part.”
+
+* `\d` : un chiffre (équivalent à `[0-9]`)
+* `.*\d` : on autorise tous les caractères jusqu’à ce qu’on trouve **au moins un chiffre**.
+
+
+
+### Exercice 4.4. `(?=.*[@#$%^&+=])`
+
+> Troisième condition imposée :
+> → “Il doit y avoir **au moins un caractère spécial** parmi ceux-ci : `@ # $ % ^ & + =`.”
+
+* On peut modifier cette partie selon les symboles autorisés dans le mot de passe.
+* `.*[@#$%^&+=]` : tout caractère jusqu’à ce qu’on **trouve un de ces symboles**.
+
+
+
+### Exercice 4.5. `.{8,}`
+
+> C’est la **dernière contrainte** :
+> → “La chaîne doit contenir **au moins 8 caractères** (n’importe lesquels).”
+
+* `.` : tout caractère
+* `{8,}` : **au moins 8 fois**
+
+
+
+### Exercice 4.6. `$`
+
+> **Fin de la chaîne**.
+> Cela signifie qu’on valide le mot de passe **dans sa totalité**, sans qu’il dépasse ou soit tronqué.
+
+
+
+## ✅ **Exemple de mot de passe :** `"Professeur@2024"`
+
+1. Longueur ≥ 8 ? ✅ (15 caractères)
+2. Contient une majuscule ? ✅ (`P`)
+3. Contient un chiffre ? ✅ (`2`, `0`, `2`, `4`)
+4. Contient un symbole spécial ? ✅ (`@`)
+
+Donc : **mot de passe valide.**
+
+
+
+## **Code Python de test**
+
+```python
+import re
+
+mot_de_passe = "Professeur@2024"
+motif = r"^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$"
+
+if re.match(motif, mot_de_passe):
+    print("Mot de passe valide ✅")
+else:
+    print("Mot de passe invalide ❌")
+```
+
+
+
+## **Résumé **
+
+| Élément              | Représentation dans le motif | Ce que ça impose                   |
+| -------------------- | ---------------------------- | ---------------------------------- |
+| Début de chaîne      | `^`                          | Commencer l’analyse dès le début   |
+| Au moins 1 majuscule | `(?=.*[A-Z])`                | Doit contenir une majuscule        |
+| Au moins 1 chiffre   | `(?=.*\d)`                   | Doit contenir un chiffre           |
+| Au moins 1 symbole   | `(?=.*[@#$%^&+=])`           | Doit contenir un caractère spécial |
+| Longueur ≥ 8         | `.{8,}`                      | Au moins 8 caractères              |
+| Fin de chaîne        | `$`                          | Rien d’autre après                 |
+
+
+
+
+# **13. Résumé**
 
 1. Une expression régulière définit un **motif textuel** à reconnaître.
 2. Python fournit plusieurs fonctions pour **chercher**, **remplacer**, **valider** ou **découper** des chaînes avec ces motifs.
