@@ -1,6 +1,9 @@
 # **Exercices – Applications directes**
 
-### **Consigne :** Pour chaque énoncé, écrivez l'expression régulière (RegEx) la plus appropriée. N’utilisez pas de fonctions Python pour le moment : concentrez-vous uniquement sur l'écriture du motif.
+### **Consigne :** 
+
+- Pour chaque énoncé, écrivez l'expression régulière (RegEx) la plus appropriée.
+- N’utilisez pas de fonctions Python pour le moment : concentrez-vous uniquement sur l'écriture du motif.
 
 
 
