@@ -1,4 +1,4 @@
-# ** Résumé - Les expressions régulières (RegEx) en Python**
+# Résumé - Les expressions régulières (RegEx) en Python
 
 ## **Objectif**
 
