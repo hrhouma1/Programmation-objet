@@ -225,3 +225,232 @@ Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiff
 5. Il est crucial de **tester les motifs progressivement**, en commençant par des cas simples.
 
 
+
+
+## **14. Exemples**
+
+1. Une expression régulière définit un **motif textuel** à reconnaître.
+
+> Exemple : le motif `r"\d{4}"` correspond à toute séquence de **quatre chiffres** consécutifs, comme dans `"Année : 2025"`.
+
+2. Python fournit plusieurs fonctions pour **chercher**, **remplacer**, **valider** ou **découper** des chaînes avec ces motifs.
+
+> Exemple :
+>
+> ```python
+> re.sub(r"\s+", "-", "Université de Montréal")  
+> ```
+>
+> Résultat : `"Université-de-Montréal"` (remplace les espaces par des tirets).
+
+3. Les **métacaractères** permettent de généraliser les recherches (par exemple, tous les chiffres, toutes les majuscules, etc.).
+
+> Exemple : `\d` détecte un chiffre, `\w` détecte un caractère alphanumérique.
+>
+> ```python
+> re.findall(r"\d", "Code: A123B")  
+> ```
+>
+> Résultat : `['1', '2', '3']`.
+
+4. Les **quantificateurs** donnent la possibilité de fixer ou d'encadrer le nombre d’occurrences.
+
+> Exemple :
+>
+> ```python
+> re.match(r"A{2,4}", "AAA")  
+> ```
+>
+> Résultat : Match car la lettre "A" apparaît trois fois (entre 2 et 4 fois).
+
+5. Il est crucial de **tester les motifs progressivement**, en commençant par des cas simples.
+
+> Exemple : commencez par tester une recherche simple comme :
+>
+> ```python
+> re.search("test", "examen test final")  
+> ```
+>
+> Avant d’essayer un motif plus complexe comme `r"\bTest\d{3}\b"` pour repérer `"Test101"`.
+
+
+
+
+
+
+
+# **15. Questions de compréhension (QCM + Réponses justifiées)**
+
+
+
+### **Question 1**
+
+Quel motif permet de détecter **exactement quatre chiffres consécutifs** dans un texte ?
+
+**A.** `\w{4}`
+**B.** `\d{4}`
+**C.** `.{4}`
+**D.** `\s{4}`
+
+> **Réponse correcte : B**
+> `\d` signifie "un chiffre" (entre 0 et 9). Le quantificateur `{4}` signifie "exactement quatre fois".
+> Ainsi, `\d{4}` détecte des séquences comme `"2023"` ou `"1234"`.
+
+
+
+### **Question 2**
+
+Laquelle des fonctions suivantes permet de **remplacer** un motif par une autre chaîne dans un texte ?
+
+**A.** `re.findall()`
+**B.** `re.replace()`
+**C.** `re.sub()`
+**D.** `re.match()`
+
+> **Réponse correcte : C**
+> `re.sub()` est utilisée pour substituer un motif par une nouvelle chaîne.
+> Exemple : `re.sub(r"chat", "chien", "Le chat dort")` retourne `"Le chien dort"`.
+
+
+
+### **Question 3**
+
+Quelle expression régulière permet de valider un mot composé uniquement de **lettres majuscules** ?
+
+**A.** `[A-Z]+`
+**B.** `[a-z]+`
+**C.** `\d+`
+**D.** `\w+`
+
+> **Réponse correcte : A**
+> `[A-Z]` cible les lettres majuscules de A à Z. Le `+` indique "au moins une fois".
+
+
+
+### **Question 4**
+
+Que signifie le motif `^Bonjour` dans une expression régulière ?
+
+**A.** Le texte doit se terminer par "Bonjour"
+**B.** Le texte doit contenir "Bonjour"
+**C.** Le texte doit commencer par "Bonjour"
+**D.** Le mot "Bonjour" est facultatif
+
+> **Réponse correcte : C**
+> Le symbole `^` désigne le début de la chaîne. Donc `^Bonjour` signifie "la chaîne commence par Bonjour".
+
+
+
+### **Question 5**
+
+Expliquez pourquoi l'expression suivante **ne détectera pas** la chaîne `"info@site.org"` :
+
+```python
+re.match(r"\w+@\w+\.\w{2,3}", "info@site.org")
+```
+
+> **Réponse attendue :**
+> Le motif est correct, mais la fonction `re.match()` exige que le **motif commence dès le début de la chaîne**. Ici, cela fonctionne car `"info@site.org"` commence bien par un email. Si on avait utilisé une chaîne comme `"email : info@site.org"`, le match aurait échoué.
+> Dans ce cas, `re.search()` serait préférable.
+
+
+
+### **Question 6**
+
+Qu’est-ce que `[^\d]` signifie en expression régulière ?
+
+**A.** Tous les chiffres
+**B.** Tout sauf des chiffres
+**C.** Les lettres minuscules
+**D.** Les symboles uniquement
+
+> **Réponse correcte : B**
+> Le `^` placé à l’intérieur des crochets signifie **négation**. Donc `[^\d]` signifie : "tout caractère **sauf** un chiffre".
+
+
+
+
+
+
+
+
+# **16. Exercices pratiques de rédaction de motifs**
+
+
+### **Exercice 1 – Numéro de dossier**
+
+**Consigne :**
+Écrivez une expression régulière qui valide un identifiant de dossier respectant le format suivant :
+trois lettres majuscules suivies de deux chiffres (exemples valides : `"ABC12"`, `"XYZ99"`).
+
+> **Correction attendue :**
+> `^[A-Z]{3}\d{2}$`
+> Cette expression signifie :
+>
+> * `^[A-Z]{3}` → début de chaîne avec trois lettres majuscules
+> * `\d{2}` → suivi de deux chiffres
+> * `$` → fin de chaîne
+
+
+
+### **Exercice 2 – Nom d’utilisateur simplifié**
+
+**Consigne :**
+Validez un nom d’utilisateur composé uniquement de lettres (majuscules ou minuscules), sans chiffres ni caractères spéciaux. Minimum : 4 caractères.
+
+> **Correction attendue :**
+> `^[A-Za-z]{4,}$`
+> Explication :
+>
+> * `[A-Za-z]` autorise uniquement les lettres
+> * `{4,}` exige au moins 4 lettres
+> * `^` et `$` pour encadrer la chaîne complète
+
+
+### **Exercice 3 – Numéro de téléphone local**
+
+**Consigne :**
+Validez un numéro de téléphone au format `XXX-XXX-XXXX` où `X` est un chiffre (exemple : `514-123-4567`).
+
+> **Correction attendue :**
+> `^\d{3}-\d{3}-\d{4}$`
+> Explication :
+>
+> * `\d{3}` pour les trois premiers blocs
+> * `-` pour les séparateurs
+> * Encadré par `^` et `$` pour valider la totalité
+
+
+
+### **Exercice 4 – Code postal canadien**
+
+**Consigne :**
+Créez une expression régulière pour valider un code postal canadien au format `A1A 1A1` (lettre, chiffre, lettre, espace, chiffre, lettre, chiffre).
+
+> **Correction attendue :**
+> `^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$`
+> Chaque composant est précisément défini selon le format canadien.
+
+
+
+### **Exercice 5 – Mot de passe modéré**
+
+**Consigne :**
+Validez un mot de passe contenant :
+
+* au moins 6 caractères
+* au moins une majuscule
+* au moins un chiffre
+
+> **Correction attendue :**
+> `^(?=.*[A-Z])(?=.*\d).{6,}$`
+> Explication :
+>
+> * `(?=.*[A-Z])` → au moins une lettre majuscule
+> * `(?=.*\d)` → au moins un chiffre
+> * `.{6,}` → au moins 6 caractères
+> * `^` et `$` pour couvrir toute la chaîne
+
+
+
+
