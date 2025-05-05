@@ -215,10 +215,15 @@ Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiff
 > Test : `"Professeur@2024"` → Valide
 > Décommposée en:
 >> ^
+> ensuite
 >> (?=.*[A-Z])
+>  ensuite
 >> (?=.*\d)
+>  ensuite
 >> (?=.*[@#$%^&+=])
+>  ensuite
 >> .{8,}
+>  ensuite
 >> $
 > L'ordre n'est pas important !
 
