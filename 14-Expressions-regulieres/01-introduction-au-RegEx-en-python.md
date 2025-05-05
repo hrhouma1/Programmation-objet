@@ -207,42 +207,51 @@ print(nettoye)
 
 
 
-### Exercice 4
+
+# Exercice 4
 
 Valider un mot de passe d’au moins 8 caractères, avec une majuscule, un chiffre et un symbole.
 
 > Motif possible : `^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$`
-> Test : `"Professeur@2024"` → Valide
-> Décommposée en:
->> ^
-> ensuite
->> (?=.*[A-Z])
->  ensuite
->> (?=.*\d)
->  ensuite
->> (?=.*[@#$%^&+=])
->  ensuite
->> .{8,}
->  ensuite
->> $
-> L'ordre n'est pas important !
+> Test : `"Professeur@2024"` → ✅ Valide
+> Décomposé en :
+>
+> * `^` : début de la chaîne
+> * `(?=.*[A-Z])` : contient au moins une lettre majuscule
+> * `(?=.*\d)` : contient au moins un chiffre
+> * `(?=.*[@#$%^&+=])` : contient au moins un caractère spécial parmi ceux listés
+> * `.{8,}` : au moins 8 caractères au total
+> * `$` : fin de la chaîne
+>   👉 **L’ordre n’est pas important !**
 
 
-
- # *Explication détaillée, pas à pas*
+### *Explication détaillée, pas à pas*
 
 ```regex
 ^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$
 ```
 
-Ce motif est utilisé dans une expression régulière pour s'assurer qu’un mot de passe respecte **trois règles de sécurité**, en plus d’avoir une **longueur minimale** :
+Ce motif est utilisé pour valider un mot de passe sécurisé. Il vérifie les conditions suivantes :
 
->> ^ : début de la chaîne
->> (?=.*[A-Z])
->> (?=.*\d)
->> (?=.*[@#$%^&+=])
->> .{8,}
->> $
+> `^`
+> Début de la chaîne : on commence l’analyse dès le premier caractère.
+
+> `(?=.*[A-Z])`
+> Il faut au moins une lettre majuscule quelque part dans la chaîne.
+
+> `(?=.*\d)`
+> Il faut au moins un chiffre dans la chaîne.
+
+> `(?=.*[@#$%^&+=])`
+> Il faut au moins un symbole spécial parmi ceux listés : `@ # $ % ^ & + =`.
+
+> `.{8,}`
+> La chaîne doit comporter **au minimum 8 caractères**.
+
+> `$`
+> Fin de la chaîne : rien ne doit venir après.
+
+
 
 
 
