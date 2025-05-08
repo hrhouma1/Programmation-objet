@@ -84,6 +84,51 @@ root.mainloop()
 > Le message s’affiche dynamiquement sous le champ.
 
 
+## Question : 
+
+1. Pourquoi nous nous povons pas voir le texte saisie ici ? 
+2. Remplacez validate = "key" par validate = "focusin"
+3. Comparez le code ci-dessous avec le code suivant :
+
+
+```python
+import tkinter as tk
+
+def valider_longueur(texte):
+    return len(texte) <= 10
+
+def afficher_erreur():
+    label_erreur.config(text="⚠️ Texte trop long (max 10 caractères)", fg="red")
+
+def effacer_erreur():
+    label_erreur.config(text="")
+
+# Création de la fenêtre principale
+root = tk.Tk()
+root.title("Champ avec validation")
+
+# Enregistrement des fonctions
+cmd_valider = root.register(valider_longueur)
+cmd_invalide = root.register(afficher_erreur)
+
+# Champ de saisie avec validation
+champ = tk.Entry(root,
+                 validate="key",
+                 validatecommand=(cmd_valider, "%P"),
+                 invalidcommand=cmd_invalide)
+champ.pack(padx=10, pady=5)
+
+# Label pour afficher l'erreur
+label_erreur = tk.Label(root, text="", fg="red")
+label_erreur.pack()
+
+# Effacer l'erreur quand l'utilisateur commence à taper
+champ.bind("<KeyRelease>", lambda e: effacer_erreur())
+
+# Lancer la boucle
+root.mainloop()
+```
+
 
 # **4. Exemple complet 3 – Nom d’utilisateur entre 3 et 12 caractères, lettres seulement**
 
