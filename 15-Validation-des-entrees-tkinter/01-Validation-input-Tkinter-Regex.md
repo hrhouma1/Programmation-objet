@@ -84,10 +84,50 @@ root.mainloop()
 > Le message s’affiche dynamiquement sous le champ.
 
 
-## Question : 
+
+
+
+# **4. Exemple complet 3 – Nom d’utilisateur entre 3 et 12 caractères, lettres seulement**
+
+### Code :
+
+```python
+import tkinter as tk
+import re
+
+def valider_utilisateur(texte):
+    return bool(re.fullmatch(r"[A-Za-z]{3,12}", texte))
+
+def erreur_utilisateur():
+    info.set("3 à 12 lettres uniquement.")
+
+root = tk.Tk()
+root.title("Nom d'utilisateur")
+
+info = tk.StringVar()
+champ = tk.Entry(root,
+                 validate="key",
+                 validatecommand=(root.register(valider_utilisateur), "%P"),
+                 invalidcommand=(root.register(erreur_utilisateur),))
+champ.pack()
+
+msg = tk.Label(root, textvariable=info, fg="blue")
+msg.pack()
+
+root.mainloop()
+```
+
+> Ce champ n’autorise que les lettres, entre 3 et 12 caractères.
+> Le motif `[A-Za-z]{3,12}` permet cette contrainte.
+> Le message s’actualise si la règle est violée.
+
+
+
+
+# Question (IMPORTANT) : 
 
 1. Pourquoi nous nous povons pas voir le texte saisie ici ? 
-2. Remplacez validate = "key" par validate = "focusin"
+2. Remplacez validate = "key" par validate = "focusout"
 3. Comparez le code ci-dessous avec le code suivant :
 
 
@@ -143,39 +183,15 @@ root.mainloop()
 
 
 
-# **4. Exemple complet 3 – Nom d’utilisateur entre 3 et 12 caractères, lettres seulement**
 
-### Code :
 
-```python
-import tkinter as tk
-import re
 
-def valider_utilisateur(texte):
-    return bool(re.fullmatch(r"[A-Za-z]{3,12}", texte))
 
-def erreur_utilisateur():
-    info.set("3 à 12 lettres uniquement.")
 
-root = tk.Tk()
-root.title("Nom d'utilisateur")
 
-info = tk.StringVar()
-champ = tk.Entry(root,
-                 validate="key",
-                 validatecommand=(root.register(valider_utilisateur), "%P"),
-                 invalidcommand=(root.register(erreur_utilisateur),))
-champ.pack()
 
-msg = tk.Label(root, textvariable=info, fg="blue")
-msg.pack()
 
-root.mainloop()
-```
 
-> Ce champ n’autorise que les lettres, entre 3 et 12 caractères.
-> Le motif `[A-Za-z]{3,12}` permet cette contrainte.
-> Le message s’actualise si la règle est violée.
 
 
 
