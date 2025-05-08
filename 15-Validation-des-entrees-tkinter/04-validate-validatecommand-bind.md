@@ -80,3 +80,168 @@
 * `bind` est un **mécanisme de réponse aux événements**, plus souple mais non bloquant.
 * Dans les applications réelles, on utilise souvent **les deux ensemble** : `validate` pour restreindre, `bind` pour informer ou améliorer l'expérience utilisateur.
 
+<br/>
+<br/>
+
+# Exercice 1 :
+
+- Comparez ces deux codes :
+
+
+
+
+
+
+
+
+## Code 1
+
+```python
+import tkinter as tk
+import re
+
+# Fonction de validation (empêche les frappes invalides)
+def valider_texte(texte):
+    # Autoriser uniquement lettres (A-Za-z), entre 0 et 10 caractères
+    return bool(re.fullmatch(r"[A-Za-z]{0,10}", texte))
+
+# Fonction de feedback dynamique (affichée après la frappe)
+def verifier_apres_frappe(event):
+    texte = champ.get()
+    if re.fullmatch(r"[A-Za-z]{3,10}", texte):
+        info.set("OK")
+        champ.config(bg="white")
+    else:
+        info.set("Saisir 3 à 10 lettres uniquement.")
+        champ.config(bg="misty rose")
+
+# Fenêtre principale
+root = tk.Tk()
+root.title("Validation mixte : validate + bind")
+
+# Variable pour afficher le message
+info = tk.StringVar()
+
+# Enregistrement de la fonction validate
+cmd_valider = root.register(valider_texte)
+
+# Champ de saisie avec validate
+champ = tk.Entry(root,
+                 validate="key",
+                 validatecommand=(cmd_valider, "%P"))
+champ.pack(padx=10, pady=5)
+
+# Message affiché après la frappe
+label = tk.Label(root, textvariable=info, fg="blue")
+label.pack()
+
+# Liaison avec bind (feedback visuel)
+champ.bind("<KeyRelease>", verifier_apres_frappe)
+
+# Boucle Tkinter
+root.mainloop()
+```
+
+---
+
+## Explication
+
+| Élément                | Rôle                                                                  |
+| ---------------------- | --------------------------------------------------------------------- |
+| `validate="key"`       | Active la validation **avant** l’insertion dans le champ              |
+| `validatecommand`      | Fonction qui retourne `True` si la frappe est correcte, sinon `False` |
+| `bind("<KeyRelease>")` | Exécute une fonction après chaque frappe (même si rien n’a changé)    |
+| `StringVar()`          | Permet d’afficher dynamiquement des messages                          |
+| `champ.config(bg=...)` | Change la couleur du champ en fonction de l’état (facultatif)         |
+
+
+
+##  Objectif du code 1  avec `bind`
+
+* L’utilisateur doit entrer **entre 3 et 10 lettres uniquement**.
+* Si l'utilisateur tape autre chose, la frappe est **bloquée** (via `validate`).
+* Un message d'information apparaît **en direct** (via `bind`).
+* Le champ change de couleur si l’entrée devient invalide.
+
+
+
+##  Objectif du code 2  avec `invalidcommand`
+
+
+- Je vous présente **le même exemple**, mais cette fois **sans utiliser `bind`**.
+- On remplace `bind(...)` par `invalidcommand`, qui est déclenché **automatiquement lorsque `validatecommand` retourne False**.
+
+L'objectif est d':
+* Empêcher la frappe si le texte contient autre chose que des lettres (A–Z, a–z) ou dépasse 10 caractères.
+* Afficher un message d’erreur et changer la couleur du champ si la frappe est invalide.
+* Ne pas utiliser `bind`, uniquement `validate` + `invalidcommand`.
+
+
+
+## Code  avec `invalidcommand`
+
+```python
+import tkinter as tk
+import re
+
+# Fonction de validation stricte : bloque la frappe invalide
+def valider_texte(texte):
+    if re.fullmatch(r"[A-Za-z]{0,10}", texte):
+        info.set("")  # Efface l’erreur si valide
+        champ.config(bg="white")
+        return True
+    else:
+        return False  # Ne pas autoriser la saisie invalide
+
+# Fonction appelée quand la saisie est rejetée (invalidcommand)
+def saisie_invalide():
+    info.set("Erreur : lettres uniquement (max 10)")
+    champ.config(bg="misty rose")
+
+# Fenêtre principale
+root = tk.Tk()
+root.title("Validation stricte avec invalidcommand")
+
+# Variable pour message d'erreur
+info = tk.StringVar()
+
+# Enregistrement des fonctions
+valide = root.register(valider_texte)
+invalide = root.register(saisie_invalide)
+
+# Champ avec validation
+champ = tk.Entry(root,
+                 validate="key",
+                 validatecommand=(valide, "%P"),
+                 invalidcommand=invalide)
+champ.pack(padx=10, pady=5)
+
+# Message visuel
+label = tk.Label(root, textvariable=info, fg="blue")
+label.pack()
+
+# Lancer l’interface
+root.mainloop()
+```
+
+---
+
+## Différences clés avec `bind`
+
+| Point de comparaison          | `bind("<KeyRelease>")` | `invalidcommand`                                |
+| ----------------------------- | ---------------------- | ----------------------------------------------- |
+| Déclenchement                 | Après chaque frappe    | Seulement quand la saisie est bloquée (`False`) |
+| Peut réagir en continu ?      | Oui                    | Non (pas si le texte reste invalide)            |
+| Besoin de vérifier soi-même ? | Oui (manuellement)     | Non, déclenché automatiquement si invalid       |
+
+---
+
+## Limite connue de `invalidcommand`
+
+`invalidcommand` **ne se relance pas** tant que le champ reste invalide.
+Exemple : si on tape `1`, puis `2`, puis `3`, l’erreur n’est **pas réaffichée** à chaque frappe.
+
+Si tu veux un comportement **plus réactif**, il faut combiner `validatecommand` + `invalidcommand` + un `after(...)` ou `bind`.
+
+
+
