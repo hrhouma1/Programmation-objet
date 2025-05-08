@@ -130,6 +130,19 @@ root.mainloop()
 ```
 
 
+
+###  Ce qu’il faut retenir
+
+* `validate="key"` → vérifie à chaque frappe.
+* `validatecommand=(...)` → doit retourner `True` ou `False`.
+* `invalidcommand=...` → appelé **uniquement quand `validatecommand` retourne `False`**.
+* Tu peux afficher un `Label`, changer la couleur du champ, ou même désactiver un bouton.
+* le mot-clé `invalidcommand` permet d’exécuter **une action spécifique lorsque la validation échoue**.
+
+
+
+
+
 # **4. Exemple complet 3 – Nom d’utilisateur entre 3 et 12 caractères, lettres seulement**
 
 ### Code :
