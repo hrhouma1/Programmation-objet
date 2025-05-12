@@ -12,10 +12,11 @@ D. Éviter l'héritage multiple
 
 **Question 2.**
 Quel mot-clé est utilisé pour déclarer une méthode abstraite ?
-A. `defabstract`
-B. `virtualmethod`
-C. `@abstractmethod`
-D. `@abstract`
+
+- A. `defabstract`
+- B. `virtualmethod`
+- C. `@abstractmethod`
+- D. `@abstract`
 
 **Question 3.**
 Une classe abstraite peut :
