@@ -1,14 +1,10 @@
-# Partie 1
-
-
-### **QCM / Choix Multiples**
 
 **Question 1.**
 Que permet le module `abc` en Python ?
-A. Créer des classes statiques
-B. Implémenter des interfaces
-C. Définir des classes abstraites
-D. Éviter l'héritage multiple
+- A. Créer des classes statiques
+- B. Implémenter des interfaces
+- C. Définir des classes abstraites
+- D. Éviter l'héritage multiple
 
 **Question 2.**
 Quel mot-clé est utilisé pour déclarer une méthode abstraite ?
@@ -20,24 +16,24 @@ Quel mot-clé est utilisé pour déclarer une méthode abstraite ?
 
 **Question 3.**
 Une classe abstraite peut :
-A. Être instanciée directement
-B. Contenir des méthodes concrètes
-C. Avoir uniquement des attributs privés
-D. Contenir uniquement des méthodes abstraites
+- A. Être instanciée directement
+- B. Contenir des méthodes concrètes
+- C. Avoir uniquement des attributs privés
+- D. Contenir uniquement des méthodes abstraites
 
 **Question 4.**
 Qu'arrive-t-il si une sous-classe ne redéfinit pas toutes les méthodes abstraites ?
-A. Elle hérite normalement
-B. Elle est instanciable
-C. Elle devient elle-même abstraite
-D. Le programme plante immédiatement
+- A. Elle hérite normalement
+- B. Elle est instanciable
+- C. Elle devient elle-même abstraite
+- D. Le programme plante immédiatement
 
 **Question 5.**
 Quel est le rôle du polymorphisme ?
-A. Empêcher l’héritage
-B. Permettre à différentes classes d’avoir une méthode du même nom mais avec des comportements différents
-C. Masquer les attributs
-D. Créer des objets statiques
+- A. Empêcher l’héritage
+- B. Permettre à différentes classes d’avoir une méthode du même nom mais avec des comportements différents
+- C. Masquer les attributs
+- D. Créer des objets statiques
 
 **Question 6.**
 Quelle est la sortie du code suivant ?
@@ -52,41 +48,41 @@ class Chien(Animal):
         print("Le chien aboie.")
 
 a = Chien()
-a.parler()
+- A.parler()
 ```
 
-A. L'animal fait un bruit.
-B. Le chien aboie.
-C. Erreur d'exécution
-D. Rien ne s’affiche
+- A. L'animal fait un bruit.
+- B. Le chien aboie.
+- C. Erreur d'exécution
+- D. Rien ne s’affiche
 
 **Question 7.**
 Parmi les éléments suivants, lesquels sont VRAIS ? (choix multiples possibles)
-A. `ABC` signifie Abstract Base Class
-B. On ne peut pas créer d'objet d'une classe abstraite
-C. Le décorateur `@abstractmethod` s’utilise uniquement dans une classe enfant
-D. Une classe peut hériter de plusieurs classes abstraites
+- A. `ABC` signifie Abstract Base Class
+- B. On ne peut pas créer d'objet d'une classe abstraite
+- C. Le décorateur `@abstractmethod` s’utilise uniquement dans une classe enfant
+- D. Une classe peut hériter de plusieurs classes abstraites
 
 **Question 8.**
 Quel est le type de relation entre une classe parent et une classe enfant ?
-A. Association
-B. Agrégation
-C. Composition
-D. Héritage
+- A. Association
+- B. Agrégation
+- C. Composition
+- D. Héritage
 
 **Question 9.**
 Une méthode redéfinie dans une sous-classe :
-A. Supprime la méthode parent
-B. La remplace dans les instances de la sous-classe
-C. Inhibe toutes les méthodes abstraites
-D. Est appelée uniquement via `super()`
+- A. Supprime la méthode parent
+- B. La remplace dans les instances de la sous-classe
+- C. Inhibe toutes les méthodes abstraites
+- D. Est appelée uniquement via `super()`
 
 **Question 10.**
 Le polymorphisme permet d’appeler une méthode :
-A. De manière statique
-B. En ignorant l’objet cible
-C. En fonction du type réel de l’objet
-D. En fonction du type de la variable
+- A. De manière statique
+- B. En ignorant l’objet cible
+- C. En fonction du type réel de l’objet
+- D. En fonction du type de la variable
 
 
 
