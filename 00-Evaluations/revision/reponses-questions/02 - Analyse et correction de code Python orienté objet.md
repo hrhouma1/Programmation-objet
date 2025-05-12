@@ -160,3 +160,46 @@ print(p.age)  # Affiche : 42
 | `ABC`                | Permet de définir une classe abstraite, utile si on veut forcer des sous-classes à implémenter des méthodes |
 
 
+
+
+# 5 - Question Bonus – Analyse de comportement inattendu
+
+Considérez la classe `Patient` corrigée avec la propriété `@age.setter`. On exécute le code suivant :
+
+```python
+p = Patient("Martin", "Paul", -10, "P999", "Rhume")  # âge négatif à l'initialisation
+print(p.age)
+
+p.age = -5  # tentative de modification
+print(p.age)
+```
+
+#### Questions :
+
+1. Le programme accepte-t-il la valeur négative `-10` lors de l’instanciation du patient ? Pourquoi ?
+2. Que se passe-t-il lorsque l’on tente ensuite de modifier `p.age` à `-5` ? Quelle partie du code intervient ?
+3. Expliquez **pourquoi** le contrôle de validité ne fonctionne **que** lors de la modification et non à la création.
+4. Proposez une modification du code pour empêcher également l’attribution d’un âge négatif dans `__init__`.
+
+
+
+### Éléments attendus dans la réponse 
+
+1. **Oui**, la valeur `-10` est acceptée lors de l’instanciation car `__init__` assigne directement `self._age = age` sans passer par le setter.
+2. Lors de l’appel `p.age = -5`, le **setter `@age.setter`** est activé, détecte la valeur négative, et affiche un message sans modifier l’attribut.
+3. Le setter n’est **pas automatiquement appelé dans le constructeur**, car dans `__init__`, on assigne directement à `self._age`, donc **le contrôle est contourné**.
+4. Pour renforcer la sécurité, on peut remplacer dans `__init__` :
+
+```python
+self._age = age
+```
+
+par :
+
+```python
+self.age = age
+```
+
+Ainsi, même dans le constructeur, le setter sera invoqué.
+
+
