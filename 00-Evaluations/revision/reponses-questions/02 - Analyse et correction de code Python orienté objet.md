@@ -196,10 +196,5 @@ self._age = age
 
 par :
 
-```python
-self.age = age
-```
-
-Ainsi, même dans le constructeur, le setter sera invoqué.
-
+- Ajout de la condition sur l'âge
 
