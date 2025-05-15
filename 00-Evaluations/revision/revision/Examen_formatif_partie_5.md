@@ -177,6 +177,8 @@ for medicament in stock:
 
 
 
+<br/>
+<br/>
 
 
 
@@ -260,7 +262,8 @@ class Patient:
 
 
 
-
+<br/>
+<br/>
 
 
 # PARTIE 4 – Git et collaboration (10 points)
@@ -351,6 +354,8 @@ Cette commande affiche l’historique de toutes les branches sous forme d’un *
 * Interfaces comme GitKraken ou l’onglet "Source Control" de VS Code
 
 
+<br/>
+<br/>
 
 
 # PARTIE 5 – Lecture de code et compréhension fonctionnelle (10 points)
@@ -381,7 +386,6 @@ print(c1.total())
 
 # CORRECTION – PARTIE 5 : Lecture de code et compréhension fonctionnelle (10 points)
 
----
 
 ## **1. Code proposé à l’étudiant**
 
@@ -453,6 +457,8 @@ Cette méthode manuelle fait la même chose mais est plus longue et moins lisibl
 
 
 
+<br/>
+<br/>
 
 
 
@@ -561,6 +567,8 @@ print(f"Moyenne d’âge : {moyenne}")
 > Le CSV est un format **structuré**, lisible par l’humain **et** par la machine. Le `.txt` est un format libre mais non structuré, donc moins fiable pour le traitement automatique de données tabulaires.
 
 
+<br/>
+<br/>
 
 
 # PARTIE 7 – Concepts fondamentaux (10 points)
