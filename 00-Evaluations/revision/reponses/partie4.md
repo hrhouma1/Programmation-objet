@@ -47,9 +47,7 @@ Confondre le mot *interface* (terme général ou Java) avec `abc` en Python. En 
 <br/>
 
 
-Parfait, je poursuis dans le même format strict et pédagogique.
 
----
 
 # **Question 2.**
 
