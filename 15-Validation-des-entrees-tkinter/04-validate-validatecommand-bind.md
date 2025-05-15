@@ -241,7 +241,5 @@ root.mainloop()
 `invalidcommand` **ne se relance pas** tant que le champ reste invalide.
 Exemple : si on tape `1`, puis `2`, puis `3`, l’erreur n’est **pas réaffichée** à chaque frappe.
 
-Si tu veux un comportement **plus réactif**, il faut combiner `validatecommand` + `invalidcommand` + un `after(...)` ou `bind`.
-
 
 
