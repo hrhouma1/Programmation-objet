@@ -54,6 +54,8 @@ source venv/bin/activate   # macOS / Linux
 
 ## Réponse 
 
+### Pas besoin d'installer thinkter , il est déja intégré sinon sur linux (optionnel) ==>
+
 ```bash
 sudo apt install python3-tk
 ```
