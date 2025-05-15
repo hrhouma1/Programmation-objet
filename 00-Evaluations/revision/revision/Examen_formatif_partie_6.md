@@ -17,11 +17,34 @@
 ......................................................
 ```
 
+## Réponse 
+
+```bash
+mkdir tp_tkinter_base
+cd tp_tkinter_base
+python -m venv venv
+```
+
+
+
+
+
+
+
 3. Activer l’environnement virtuel.
 
 ```bash
 ......................................................
 ```
+
+## Réponse 
+
+```bash
+venv\Scripts\activate      # Windows
+source venv/bin/activate   # macOS / Linux
+```
+
+---
 
 4. Installer Tkinter.
 
@@ -29,9 +52,17 @@
 ......................................................
 ```
 
+## Réponse 
+
+```bash
+sudo apt install python3-tk
+```
+
+---
+
 5. Créer un fichier `main.py` dans ce dossier.
 
-
+---
 
 ## **Étape 1 – Créer une fenêtre vide**
 
@@ -44,6 +75,24 @@
 ......................................................
 ```
 
+## Réponse Étape 1
+
+```python
+import tkinter as tk
+root = tk.Tk()
+root.title("Ma première fenêtre")
+root.geometry("300x200")
+root.mainloop()
+```
+
+
+
+
+
+
+
+
+
 
 ## **Étape 2 – Ajouter un Label**
 
@@ -55,7 +104,14 @@
 ......................................................
 ```
 
+## Réponse Étape 2
 
+```python
+label = tk.Label(root, text="Bonjour, Tkinter !")
+label.pack()
+```
+
+---
 
 ## **Étape 3 – Ajouter un champ de texte**
 
@@ -65,6 +121,17 @@
 ......................................................
 ......................................................
 ```
+
+## Réponse Étape 3
+
+```python
+champ = tk.Entry(root)
+champ.pack()
+```
+
+
+
+
 
 
 
@@ -80,11 +147,33 @@ def afficher_message():
     ......................................................
 ```
 
+## Réponse Étape 4.1
+
+```python
+def afficher_message():
+    texte = champ.get()
+    label.config(text=texte)
+```
+
+---
+
 2. Puis ajoute le bouton :
 
 ```python
 ......................................................
 ```
+
+## Réponse Étape 4.2
+
+```python
+bouton = tk.Button(root, text="Valider", command=afficher_message)
+bouton.pack()
+```
+
+
+
+
+
 
 
 
@@ -99,19 +188,13 @@ def afficher_message():
     ......................................................
 ```
 
-
-
-## **Structure attendue du fichier `main.py` final (optionnelle)**
-
-> Si tu veux, recopie ci-dessous tout ton fichier `main.py` une fois complété.
+## Réponse Étape 5
 
 ```python
-......................................................
-......................................................
-......................................................
-......................................................
-......................................................
-......................................................
+def afficher_message():
+    texte = champ.get()
+    label.config(text=texte)
+    champ.delete(0, tk.END)
 ```
 
 
@@ -123,12 +206,8 @@ def afficher_message():
 
 
 
-
 <br/>
 <br/>
-
-
-
 
 
 
@@ -147,16 +226,24 @@ Tu vas faire en sorte que :
 * Toute autre saisie sera automatiquement **rejetée** (non affichée dans le champ)
 
 
-#### 6.1 – Ajouter une fonction de validation
+### 6.1 – Ajouter une fonction de validation
 
 > Crée une fonction appelée `valider_texte` qui recevra un texte (celui que l’utilisateur essaie d’écrire).
 > Cette fonction devra retourner `True` si le texte est correct, et `False` s’il contient autre chose que des lettres, ou s’il est trop long.
 
 ```python
 def valider_texte(texte):
-    # Vérifier que le texte contient seulement des lettres (sans chiffres, sans symboles)
-    # et qu’il ne dépasse pas 10 caractères
     if ......................................................:
+        return True
+    else:
+        return False
+```
+
+## Réponse Étape 6.1
+
+```python
+def valider_texte(texte):
+    if texte.isalpha() and len(texte) <= 10:
         return True
     else:
         return False
@@ -164,19 +251,21 @@ def valider_texte(texte):
 
 ---
 
-#### 6.2 – Enregistrer cette fonction pour Tkinter
-
-> Tkinter a besoin que tu **enregistres** cette fonction pour pouvoir l'utiliser dans `validatecommand`.
+### 6.2 – Enregistrer cette fonction pour Tkinter
 
 ```python
 valide = root.register(......................................................)
 ```
 
+## Réponse Étape 6.2
+
+```python
+valide = root.register(valider_texte)
+```
+
 ---
 
-#### 6.3 – Appliquer la validation au champ `Entry`
-
-> Modifie ton champ `Entry` pour utiliser la validation à chaque frappe (`validate="key"`), et pour appeler ta fonction enregistrée.
+### 6.3 – Appliquer la validation au champ `Entry`
 
 ```python
 champ = tk.Entry(root,
@@ -185,7 +274,17 @@ champ = tk.Entry(root,
 champ.pack()
 ```
 
----
+## Réponse Étape 6.3
+
+```python
+champ = tk.Entry(root, validate="key", validatecommand=(valide, "%P"))
+champ.pack()
+```
+
+
+
+
+
 
 ### Ce que tu dois observer :
 
@@ -218,41 +317,56 @@ Tu vas maintenant **améliorer l'expérience utilisateur** en ajoutant :
 
 
 
-### Étapes détaillées
 
-#### 7.1 – Créer une variable pour le message
 
-> Crée une variable `StringVar()` pour afficher un message dynamique (texte modifiable).
+
+
+
+
+
+
+
+
+
+
+
+## **Étape 7 – Afficher un message et changer la couleur du champ**
+
+### 7.1 – Créer une variable pour le message
 
 ```python
 message = ......................................................
 ```
 
+## Réponse Étape 7.1
 
+```python
+message = tk.StringVar()
+```
 
-#### 7.2 – Créer un `Label` qui utilise cette variable
+---
 
-> Ce `Label` affichera un message en dessous du champ, selon la saisie.
+### 7.2 – Créer un `Label` qui utilise cette variable
 
 ```python
 label_message = tk.Label(root, textvariable=message)
 label_message.pack()
 ```
 
+## Réponse Étape 7.2
 
-#### 7.3 – Créer une fonction appelée **après chaque frappe**
+```python
+label_message = tk.Label(root, textvariable=message)
+label_message.pack()
+```
 
-> Cette fonction va :
->
-> * Vérifier si le texte dans le champ est correct
-> * Mettre un message (ex : "Saisie correcte" ou "Erreur")
-> * Changer la couleur du champ (`white` ou `misty rose`)
+---
+
+### 7.3 – Créer une fonction appelée **après chaque frappe**
 
 ```python
 def verifier_texte(event):
     texte = champ.get()
-    
-    # Vérifie si le texte est composé uniquement de lettres et ne dépasse pas 10 caractères
     if ......................................................:
         message.set("Saisie correcte.")
         champ.config(bg="white")
@@ -261,16 +375,36 @@ def verifier_texte(event):
         champ.config(bg="misty rose")
 ```
 
+## Réponse Étape 7.3
 
-#### 7.4 – Lier cette fonction au champ
+```python
+def verifier_texte(event):
+    texte = champ.get()
+    if texte.isalpha() and len(texte) <= 10:
+        message.set("Saisie correcte.")
+        champ.config(bg="white")
+    else:
+        message.set("Erreur : lettres uniquement, 10 caractères max.")
+        champ.config(bg="misty rose")
+```
 
-> Grâce à `bind`, tu peux exécuter cette fonction **après chaque frappe** dans le champ.
+---
+
+### 7.4 – Lier cette fonction au champ
 
 ```python
 champ.bind("<KeyRelease>", ................................)
 ```
 
----
+## Réponse Étape 7.4
+
+```python
+champ.bind("<KeyRelease>", verifier_texte)
+```
+
+
+
+
 
 ### Ce que tu dois observer :
 
@@ -306,13 +440,17 @@ Tu vas maintenant ajouter un **deuxième bouton**, appelé **"Effacer"**, qui :
 
 
 
-#### 8.1 – Créer une fonction `effacer_champ`
 
-> Cette fonction doit :
->
-> * Vider le champ de texte
-> * Effacer le message
-> * Remettre la couleur du champ à blanc (`white`)
+
+
+
+
+
+
+
+## **Étape 8 – Ajouter un bouton "Effacer"**
+
+### 8.1 – Créer une fonction `effacer_champ`
 
 ```python
 def effacer_champ():
@@ -321,16 +459,37 @@ def effacer_champ():
     ......................................................
 ```
 
+## Réponse Étape 8.1
 
+```python
+def effacer_champ():
+    champ.delete(0, tk.END)
+    message.set("")
+    champ.config(bg="white")
+```
 
-#### 8.2 – Créer le bouton "Effacer"
+---
 
-> Ce bouton doit appeler la fonction `effacer_champ` quand on clique dessus.
+### 8.2 – Créer le bouton "Effacer"
 
 ```python
 bouton_effacer = tk.Button(root, text="Effacer", command=................................)
 bouton_effacer.pack()
 ```
+
+## Réponse Étape 8.2
+
+```python
+bouton_effacer = tk.Button(root, text="Effacer", command=effacer_champ)
+bouton_effacer.pack()
+```
+
+
+
+
+
+
+
 
 
 
@@ -348,6 +507,88 @@ bouton_effacer.pack()
 * Que se passe-t-il si tu tapes une erreur, puis cliques sur Effacer ?
 * Que se passe-t-il si tu tapes un texte valide, puis cliques sur Effacer ?
 * Le champ et le message sont-ils bien réinitialisés ?
+
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+
+
+# Annexe -  **main.py — Version commentée**
+
+```python
+# Importation du module Tkinter
+import tkinter as tk
+
+# Fonction de validation : accepte uniquement des lettres, max 10 caractères
+def valider_texte(texte):
+    return texte.isalpha() and len(texte) <= 10
+
+# Fonction appelée lors du clic sur le bouton "Valider"
+# Elle récupère le texte, l'affiche dans le Label, puis vide le champ
+def afficher_message():
+    texte = champ.get()
+    label.config(text=texte)
+    champ.delete(0, tk.END)
+
+# Fonction appelée après chaque frappe au clavier
+# Elle affiche un message et change la couleur du champ selon la validité
+def verifier_texte(event):
+    texte = champ.get()
+    if texte.isalpha() and len(texte) <= 10:
+        message.set("Saisie correcte.")
+        champ.config(bg="white")
+    else:
+        message.set("Erreur : lettres uniquement, 10 caractères max.")
+        champ.config(bg="misty rose")
+
+# Fonction appelée par le bouton "Effacer"
+# Elle vide le champ, supprime le message, et remet la couleur par défaut
+def effacer_champ():
+    champ.delete(0, tk.END)
+    message.set("")
+    champ.config(bg="white")
+
+# Création de la fenêtre principale
+root = tk.Tk()
+root.title("Ma première fenêtre")
+root.geometry("300x200")
+
+# Label initial affiché en haut
+label = tk.Label(root, text="Bonjour, Tkinter !")
+label.pack()
+
+# Enregistrement de la fonction de validation
+valide = root.register(valider_texte)
+
+# Champ de saisie avec validation à chaque frappe
+champ = tk.Entry(root, validate="key", validatecommand=(valide, "%P"))
+champ.pack()
+
+# Liaison : après chaque touche, on appelle la fonction de vérification
+champ.bind("<KeyRelease>", verifier_texte)
+
+# Message dynamique sous le champ
+message = tk.StringVar()
+label_message = tk.Label(root, textvariable=message)
+label_message.pack()
+
+# Bouton "Valider"
+bouton = tk.Button(root, text="Valider", command=afficher_message)
+bouton.pack()
+
+# Bouton "Effacer"
+bouton_effacer = tk.Button(root, text="Effacer", command=effacer_champ)
+bouton_effacer.pack()
+
+# Lancement de la boucle principale de l'interface
+root.mainloop()
+```
+
 
 
 
