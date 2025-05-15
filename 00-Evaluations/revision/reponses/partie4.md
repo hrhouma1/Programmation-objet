@@ -7,7 +7,7 @@
 
 
 
-**Question 1.**
+# **Question 1.**
 Que permet le module `abc` en Python ?
 - A. Créer des classes statiques
 - B. Implémenter des interfaces
@@ -43,30 +43,37 @@ Une classe qui hérite de `ABC` et qui contient une méthode décorée avec `@ab
 Confondre le mot *interface* (terme général ou Java) avec `abc` en Python. En Python, on parle plutôt de **classe abstraite** que d’interface.
 
 
+<br/>
+<br/>
 
 
-**Question 2.**
+Parfait, je poursuis dans le même format strict et pédagogique.
+
+---
+
+# **Question 2.**
+
 Quel mot-clé est utilisé pour déclarer une méthode abstraite ?
 
-- A. `defabstract`
-- B. `virtualmethod`
-- C. `@abstractmethod`
-- D. `@abstract`
+* A. `defabstract`
+* B. `virtualmethod`
+* C. `@abstractmethod`
+* D. `@abstract`
 
-
-
-
+---
 
 # **Question 2 : Quel mot-clé est utilisé pour déclarer une méthode abstraite ?**
 
 * **Réponse correcte : C. `@abstractmethod`**
 
 **Explication complète :**
-C’est un **décorateur** qui s’applique à une méthode pour dire que **toute classe qui hérite** devra redéfinir cette méthode.
+Il s’agit d’un **décorateur** fourni par le module `abc`. Lorsqu’il est appliqué à une méthode dans une classe dérivée de `ABC`, il indique que cette méthode **doit impérativement être redéfinie** dans toute sous-classe concrète.
 
 **Exemple :**
 
 ```python
+from abc import ABC, abstractmethod
+
 class Machine(ABC):
     @abstractmethod
     def executer(self):
@@ -74,102 +81,119 @@ class Machine(ABC):
 ```
 
 **À retenir :**
-On n’utilise jamais `@abstract`, `defabstract` ou `virtualmethod` en Python.
 
+* Le décorateur `@abstractmethod` est **obligatoire** pour marquer une méthode comme abstraite.
+* Les propositions A, B et D sont incorrectes : ce ne sont **pas des mots-clés valides en Python**.
 
+---
 
+# **Question 3.**
 
-
-
-
-**Question 3.**
 Une classe abstraite peut :
-- A. Être instanciée directement
-- B. Contenir des méthodes concrètes
-- C. Avoir uniquement des attributs privés
-- D. Contenir uniquement des méthodes abstraites
 
+* A. Être instanciée directement
+* B. Contenir des méthodes concrètes
+* C. Avoir uniquement des attributs privés
+* D. Contenir uniquement des méthodes abstraites
 
-
+---
 
 # **Question 3 : Une classe abstraite peut :**
 
 * **Réponse correcte : B. Contenir des méthodes concrètes**
 
 **Explication complète :**
-Une classe abstraite n’est pas obligée d’avoir uniquement des méthodes abstraites. Elle peut contenir :
+Une classe abstraite en Python peut contenir :
 
-* Des méthodes abstraites (non définies)
-* Des méthodes concrètes (avec un corps de méthode)
+* Des **méthodes abstraites** (sans implémentation, marquées avec `@abstractmethod`)
+* Des **méthodes concrètes** (avec un corps de méthode)
+
+Cela permet à la classe abstraite de **fournir des comportements par défaut** tout en **imposant** certaines méthodes à ses sous-classes.
 
 **Exemple :**
 
 ```python
+from abc import ABC, abstractmethod
+
 class Vehicule(ABC):
     def arreter(self):
-        print("Véhicule arrêté.")
-    
+        print("Arrêt du véhicule.")
+
     @abstractmethod
     def demarrer(self):
         pass
 ```
 
 **Erreur fréquente :**
-Croire qu’une classe abstraite = aucune implémentation. En réalité, elle peut contenir du code.
+Croire qu’une classe abstraite ne peut contenir que des méthodes abstraites. En réalité, elle peut offrir des fonctionnalités de base communes à toutes ses sous-classes.
 
+---
 
+# **Question 4.**
 
-
-
-
-**Question 4.**
 Qu'arrive-t-il si une sous-classe ne redéfinit pas toutes les méthodes abstraites ?
-- A. Elle hérite normalement
-- B. Elle est instanciable
-- C. Elle devient elle-même abstraite
-- D. Le programme plante immédiatement
 
+* A. Elle hérite normalement
+* B. Elle est instanciable
+* C. Elle devient elle-même abstraite
+* D. Le programme plante immédiatement
 
+---
 
 # **Question 4 : Si une sous-classe ne redéfinit pas toutes les méthodes abstraites ?**
 
 * **Réponse correcte : C. Elle devient elle-même abstraite**
 
 **Explication complète :**
-Une sous-classe **incomplète** (qui n’implémente pas toutes les méthodes abstraites) devient automatiquement abstraite et **ne peut pas être instanciée**.
+Lorsqu'une sous-classe hérite d’une classe abstraite mais **n’implémente pas toutes les méthodes abstraites**, elle **reste abstraite**.
+Cela signifie qu’elle **ne pourra pas être instanciée**.
 
-**Exemple :**
+**Exemple illustratif :**
 
 ```python
+from abc import ABC, abstractmethod
+
 class Capteur(ABC):
     @abstractmethod
     def mesurer(self):
         pass
 
 class Thermometre(Capteur):
-    pass  # pas d'implémentation
+    pass  # aucune redéfinition
 
-t = Thermometre()  # Erreur !
+# Instanciation interdite :
+t = Thermometre()  # Provoque une TypeError
 ```
 
+**Règle à retenir :**
+Une sous-classe est **obligée de redéfinir toutes les méthodes abstraites** pour devenir instanciable. Sinon, elle devient à son tour abstraite.
+
+
+<br/>
+<br/>
 
 
 
 
-**Question 5.**
+
+
+# **Question 5.**
+
 Quel est le rôle du polymorphisme ?
-- A. Empêcher l’héritage
-- B. Permettre à différentes classes d’avoir une méthode du même nom mais avec des comportements différents
-- C. Masquer les attributs
-- D. Créer des objets statiques
+
+* A. Empêcher l’héritage
+* B. Permettre à différentes classes d’avoir une méthode du même nom mais avec des comportements différents
+* C. Masquer les attributs
+* D. Créer des objets statiques
+
+---
 
 # **Question 5 : Rôle du polymorphisme ?**
 
 * **Réponse correcte : B. Permettre à différentes classes d’avoir une méthode du même nom mais avec des comportements différents**
 
 **Explication complète :**
-
-Le **polymorphisme** permet de manipuler des objets de classes différentes avec une **interface commune**.
+Le **polymorphisme** permet d’utiliser une **même méthode** (même nom) sur plusieurs types d’objets, chaque objet pouvant avoir une implémentation différente.
 
 **Exemple classique :**
 
@@ -185,27 +209,19 @@ class Chat:
 def faire_parler(animal):
     animal.parler()
 
-faire_parler(Chien())
-faire_parler(Chat())
-```
-
-**Sortie :**
-
-```
-Aboie
-Miaule
+faire_parler(Chien())  # Aboie
+faire_parler(Chat())   # Miaule
 ```
 
 **À retenir :**
 
-* Même méthode → plusieurs comportements
-* Très utilisé dans les boucles, collections, pipelines, etc.
+* Le polymorphisme évite les chaînes de conditions `if type(...)` en permettant un comportement automatique basé sur le type réel de l’objet.
+* Il est central pour écrire du code **générique**, **extensible** et **réutilisable**.
 
+---
 
+# **Question 6.**
 
-
-
-**Question 6.**
 Quelle est la sortie du code suivant ?
 
 ```python
@@ -218,41 +234,38 @@ class Chien(Animal):
         print("Le chien aboie.")
 
 a = Chien()
-- A.parler()
+a.parler()
 ```
 
-- A. L'animal fait un bruit.
-- B. Le chien aboie.
-- C. Erreur d'exécution
-- D. Rien ne s’affiche
+* A. L'animal fait un bruit.
+* B. Le chien aboie.
+* C. Erreur d'exécution
+* D. Rien ne s’affiche
 
-
+---
 
 # **Question 6 : Résultat du code**
 
 * **Réponse correcte : B. Le chien aboie.**
 
-**Pourquoi ?**
-La méthode `parler()` a été redéfinie dans `Chien`. L’appel se fait sur une instance de `Chien`, donc c’est sa version qui est exécutée.
+**Explication complète :**
+La classe `Chien` redéfinit la méthode `parler()` héritée de `Animal`. Lorsqu’on instancie `Chien` et qu’on appelle `parler()`, c’est la **méthode redéfinie** dans `Chien` qui est exécutée.
 
+**Règle à retenir :**
+En Python, la méthode appelée dépend du **type réel** de l’objet, pas du type de la variable.
 
+---
 
+# **Question 7.**
 
-
-
-
-
-
-
-
-
-**Question 7.**
 Parmi les éléments suivants, lesquels sont VRAIS ? (choix multiples possibles)
-- A. `ABC` signifie Abstract Base Class
-- B. On ne peut pas créer d'objet d'une classe abstraite
-- C. Le décorateur `@abstractmethod` s’utilise uniquement dans une classe enfant
-- D. Une classe peut hériter de plusieurs classes abstraites
 
+* A. `ABC` signifie Abstract Base Class
+* B. On ne peut pas créer d'objet d'une classe abstraite
+* C. Le décorateur `@abstractmethod` s’utilise uniquement dans une classe enfant
+* D. Une classe peut hériter de plusieurs classes abstraites
+
+---
 
 # **Question 7 : Choix multiples**
 
@@ -260,157 +273,189 @@ Parmi les éléments suivants, lesquels sont VRAIS ? (choix multiples possibles)
 
 **Explications :**
 
-* A. ✅ Vrai : ABC = Abstract Base Class
-* B. ✅ Vrai : Une classe abstraite ne peut pas être instanciée
-* C. ❌ Faux : `@abstractmethod` est utilisé **dans la classe de base**, pas dans les enfants
-* D. ✅ Vrai : Python accepte l’héritage multiple, y compris entre classes abstraites
+* A. ✅ `ABC` est l’acronyme de **Abstract Base Class**, utilisé comme base pour créer des classes abstraites.
+* B. ✅ Une classe abstraite ne peut **pas être instanciée** si elle contient une méthode abstraite non redéfinie.
+* C. ❌ Faux : `@abstractmethod` s’utilise dans la **classe de base**, jamais dans la sous-classe.
+* D. ✅ Python autorise l’**héritage multiple**, y compris entre plusieurs classes abstraites.
 
+---
 
+# **Question 8.**
 
-
-
-
-
-
-
-
-
-
-
-
-**Question 8.**
 Quel est le type de relation entre une classe parent et une classe enfant ?
-- A. Association
-- B. Agrégation
-- C. Composition
-- D. Héritage
+
+* A. Association
+* B. Agrégation
+* C. Composition
+* D. Héritage
+
+---
 
 # **Question 8 : Type de relation entre parent et enfant**
 
 * **Réponse correcte : D. Héritage**
 
-**Explication :**
-Il s’agit d’une relation “est-un” (ex : un Chien **est un** Animal).
-Ce n’est ni une association, ni une agrégation ou composition (qui sont utilisées en UML pour la structuration d’objets différents).
+**Explication complète :**
+L’héritage est une relation entre classes où une classe enfant **hérite** des attributs et méthodes d’une classe parent.
+C’est une relation **"est-un"**.
+Exemple : un `Chien` **est un** `Animal`.
 
+**Les autres options relèvent de la modélisation UML :**
 
+* **Association** : relation de collaboration
+* **Agrégation** : relation faible "fait partie de"
+* **Composition** : relation forte de dépendance
 
+---
 
+# **Question 9.**
 
-
-
-
-
-
-**Question 9.**
 Une méthode redéfinie dans une sous-classe :
-- A. Supprime la méthode parent
-- B. La remplace dans les instances de la sous-classe
-- C. Inhibe toutes les méthodes abstraites
-- D. Est appelée uniquement via `super()`
 
+* A. Supprime la méthode parent
+* B. La remplace dans les instances de la sous-classe
+* C. Inhibe toutes les méthodes abstraites
+* D. Est appelée uniquement via `super()`
 
+---
 
 # **Question 9 : Méthode redéfinie**
 
 * **Réponse correcte : B. La remplace dans les instances de la sous-classe**
 
-**Explication :**
-Quand une sous-classe redéfinit une méthode du parent, elle la **masque** pour ses propres instances.
+**Explication complète :**
+Quand une méthode est redéfinie dans une sous-classe, elle **masque** (ou écrase) celle de la classe parente **uniquement pour les instances de cette sous-classe**.
 
+**Exemple :**
 
+```python
+class Parent:
+    def dire_bonjour(self):
+        print("Bonjour du parent")
 
+class Enfant(Parent):
+    def dire_bonjour(self):
+        print("Bonjour de l’enfant")
 
+e = Enfant()
+e.dire_bonjour()  # Bonjour de l’enfant
+```
 
+---
 
+# **Question 10.**
 
-
-
-
-
-
-**Question 10.**
 Le polymorphisme permet d’appeler une méthode :
-- A. De manière statique
-- B. En ignorant l’objet cible
-- C. En fonction du type réel de l’objet
-- D. En fonction du type de la variable
 
+* A. De manière statique
+* B. En ignorant l’objet cible
+* C. En fonction du type réel de l’objet
+* D. En fonction du type de la variable
 
-
-
-
+---
 
 # **Question 10 : Appel de méthode et polymorphisme**
 
 * **Réponse correcte : C. En fonction du type réel de l’objet**
 
-**Explication :**
-Même si une variable est typée comme `Vehicule`, si l’objet réel est un `Moto`, c’est la méthode de `Moto` qui est appelée.
+**Explication complète :**
+Même si on utilise une variable typée comme `Animal`, si on y stocke un objet de type `Chien`, alors c’est la méthode de `Chien` qui est exécutée.
+
+**Exemple :**
+
+```python
+animal = Chien()  # Chien hérite de Animal
+animal.parler()   # C'est parler() de Chien qui est exécuté
+```
+
+**Règle :**
+En Python (comme en Java, C#), le **polymorphisme dynamique** est basé sur le **type réel** de l'objet, pas celui de la référence.
 
 
 
 
 
-### **Questions ouvertes / Vrai-Faux / Codes à analyser**
 
-**Question 11.**
+<br/>
+<br/>
+
+
+
+# Partie 2 - Questions ouvertes / Vrai-Faux / Codes à analyser
+
+
+
+# **Question 11.**
+
 Vrai ou Faux : Une classe qui hérite d'une classe abstraite peut être instanciée même si elle n’implémente pas toutes les méthodes abstraites.
 
-
+---
 
 # **Question 11 : Vrai ou Faux – Classe incomplète instanciable ?**
 
 * **Réponse : Faux**
 
-**Règle :**
-Une classe qui n’implémente pas toutes les méthodes abstraites reste abstraite et ne peut pas être instanciée.
+**Explication complète :**
+Une classe qui hérite d’une classe abstraite **et** qui ne redéfinit pas toutes ses méthodes abstraites **reste abstraite** elle-même. Par conséquent, elle **ne peut pas être instanciée**.
 
+**Règle à retenir :**
+Tant qu'une méthode abstraite n'est pas redéfinie dans une classe, cette classe est abstraite et Python lèvera une `TypeError` à l’instanciation.
 
+---
 
+# **Question 12.**
 
-
-
-
-
-
-
-
-**Question 12.**
 Vrai ou Faux : `super()` permet d'appeler les méthodes de la classe parente même dans une classe qui hérite.
 
+---
 
-  
 # **Question 12 : Vrai ou Faux – Utilité de `super()`**
 
 * **Réponse : Vrai**
 
-**Explication :**
-`super()` permet d’appeler une méthode de la classe parente, très utile pour compléter ou enrichir un comportement sans le réécrire complètement.
+**Explication complète :**
+La fonction `super()` permet d’accéder à une méthode de la classe parente depuis une sous-classe. Elle est très utile dans le cas de redéfinitions, lorsqu’on souhaite **conserver une partie du comportement de la classe parente**, puis le compléter.
 
+**Exemple :**
 
+```python
+class Parent:
+    def afficher(self):
+        print("Parent")
 
+class Enfant(Parent):
+    def afficher(self):
+        super().afficher()
+        print("Enfant")
 
+e = Enfant()
+e.afficher()
+```
+
+---
+
+# **Question 13.**
+
+Donnez un exemple de situation réelle où le polymorphisme est utile dans une application logicielle.
+
+---
 
 # **Question 13 : Exemple réel de polymorphisme**
 
-**Exemple attendu :**
-
-Dans un système de facturation, chaque type de client (`ClientIndividuel`, `ClientEntreprise`) a une méthode `calculer_remise()`. Grâce au polymorphisme, on peut faire :
+**Réponse attendue :**
+Dans une application de gestion des paiements, chaque classe (`CarteCredit`, `PayPal`, `Cryptomonnaie`) a une méthode `payer()`. Grâce au polymorphisme, on peut faire :
 
 ```python
-for client in liste_clients:
-    print(client.calculer_remise())
+for moyen in liste_moyens_paiement:
+    moyen.payer()
 ```
 
-Sans se soucier du type concret de `client`.
+Peu importe le type de chaque objet, la méthode correcte sera appelée.
 
+---
 
+# **Question 14.**
 
-**Question 13.**
-Donnez un exemple de situation réelle où le polymorphisme est utile dans une application logicielle.
-
-**Question 14.**
 Complétez ce code pour créer une méthode abstraite nommée `analyser()` :
 
 ```python
@@ -419,6 +464,8 @@ from abc import ABC, abstractmethod
 class Capteur(ABC):
     # Votre réponse ici
 ```
+
+---
 
 # **Question 14 : Compléter avec méthode abstraite**
 
@@ -431,145 +478,60 @@ class Capteur(ABC):
         pass
 ```
 
+**Règle :**
+On doit utiliser `@abstractmethod` sur une méthode d’une classe héritant d’`ABC` pour forcer sa redéfinition.
 
+---
 
+# **Question 15.**
 
-
-**Question 15.**
 Quel est l'intérêt d’utiliser une classe abstraite au lieu d’une classe classique ?
 
-
-
+---
 
 # **Question 15 : Intérêt d’une classe abstraite**
 
 **Réponse attendue :**
+Une classe abstraite permet de **définir une interface commune** à toutes les sous-classes et de **forcer l’implémentation de certaines méthodes essentielles**, assurant ainsi la cohérence du système.
 
-Elle permet d’**imposer une structure** dans une hiérarchie de classes et de s’assurer que **certaines méthodes essentielles seront bien définies**.
+---
 
+# **Question 16.**
 
-
-
-
-**Question 16.**
 Expliquez en une phrase ce qu’est l’héritage en Python.
 
+---
 
 # **Question 16 : Héritage en Python**
 
 **Réponse attendue :**
-
-L’héritage permet à une classe d’**hériter les attributs et méthodes** d’une autre classe, pour les réutiliser ou les spécialiser.
-
-
-
-
-**Question 17.**
-Corrigez le code suivant pour qu’il fonctionne sans erreur :
-
-```python
-from abc import ABC
-
-class Machine(ABC):
-    def demarrer(self):
-        pass
-
-class Imprimante(Machine):
-    pass
-
-i = Imprimante()
-i.demarrer()
-```
-
-
-
-
-
-**Question 17.**
-Corrigez le code suivant pour qu’il fonctionne sans erreur :
-
-```python
-from abc import ABC
-
-class Machine(ABC):
-    def demarrer(self):
-        pass
-
-class Imprimante(Machine):
-    pass
-
-i = Imprimante()
-i.demarrer()
-```
-
-
-
-
-**Question 18.**
-Vrai ou Faux : Une classe peut hériter d'une classe abstraite tout en restant elle-même abstraite.
-
-
-
-
-**Question 18.**
-Vrai ou Faux : Une classe peut hériter d'une classe abstraite tout en restant elle-même abstraite.
-
-
-
-**Question 19.**
-Donnez une définition simple du terme **polymorphisme** en programmation orientée objet.
-
-
-
-**Question 19.**
-Donnez une définition simple du terme **polymorphisme** en programmation orientée objet.
-
-
-
-
-**Question 20.**
-Expliquez pourquoi le polymorphisme est utile dans un programme utilisant des listes d’objets de types différents.
-
-
-<br/>
-<br/>
-
-
-# Partie 2 : Conception d'une Classe Abstraite pour un Dispositif de Mesure
-
-
-
-1. **Proposez une classe abstraite de votre choix** représentant un **dispositif de mesure** dans un contexte scientifique, médical, environnemental ou industriel (par exemple : `Thermometre`, `CapteurDePression`, `AnalyseurDeGaz`, etc.).
-2. Votre classe abstraite doit contenir **au minimum trois méthodes abstraites** listées dans le tableau ci-dessous :
-
-| Méthode attendue       | Description                              |
-| ---------------------- | ---------------------------------------- |
-| `demarrer_mesure()`    | Lance la procédure de mesure             |
-| `arreter_mesure()`     | Termine ou interrompt la mesure          |
-| `afficher_resultats()` | Affiche ou restitue les données mesurées |
-
-3. Créez **au moins deux classes concrètes** héritant de cette classe abstraite et implémentant toutes les méthodes de manière spécifique à chaque dispositif.
-4. **Testez votre code** en instanciant vos classes concrètes et en appelant leurs méthodes.
-
-
-
-# **Contraintes supplémentaires :**
-
-* Vous devez remettre un fichier `.py` contenant **votre propre conception de la classe abstraite et ses deux implémentations concrètes**.
-* **Aucun code ne doit être partagé entre étudiants. Toute similitude injustifiée sera considérée comme du plagiat.**
-* Soyez original, pertinent et rigoureux dans la structure de votre code.
+L’héritage permet à une classe de **réutiliser, redéfinir ou compléter** les attributs et méthodes d’une autre classe.
 
 ---
 
-### **À Rendre :**
+# **Question 17.**
 
-* Le fichier `.py` complet.
-* Un court **document texte** expliquant le concept choisi, les raisons de ce choix et la logique de votre modélisation.
+Corrigez le code suivant pour qu’il fonctionne sans erreur :
 
+```python
+from abc import ABC
+
+class Machine(ABC):
+    def demarrer(self):
+        pass
+
+class Imprimante(Machine):
+    pass
+
+i = Imprimante()
+i.demarrer()
+```
+
+---
 
 # **Question 17 : Corriger le code**
 
-**Code corrigé :**
+**Code corrigé (version abstraite réelle) :**
 
 ```python
 from abc import ABC, abstractmethod
@@ -587,35 +549,55 @@ i = Imprimante()
 i.demarrer()
 ```
 
+**Explication :**
+Le problème du code initial est qu’il déclarait `Machine` comme classe abstraite sans méthode abstraite réelle. Pour forcer la redéfinition, on ajoute `@abstractmethod`.
 
+---
+
+# **Question 18.**
+
+Vrai ou Faux : Une classe peut hériter d'une classe abstraite tout en restant elle-même abstraite.
+
+---
 
 # **Question 18 : Vrai ou Faux – Classe abstraite héritée**
 
 * **Réponse : Vrai**
 
-Une classe peut hériter d’une classe abstraite et rester abstraite si elle ne complète pas toutes les méthodes.
+**Explication complète :**
+Une classe peut hériter d'une classe abstraite sans implémenter toutes les méthodes abstraites. Dans ce cas, elle reste abstraite et ne pourra pas être instanciée.
 
+---
 
+# **Question 19.**
+
+Donnez une définition simple du terme **polymorphisme** en programmation orientée objet.
+
+---
 
 # **Question 19 : Définition du polymorphisme**
 
-**Définition attendue :**
+**Réponse attendue :**
+Le polymorphisme est la capacité d’utiliser **la même méthode sur des objets de types différents**, chaque type ayant sa propre implémentation de cette méthode.
 
-Le polymorphisme permet d’utiliser une **même méthode** sur des objets de types différents, chaque objet ayant un comportement spécifique.
+---
 
+# **Question 20.**
 
+Expliquez pourquoi le polymorphisme est utile dans un programme utilisant des listes d’objets de types différents.
+
+---
 
 # **Question 20 : Pourquoi le polymorphisme est utile**
 
 **Réponse attendue :**
+Il permet d’**écrire un code générique** qui traite tous les objets de manière uniforme, sans avoir à tester leur type, rendant le code plus propre, flexible et évolutif.
 
-Il permet de **traiter de manière uniforme** des objets de types différents dans des structures comme des listes, sans écrire de code spécifique pour chaque type.
-
-
+---
 
 ## PARTIE 2 – Conception de classe abstraite
 
-
+---
 
 ## Exemple de classe abstraite : `DispositifDeMesure`
 
@@ -636,9 +618,9 @@ class DispositifDeMesure(ABC):
         pass
 ```
 
+---
 
-
-#  Classe 1 : `ThermometreNumerique`
+# Classe 1 : `ThermometreNumerique`
 
 ```python
 class ThermometreNumerique(DispositifDeMesure):
@@ -656,7 +638,7 @@ class ThermometreNumerique(DispositifDeMesure):
         print(f"Température mesurée : {self.temperature}°C")
 ```
 
-
+---
 
 # Classe 2 : `AnalyseurDeGaz`
 
@@ -677,7 +659,7 @@ class AnalyseurDeGaz(DispositifDeMesure):
             print(f"{nom} : {valeur}%")
 ```
 
-
+---
 
 # Test final
 
@@ -696,17 +678,37 @@ if __name__ == "__main__":
     a.afficher_resultats()
 ```
 
+---
 
 # Document explicatif à rendre (`explication.txt`)
 
 ```
 Concept choisi : Dispositif de mesure
 
-Pourquoi : Le concept est très présent dans les domaines scientifiques et industriels. Il permet de modéliser des appareils qui effectuent des mesures selon un protocole commun.
+Pourquoi : Il représente une abstraction réaliste utilisée dans le domaine médical, environnemental ou industriel. Il impose une interface commune à tous les capteurs.
 
-Raisonnement : On impose un contrat avec trois méthodes essentielles : démarrer la mesure, l’arrêter et afficher les résultats. Chaque sous-classe représente un appareil spécifique et fournit sa propre implémentation.
+Raisonnement : On impose trois méthodes obligatoires. Chaque classe implémente ces méthodes selon sa logique métier. Le polymorphisme permet de les manipuler toutes de manière uniforme.
 
-Objectif pédagogique : Montrer l’utilité des classes abstraites pour unifier les comportements et exploiter le polymorphisme dans les systèmes complexes.
+Objectif pédagogique : Montrer comment un modèle bien abstrait permet de structurer proprement une application complexe avec des composants variés mais compatibles.
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
