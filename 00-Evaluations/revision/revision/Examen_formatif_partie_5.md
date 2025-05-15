@@ -6,7 +6,7 @@
 
 # PARTIE 1 – Étude de cas UML (10 points)
 
-> Voici un diagramme UML issu d’un logiciel de gestion de **pharmacie** :
+> Je vous présente un diagramme UML issu d’un logiciel de gestion de **pharmacie** :
 
 ```
 +--------------------+        1        +---------------+
