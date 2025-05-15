@@ -138,7 +138,6 @@ def afficher_message():
 
 ## **Étape 6 – Restreindre la saisie avec une condition simple**
 
-### Objectif pédagogique
 
 Tu vas maintenant apprendre à **contrôler ce que l’utilisateur peut taper** dans le champ de texte.
 Tu vas faire en sorte que :
@@ -147,9 +146,6 @@ Tu vas faire en sorte que :
 * Le texte saisi ne dépasse pas **10 caractères**
 * Toute autre saisie sera automatiquement **rejetée** (non affichée dans le champ)
 
----
-
-### Étapes détaillées
 
 #### 6.1 – Ajouter une fonction de validation
 
@@ -197,15 +193,6 @@ champ.pack()
 * Si tu tapes un chiffre ou un symbole, **rien ne se passe** (la frappe est bloquée).
 * Si tu dépasses 10 lettres, **la frappe est aussi bloquée**.
 
----
-
-### Pour aller plus loin (facultatif)
-
-Tu peux t’amuser à tester :
-
-* Que se passe-t-il si on fait `Ctrl + V` pour coller un texte long ?
-* Que se passe-t-il si on essaie de coller du texte avec un chiffre ?
-* Est-ce que les lettres majuscules et minuscules sont acceptées ?
 
 
 
@@ -222,14 +209,14 @@ Tu peux t’amuser à tester :
 
 ## **Étape 7 – Afficher un message et changer la couleur du champ**
 
-### Objectif pédagogique
+
 
 Tu vas maintenant **améliorer l'expérience utilisateur** en ajoutant :
 
 * Un **message** qui indique si la saisie est correcte ou non
 * Un **changement de couleur du champ** selon le résultat
 
----
+
 
 ### Étapes détaillées
 
@@ -241,7 +228,7 @@ Tu vas maintenant **améliorer l'expérience utilisateur** en ajoutant :
 message = ......................................................
 ```
 
----
+
 
 #### 7.2 – Créer un `Label` qui utilise cette variable
 
@@ -252,7 +239,6 @@ label_message = tk.Label(root, textvariable=message)
 label_message.pack()
 ```
 
----
 
 #### 7.3 – Créer une fonction appelée **après chaque frappe**
 
@@ -275,7 +261,6 @@ def verifier_texte(event):
         champ.config(bg="misty rose")
 ```
 
----
 
 #### 7.4 – Lier cette fonction au champ
 
@@ -294,19 +279,6 @@ champ.bind("<KeyRelease>", ................................)
 * Si le texte est valide → fond blanc, message "Saisie correcte."
 * Si le texte est invalide → fond rosé, message d’erreur
 
----
-
-### Résumé technique :
-
-| Élément                | Rôle                                  |
-| ---------------------- | ------------------------------------- |
-| `validate`             | Bloque la saisie invalide             |
-| `validatecommand`      | Appelle une fonction avant la frappe  |
-| `bind("<KeyRelease>")` | Appelle une fonction après frappe     |
-| `StringVar()`          | Permet d’afficher un texte modifiable |
-| `config(bg=...)`       | Change la couleur du champ            |
-
-
 
 
 
@@ -324,7 +296,7 @@ champ.bind("<KeyRelease>", ................................)
 
 # **Étape 8 – Ajouter un bouton "Effacer"**
 
-### Objectif pédagogique
+
 
 Tu vas maintenant ajouter un **deuxième bouton**, appelé **"Effacer"**, qui :
 
@@ -332,9 +304,7 @@ Tu vas maintenant ajouter un **deuxième bouton**, appelé **"Effacer"**, qui :
 * Efface le message affiché
 * Réinitialise la couleur du champ (en blanc)
 
----
 
-### Étapes détaillées
 
 #### 8.1 – Créer une fonction `effacer_champ`
 
@@ -351,7 +321,7 @@ def effacer_champ():
     ......................................................
 ```
 
----
+
 
 #### 8.2 – Créer le bouton "Effacer"
 
@@ -362,7 +332,7 @@ bouton_effacer = tk.Button(root, text="Effacer", command=.......................
 bouton_effacer.pack()
 ```
 
----
+
 
 ### Ce que tu dois observer :
 
@@ -371,7 +341,7 @@ bouton_effacer.pack()
 * Le fond du champ redevient blanc
 * Le message en dessous disparaît
 
----
+
 
 ### Vérifications à faire :
 
