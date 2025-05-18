@@ -124,7 +124,7 @@ root.mainloop()
 
 
 
-# Question (IMPORTANT) : 
+# Question (TRÈS IMPORTANT - problème avec validate = "key") : 
 
 1. Pourquoi nous nous povons pas voir le texte saisie ici ? 
 2. Remplacez validate = "key" par validate = "focusout"
